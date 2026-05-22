@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>急診專科口試 — 孕婦創傷情境模擬（考生 B）｜對話逐字稿</title>
+<style>
+  :root {
+    --bg: #f5f6f8;
+    --panel: #ffffff;
+    --text: #1f2330;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --accent: #ff6b1a;
+    --accent-soft: #fff1e8;
+    --examiner: #2563eb;
+    --examiner-soft: #eaf1ff;
+    --student: #0d9488;
+    --student-soft: #e6f7f5;
+    --section: #7c3aed;
+    --feedback: #c2410c;
+    --feedback-soft: #fff7ed;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+  }
+  .topbar {
+    height: 56px; background: #fff; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; padding: 0 24px; gap: 16px;
+    position: sticky; top: 0; z-index: 50;
+  }
+  .brand { font-weight: 700; color: var(--accent); letter-spacing: .5px; }
+  .topbar .meta { color: var(--muted); font-size: 13px; }
+  .topbar a { color: var(--muted); text-decoration: none; font-size: 13px; }
+  .topbar a:hover { color: var(--accent); }
+  .container {
+    max-width: 1100px; margin: 24px auto; padding: 0 24px;
+    display: grid; grid-template-columns: 1fr 320px; gap: 24px;
+  }
+  @media (max-width: 900px) {
+    .container { grid-template-columns: 1fr; }
+    .sidebar { order: -1; }
+  }
+  .panel {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 14px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,.04);
+  }
+  h1 { font-size: 22px; margin: 0 0 6px; }
+  .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 16px; }
+  .audio-wrap {
+    background: linear-gradient(135deg, #fff7ef 0%, #ffe7d6 100%);
+    border-radius: 12px; padding: 14px 16px; margin: 12px 0 6px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  audio { flex: 1; height: 36px; }
+  .tabs { display: flex; gap: 8px; margin: 18px 0 14px; border-bottom: 1px solid var(--border); }
+  .tab {
+    padding: 8px 14px; cursor: pointer; font-size: 14px;
+    color: var(--muted); border-bottom: 2px solid transparent;
+  }
+  .tab.active { color: var(--accent); border-color: var(--accent); font-weight: 600; }
+  .legend { display: flex; gap: 10px; flex-wrap: wrap; margin: 8px 0 16px; font-size: 12px; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 10px; border-radius: 999px; background: #f3f4f6; color: #374151;
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .dot.examiner { background: var(--examiner); }
+  .dot.student  { background: var(--student); }
+  .dot.section  { background: var(--section); }
+  .dot.feedback { background: var(--feedback); }
+
+  .section-bar {
+    margin: 22px 0 8px; padding: 8px 12px;
+    background: #f5f3ff; border-left: 4px solid var(--section); color: #4c1d95;
+    border-radius: 6px; font-weight: 600; font-size: 13px; letter-spacing: .3px;
+  }
+  .section-bar.feedback {
+    background: var(--feedback-soft); border-color: var(--feedback); color: #7c2d12;
+  }
+  .turn { display: grid; grid-template-columns: 64px 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px dashed #f0f0f3; }
+  .turn:last-child { border-bottom: none; }
+  .ts {
+    color: var(--muted); font-size: 12px; padding-top: 3px;
+    font-feature-settings: "tnum"; cursor: pointer;
+  }
+  .ts:hover { color: var(--accent); text-decoration: underline; }
+  .bubble { display: flex; flex-direction: column; gap: 4px; }
+  .speaker { font-size: 12px; font-weight: 700; }
+  .speaker.examiner { color: var(--examiner); }
+  .speaker.student  { color: var(--student); }
+  .speaker.feedback { color: var(--feedback); }
+  .text {
+    background: #fff; padding: 10px 12px; border-radius: 10px;
+    line-height: 1.7; font-size: 15px; color: #111827;
+    border: 1px solid #f0f0f3;
+    white-space: pre-wrap;
+  }
+  .text.examiner { background: var(--examiner-soft); border-color: #dbe7ff; }
+  .text.student  { background: var(--student-soft); border-color: #cff0ec; }
+  .text.feedback { background: var(--feedback-soft); border-color: #fed7aa; }
+  .text small { color: var(--muted); }
+
+  /* Sidebar */
+  .sb-title { font-weight: 700; font-size: 14px; margin: 6px 0 8px; color: #111827; }
+  .keypoints li { margin: 6px 0; font-size: 13px; line-height: 1.6; color: #374151; }
+  .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 12px; }
+  .meta-grid div { background: #f9fafb; padding: 8px 10px; border-radius: 8px; }
+  .meta-grid b { color: #111827; display: block; font-size: 11px; color: var(--muted); font-weight: 500; }
+  .scenario {
+    background: #fffbeb; border: 1px solid #fde68a; color: #78350f;
+    border-radius: 10px; padding: 12px; font-size: 13px; line-height: 1.6;
+  }
+  .note {
+    margin-top: 12px; font-size: 12px; color: var(--muted); line-height: 1.5;
+    padding: 10px; background: #f9fafb; border-radius: 8px;
+  }
+  .summary-view { display: none; }
+  .summary-view.active { display: block; }
+  .transcript-view.hidden { display: none; }
+  .scoring h3 { font-size: 14px; margin: 14px 0 6px; color: #111827; }
+  .scoring p { margin: 4px 0; font-size: 13px; color: #374151; line-height: 1.6; }
+  .scoring ul { margin: 4px 0 8px; padding-left: 20px; }
+  .scoring li { font-size: 13px; line-height: 1.6; color: #374151; }
+  .tag { display: inline-block; background: var(--accent-soft); color: var(--accent); padding: 2px 8px; border-radius: 999px; font-size: 11px; margin-left: 6px; }
+  .feedback-card {
+    background: var(--feedback-soft); border: 1px solid #fed7aa;
+    border-radius: 10px; padding: 10px 12px; margin: 8px 0;
+  }
+  .feedback-card b { color: #7c2d12; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">📝 急診口試逐字稿</div>
+  <div class="meta">2026·05·21 21:29 · 全長 36:41 · 中文（繁中）</div>
+  <a href="../" style="margin-left:auto;">← 回主題目錄</a>
+</div>
+
+<div class="container">
+
+  <!-- MAIN -->
+  <div>
+    <div class="panel">
+      <h1>急診專科口試 — 孕婦創傷情境模擬（考生 B · 練習錄音 + 學長講評）</h1>
+      <div class="subtitle">26 歲懷孕 28 週副駕駛，車禍後下腹痛｜一般級急救責任醫院（無婦產科）｜線上模擬考</div>
+
+      <div class="audio-wrap">
+        <span style="font-size:22px;">🎧</span>
+        <audio id="player" controls preload="metadata" src="candidate-b.ogg"></audio>
+      </div>
+
+      <div class="tabs">
+        <div class="tab active" data-view="transcript">逐字稿</div>
+        <div class="tab" data-view="summary">摘要 / 講評重點</div>
+      </div>
+
+      <div class="legend">
+        <span class="pill"><span class="dot student"></span>考生（學弟）</span>
+        <span class="pill"><span class="dot examiner"></span>考官（學長）</span>
+        <span class="pill"><span class="dot feedback"></span>學長講評</span>
+        <span class="pill"><span class="dot section"></span>段落</span>
+      </div>
+
+      <!-- TRANSCRIPT VIEW -->
+      <div class="transcript-view" id="transcriptView">
+
+        <div class="section-bar">⏱ 00:00 — 開場・準備（讀題時間，音訊近乎靜音）</div>
+
+        <div class="turn"><div class="ts" data-t="0">00:00</div><div class="bubble">
+          <span class="speaker examiner">系統</span>
+          <div class="text examiner">（前 5 分鐘為讀題與靜音時段，未錄到清楚對話）</div>
+        </div></div>
+
+        <div class="section-bar">⏱ 05:00 — 一、Primary Survey（ABCDE）</div>
+
+        <div class="turn"><div class="ts" data-t="300">05:00</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">A 的話就是 Airway——先看 Airway 有沒有 patent，因為她意識是好像扣一分這樣子（GCS E3V5M6），所以就有衝；Jaw thrust 的話呼吸道暢通，然後 Cervical spine、neck 有沒有 pain，要用 protection。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="330">05:30</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">B 的部分就是要看一下 Breathing——第一個就是 tracheal deviation，然後有沒有 crepitus，呼吸是怎樣，兩邊是否對稱、有沒有 crackle。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="370">06:10</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">兩側對稱，沒有 crepitus，沒有 tracheal deviation。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="380">06:20</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">C 的部分目前 BP 有點 borderline，然後 capillary refill 是怎樣？再來看一下沒有明顯的外傷，壓一下骨盆腔，是否……壓底兩秒，骨盆穩定。然後可以看一下 E-FAST：lung 有沒有 lung sliding，有沒有 pleural effusion、pericardial effusion，跟 ascites。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="430">07:10</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">E-FAST 等等待會會有結果。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="440">07:20</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">好，然後 IV O₂——先 large-bore 打上去，兩支 16 號 cast，然後 on monitor。可以先輸 lactate，先 resuscitation 用 warm 的 Lactate Ringer 1000；因為是有受傷，所以可以給 Tetanus。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="490">08:10</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">好，我們收到 E-FAST 結果了。<br>看起來這應該是 Morrison's pouch，看起來好像沒有明顯的 ascites；這應該是 splenorenal recess，好像也沒有；但是在下 cul-de-sac 那邊感覺好像有一些 ascites。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="540">09:00</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">箭頭指數好像……不知道有子宮是否就是有破裂嗎還是怎樣？但應該就是要懷疑有沒有可能是 intra-abdominal hemorrhage，然後跟 placental abruption。所以應該還是要叫血來輸這樣子，然後要 ABO typing。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="585">09:45</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">D 的部分目前就是要看病人的 GCS，然後 pupil 兩邊 size 跟 light reflex。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="605">10:05</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">GCS 如題幹所述（E3V5M6），pupil 3/3 有來。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="615">10:15</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">再來看一下她的四肢是否可以動。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="625">10:25</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">大致對稱。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="630">10:30</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">E 的話就是看一下，把衣服脫光然後看背後有沒有其他受傷，然後 anal tone 如何。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="650">10:50</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">背後沒有受傷，anal tone 正常。</div>
+        </div></div>
+
+        <div class="section-bar">⏱ 11:00 — Adjuncts + Secondary Survey</div>
+
+        <div class="turn"><div class="ts" data-t="660">11:00</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">Primary adjunct 的話就是可以做 chest X-ray、ground、EKG 這樣子。然後給就是 blood results、輸血。接下來就可以進入 secondary survey。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="690">11:30</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">Secondary survey 應該就是 sample，然後從頭到腳看有沒有什麼症狀：頭有沒有 contusion、racoon eye、battle sign、其他地方受傷、neck 的部分……</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="720">12:00</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">這些都沒有。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="725">12:05</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">然後 chest 的部分有沒有開放性的傷口？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="735">12:15</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">那些也都沒有。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="740">12:20</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">然後到骨盆腔，全身壓會不會痛？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="755">12:35</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">有下腹痛。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="760">12:40</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">那有沒有 Cullen sign 或者……對，Cullen sign 跟腰，都沒有？</div>
+        </div></div>
+
+        <div class="section-bar">⏱ 13:00 — 二、檢驗安排（Lab）</div>
+
+        <div class="turn"><div class="ts" data-t="780">13:00</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">接下來就是要安排檢查。第一個是 CBC/DC，要抽血看有沒有 anemia / hemorrhagic 的問題。然後就是脂肪/生化檢查：Creatinine、BUN、AST/ALT，還有 CK、Lactate，鈉鉀鈣，跟 Troponin T。然後因為是懷孕婦女，也會再驗一下 β-hCG。然後會做 CT。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="840">14:00</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">好，你收到抽血結果了。<br>目前看起來：有一點出血——Hb 掉到 6.8，platelet 也很低，10 萬左右。然後有 schistocytes。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="870">14:30</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">Peripheral 因為有 schistocytes，感覺好像是有溶血的部分，不正常的血球。Liver function 有偏高，electrolyte 沒有很明顯的異常。有一點 jaundice，然後再加上溶血、LDH 跟 schistocytes 的部分……所以加上有一點 DIC（fibrinogen 比較低）。<br><br>Gas 的話沒有到 metabolic acidosis，但是有一個 metabolic 的問題這樣子。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="920">15:20</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">請問你的鑑別診斷？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="930">15:30</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">第一個是她有可能 placental abruption，然後可能就是 intra-abdominal hemorrhage 這樣子。然後再加上她有可能有 ITP……？嗯，是、是。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="960">16:00</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">請問你的治療？</div>
+        </div></div>
+
+        <div class="section-bar">⏱ 16:00 — 三、治療處置</div>
+
+        <div class="turn"><div class="ts" data-t="965">16:05</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">治療的部分第一個——RH 寫陰性，所以會輸 RhoGAM、會打 RhD 給她。再加上會啟動 MTP，因為她有 intra-abdominal hemorrhage，所以會啟動。然後在 3 小時之內會打 TXA。會請婦產科跟血液科會診——如果沒有婦產科，那就可能會要轉院到有婦產科跟血液科的部分。</div>
+        </div></div>
+
+        <div class="section-bar">⏱ 17:00 — 四、轉院交班（ISBAR）</div>
+
+        <div class="turn"><div class="ts" data-t="1020">17:00</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">病情解釋的部分就是轉院聯繫交班的部分。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1030">17:10</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">您好，我是急診看診醫師。我目前有一個 26 歲女性，機車跟機車車禍。她是懷孕 28 週、G1P0，之前都沒有產檢異常，這次來主要是因為下腹疼痛。看起來是有 intra-abdominal hemorrhage 跟 placental abruption，然後有一個血液的問題。她目前過去沒有什麼病史。目前處置完之後是有止血跟輸血，後續可能還是需要婦產科跟血液科的後續檢查跟治療。</div>
+        </div></div>
+
+        <div class="section-bar">⏱ 18:30 — 五、向病人解釋病情</div>
+
+        <div class="turn"><div class="ts" data-t="1110">18:30</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">請跟病人解釋。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1115">18:35</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">您好，我是急診看診醫師。請問您的教育程度是？接下來就跟您講——大概了解多少對於您這一次來的病情？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1145">19:05</div><div class="bubble">
+          <span class="speaker examiner">考官（病人）</span>
+          <div class="text examiner">好痛、好痛。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1155">19:15</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">目前初步檢查看起來是因為有機車車禍，所以初步檢查看起來是有腹部的內出血，然後懷疑就是有腹內出血，還有子宮的、子宮的破、胎盤破裂，然後跟一個血液的問題。之後我們會幫您轉診到有婦產科跟血液科的地方。</div>
+        </div></div>
+
+        <div class="section-bar">⏱ 20:30 — 六、第二題 (CPR / PEA 急救) — 因時間不足僅起頭</div>
+
+        <div class="turn"><div class="ts" data-t="1230">20:30</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">下一題：你在醫學中心，突然聽到大出血，然後病人這樣沒有反應。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1245">20:45</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">那就開始 ACLS 的流程，第一個就是 check pulse。然後沒有 pulse 就進入 ACLS 流程，所以應該就是會先開始 CPR，30:2 這樣子。如果插管之後時間到了……</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1290">21:30</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">好，這好難。我們停一下，我把答案傳給你。</div>
+        </div></div>
+
+        <!-- DEBRIEF SECTION -->
+        <div class="section-bar feedback">📣 21:40 — 學長講評（Debrief）</div>
+
+        <div class="turn"><div class="ts" data-t="1305">21:45</div><div class="bubble">
+          <span class="speaker feedback">學長</span>
+          <div class="text feedback">你有先把題目看一遍嗎？就是全部讀完題目再開始？<br><br>其實我覺得你<b>要先把題目看一遍</b>，然後大致規劃一下分配時間。因為他們題目通常是有一個分配時間的問題。如果看完，你就會看到他還要轉到大醫院再來做第二輪處理；那前面速度就要再加速一些。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1360">22:40</div><div class="bubble">
+          <span class="speaker feedback">學長</span>
+          <div class="text feedback">其實如果你仔細看題目，他一開頭就跟你說：你就是在「一般級急救責任醫院、沒有婦產科」的值班，對不對？所以他其實後來在前面那些「會診婦產科」就是不需要的——就沒有。<br><br>如果你看到後面，還有第二部分（你在醫學中心處理），就會知道他前面就是要考你<b>轉院交班</b>。後面會要第二輪的處理。外傷還蠻喜歡考要有第二輪的變化——不管就是去做完檢查回來、vital sign 有變化。因為外傷不考變化就沒有東西可以考，就是 SABCDE 大家都會回答。所以外傷會有第二段變化的。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1430">23:50</div><div class="bubble">
+          <span class="speaker feedback">學長</span>
+          <div class="text feedback">真的考試的時候，題目可能會印在兩頁，他不會提醒你自己沒有翻後面——有時候你就沒發現後面有兩題。真的考試，考題旁邊會寫配分，所以你可以稍微瞄一下配分，決定這題要講多久。</div>
+        </div></div>
+
+        <div class="section-bar feedback">📣 24:00 — 講評：Primary / Secondary 順序與 AMPLE</div>
+
+        <div class="turn"><div class="ts" data-t="1450">24:10</div><div class="bubble">
+          <span class="speaker feedback">學長</span>
+          <div class="text feedback">前半段都還算完整，順序也是對的——Primary survey、adjunct、Secondary survey，只不過 <b>AMPLE 可能應該放在 Secondary survey 才問</b>。題目寫「病史詢問及理學檢查」，但理想順序是先 SABCDE，再 Secondary，最後才問 sample。<br><br>但他可能不會提醒你。我看有一些考題會把 MIST 交班後面接一個 AMPLE——我會覺得那個題目出得不好。如果考題明確寫出來，你就照題目順序；沒有明確寫，你就照你的順序，並且<b>每個都講清楚「我現在做的是什麼」</b>。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1525">25:25</div><div class="bubble">
+          <span class="speaker feedback">學長</span>
+          <div class="text feedback">我自己過去做 echo——echo 到底算檢查還是算 primary 的 adjunct？我就會 primary survey ABCDE，然後說「我要做 adjunct 的 echo，現在可以做嗎？還是要檢查時候做？」直接問考官「我現在可以做這個 echo 嗎？」。<br><br>不知道那個題目會不會把 echo 放在檢查；但通常 echo 都會放在 primary survey 的 adjunct 裡面。他們其實有點放在 C 裡面，像剛剛那樣，通常都是這樣的邏輯。</div>
+        </div></div>
+
+        <div class="section-bar feedback">📣 26:00 — 講評：孕婦 History Taking + PE</div>
+
+        <div class="turn"><div class="ts" data-t="1565">26:05</div><div class="bubble">
+          <span class="speaker feedback">學長</span>
+          <div class="text feedback">所以前一、二題我覺得不錯。只是 <b>孕婦的 history taking + PE</b> 可能要再複習一下。<br><br>History taking 的部分包括：<b>產檢怎麼樣</b>？G/P 級你有問、IVF 有問，但 <b>沒有問產檢有沒有異常</b>，我剛剛沒聽到。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1610">26:50</div><div class="bubble">
+          <span class="speaker feedback">學長</span>
+          <div class="text feedback">再來就是孕婦的 PE：<b>肚子的宮底高度、子宮形狀（還在/破掉了）、陰道有沒有出血</b>，這些可能要看一下。不然你 head-to-toe 講了不少，但這題就是孕婦，重點有分數的項目應該就會是這些。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1645">27:25</div><div class="bubble">
+          <span class="speaker feedback">學長</span>
+          <div class="text feedback">我給你的那個答案檔有提到——我用打勾的是有講到，我用圈起來的是沒有講到。<br><br>另外就是 <b>C 的部分</b>：IV 但孕婦要打在<b>橫膈膜上方</b>（打在手上方），然後 <b>子宮往左側推</b> 一下。<br><br>然後 <b>E 的部分裡面沒有講到保暖</b>，脫衣保暖就是固定的——脫衣下一句就是保暖，要連在一起。</div>
+        </div></div>
+
+        <div class="section-bar feedback">📣 28:00 — 講評：抽血順序 & 一次問題量</div>
+
+        <div class="turn"><div class="ts" data-t="1700">28:20</div><div class="bubble">
+          <span class="speaker feedback">學長</span>
+          <div class="text feedback">抽血的部分，前面其實可以練熟之後講快一點：<b>CBC、生化、PT/PTT、D-dimer、備血、Cardiac latex（CK/Troponin/Lactate）</b>，一串連著下來。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1735">28:55</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">我可以只有講生化嗎？因為有些老師會問我說「那你生化要抽什麼」，然後我就……</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1755">29:15</div><div class="bubble">
+          <span class="speaker feedback">學長</span>
+          <div class="text feedback">我是覺得他問了你再講就好。<b>只先講生化，應該大部分還是可以接受。</b>甚至我有聽過就是講「三管」應該也沒有不行。<br><br>但是孕婦一些檢查——像 <b>陰道 pH 值</b>——這些就要答了。</div>
+        </div></div>
+
+        <div class="section-bar feedback">📣 29:30 — 講評：POCUS / Placental Abruption 影像</div>
+
+        <div class="turn"><div class="ts" data-t="1775">29:35</div><div class="bubble">
+          <span class="speaker feedback">學長</span>
+          <div class="text feedback">那個 echo 其實應該是<b>沒有腹內出血</b>，只有 <b>placental abruption</b> 沒錯。你看那個堆水是<b>羊水</b>，是在子宮裡面的羊水。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1810">30:10</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">等一下，我可以問一下嗎？所以那個箭頭、那個 P 的 P 是 placenta，然後那個箭頭是……什麼箭頭？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1830">30:30</div><div class="bubble">
+          <span class="speaker feedback">學長</span>
+          <div class="text feedback">你應該是指 H 吧。<b>H 是 Hematoma</b>——就是 placental abruption，placenta 後面有 hematoma。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1855">30:55</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">那有不知道是 MPH 上面那一個 echo——它有一個白色的箭頭，那個是什麼？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1880">31:20</div><div class="bubble">
+          <span class="speaker feedback">學長</span>
+          <div class="text feedback">不知道耶，這題子是別人貼的。真的這一條，不知道那是什麼，我也不知道。<br><br>但至少他給的答案是<b>沒有腹內出血</b>，是以前簡來的教案。這個答錯一些我覺得沒有差——因為他鑑別診斷裡面還是列了 <b>Uterine rupture</b>。</div>
+        </div></div>
+
+        <div class="section-bar feedback">📣 31:30 — 講評：鑑別診斷 / HELLP / 治療處置</div>
+
+        <div class="turn"><div class="ts" data-t="1900">31:40</div><div class="bubble">
+          <span class="speaker feedback">學長</span>
+          <div class="text feedback">不過鑑別診斷裡面，<b>你一開始有講到 DIC，結果後來就沒有講</b>——就是看考官機不機車要不要給你分數這樣子。<br><br>所以你真的練習的時候，因為現在是線上，你<b>要在紙上寫下來</b>，然後答的時候就瞄一下，有點卡關的時候瞄一下你寫下來的東西。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1955">32:35</div><div class="bubble">
+          <span class="speaker feedback">學長</span>
+          <div class="text feedback"><b>HELLP 是沒有講到啦</b>——他這題就是想考你 platelet D 嘛，然後 LDH。如果你有問產檢，他就會跟你說產檢的時候有高血壓但沒追蹤，可能就會更觸發這樣子。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1985">33:05</div><div class="bubble">
+          <span class="speaker feedback">學長</span>
+          <div class="text feedback">治療處置這邊是比較分數大、很多都沒有拿到的部分。<br>但是 <b>IV、O₂、Monitor 一定要講</b>——都會有分。所以治療指數一定是先講 IV / O₂ / Monitor。再來一些就是 <b>維他命 K、RhD immunoglobulin</b>，這題一定也是有分數的。</div>
+        </div></div>
+
+        <div class="section-bar feedback">📣 33:30 — 講評：ISBAR 交班</div>
+
+        <div class="turn"><div class="ts" data-t="2010">33:30</div><div class="bubble">
+          <span class="speaker feedback">學長</span>
+          <div class="text feedback">後面就是交班——<b>ISBAR 架構</b>。B (background) 就是要講完整：幾歲男女性都要提到，像你只提到懷孕幾週。然後 assessment 部分就是包括你做的關鍵檢查和你現在的診斷。<br><br>因為你診斷的時候沒有很有信心，所以這裡講的也沒有很有信心。我覺得你就是<b>認定一個把它講好</b>，不用很沒有信心——就算沒有信心也可以說「她可能就是 placental abruption 或者 uterine rupture」，還是要很有信心地一氣呵成把它講完。不然就是「自知無誤」的印象分就不好。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="2080">34:40</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">學長，我可以聽你一次、就是你是會怎麼講嗎？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="2095">34:55</div><div class="bubble">
+          <span class="speaker feedback">學長</span>
+          <div class="text feedback">我跟你說，我傳一個另外一個考生講得好的給你聽。某個場跟別人考的，我都考別人這題。所以等一下我把連結傳給你。<br><br>你有錄下來吧？對，我有錄下來，你的我也有錄下來，等一下傳給你。<b>所以你先聽一下別人的，再聽一下你的。</b></div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="2150">35:50</div><div class="bubble">
+          <span class="speaker feedback">學長</span>
+          <div class="text feedback">大家再多練幾次這個問問題。<br>你的 history / PE 已經有一個套組順序，不會漏掉，速度也還可以；但 <b>Lab 再練熟一點</b>。我剛剛有計時——前面兩題本來就可以花將近 7 分鐘，你花了 7 分半到 8 分鐘，稍微久一點點，但還沒到超久。<br><br>我覺得你<b>後面卡在 Lab 那裡講了很久</b>，那個判讀花了比較久時間——因為沒有想到 HELLP 那裡卡住，卡了有點久。然後後面就越來越亂、越講越慢。</div>
+        </div></div>
+
+        <div class="section-bar feedback">📣 36:00 — 講評：拿分策略 / 排程</div>
+
+        <div class="turn"><div class="ts" data-t="2210">36:50</div><div class="bubble">
+          <span class="speaker feedback">學長</span>
+          <div class="text feedback">前面就是拿基本分嘛——就算後面診斷沒有猜對，前面基本分有拿到，這題還是可以及格。但我們目標就是要拿高分，因為他會算一個平均分。<b>Trauma 這題應該是架構最固定的，所以目標應該是 Trauma 這題拿高分。</b></div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="2245">37:25</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">我不是每一個都要過嗎？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="2250">37:30</div><div class="bubble">
+          <span class="speaker feedback">學長</span>
+          <div class="text feedback">可以有一關被當掉，<b>只能有一關</b>。理論上是 8 個考官——4 題、一題 2 個考官、共 8 個分數。通常每題的 2 個分數不是一起及格就是一起不及格。<br><br>所以某一關被當掉，平均下來就被當掉——就是平均分要夠高，然後只能被當一關。<b>4 個平均分要超過 60</b>。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="2330">38:50</div><div class="bubble">
+          <span class="speaker feedback">學長</span>
+          <div class="text feedback">通常比較低分的就是特殊情境——化災、輔災、大量傷患 (MCI)、HAZMAT 比較沒有固定格式。所以目標就是<b>其他三關（內科、外科、Trauma）要盡量拿高分</b>。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="2400">40:00</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">大樓倒塌要做什麼事？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="2410">40:10</div><div class="bubble">
+          <span class="speaker feedback">學長</span>
+          <div class="text feedback">對，我也不知道，所以我覺得蠻難的——我也想不出來他的評分單裡面會有哪些勾的項目。</div>
+        </div></div>
+
+        <div class="section-bar feedback">📣 結尾 — 約下次練習</div>
+
+        <div class="turn"><div class="ts" data-t="2430">40:30</div><div class="bubble">
+          <span class="speaker feedback">學長</span>
+          <div class="text feedback">那就先這樣囉。先把兩次別人的錄音跟你的錄音聽一下，然後把<b>產婦標準的 History / PE 準備好</b>。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="2450">40:50</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">學長，我們可以再考一題嗎？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="2460">41:00</div><div class="bubble">
+          <span class="speaker feedback">學長</span>
+          <div class="text feedback">可能要改天，因為我現在十點了，跟懷浩約要練 ACLS Instructor。<br><br>禮拜六可能不行，因為六日我要去上 ACLS Instructor。看下週時間吧。<br><br>你考試是幾號？六月六號，對啊還有一點時間。十點之後會比較方便一點，你看一下晚上哪一天可以，再跟我說。</div>
+        </div></div>
+
+      </div>
+
+      <!-- SUMMARY VIEW -->
+      <div class="summary-view" id="summaryView">
+        <div class="scoring">
+          <h3>🩺 情境設定</h3>
+          <p>26 歲女性懷孕 28 週副駕駛，車禍後下腹痛｜一般級急救責任醫院（<b>無婦產科</b>）<br>
+          GCS E3V5M6｜BP 102/90｜HR 144｜RR 30｜SpO₂ 98%｜T 36°C</p>
+
+          <h3>📊 本次練習表現摘要</h3>
+          <ul>
+            <li>✅ Primary Survey ABCDE 順序正確、PE 套組完整</li>
+            <li>✅ POCUS / E-FAST 有掃，懷疑 placental abruption + intra-abdominal hemorrhage</li>
+            <li>✅ ISBAR 雛形有出來、有給 TXA / RhoGAM / MTP</li>
+            <li>⚠️ 沒問<b>產檢有無異常</b>（漏掉 HELLP 的線索）</li>
+            <li>⚠️ 沒做<b>陰道 pH</b>、沒講<b>子宮形狀</b>/<b>宮底高度</b>/<b>陰道出血</b></li>
+            <li>⚠️ C 漏：IV 要打<b>橫膈膜上方</b> + <b>子宮往左側推</b></li>
+            <li>⚠️ E 漏：脫衣後沒講<b>保暖</b></li>
+            <li>⚠️ 鑑別診斷沒講到 <b>HELLP</b>；DIC 開頭講了但後面又沒接</li>
+            <li>⚠️ 治療沒先講 <b>IV / O₂ / Monitor</b>、漏 <b>Vit K</b></li>
+            <li>⚠️ ISBAR 的 B 不完整（沒提幾歲、性別）</li>
+            <li>⚠️ Lab 卡住、第二題（CPR/PEA）來不及做</li>
+          </ul>
+
+          <h3>🎯 學長的核心建議</h3>
+          <ul>
+            <li><b>讀題：</b>開場先把整份題目讀完一遍，看後面有沒有第二輪，分配時間</li>
+            <li><b>每段宣告：</b>「我現在做的是 Primary Survey / Adjunct / Secondary」</li>
+            <li><b>診斷要果斷：</b>就算不確定也要一氣呵成講「Placental abruption 或 Uterine rupture」</li>
+            <li><b>線上練習：</b>在紙上把鑑別診斷寫下來，卡關時瞄一下</li>
+            <li><b>一次只問 2-3 個 history 問題</b>，不要連珠炮六題</li>
+            <li><b>Lab 一串連發：</b>CBC / 生化 / PT/PTT / D-dimer / 備血 / Cardiac latex</li>
+            <li>孕婦 PE：宮底高度、子宮形狀、陰道分泌物/出血 — 一定要做</li>
+            <li>孕婦 C：IV 橫膈膜上方 + 子宮左側推</li>
+          </ul>
+
+          <h3>📝 考試制度說明（學長補充）</h3>
+          <ul>
+            <li>4 題 × 2 考官 = 8 個分數；每題兩個分數通常同進退</li>
+            <li><b>4 個平均分要超過 60 分</b>，<b>只能被當 1 關</b></li>
+            <li>化災 / 輔災 / MCI / HAZMAT 沒有固定格式 → 通常比較低分</li>
+            <li>策略：<b>內科、外科、Trauma 三關拿高分</b>把均分拉起來</li>
+            <li>Trauma 架構最固定，最容易拿高分 — 目標應該是這題拿高</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside>
+    <div class="panel sidebar">
+      <div class="sb-title">🩺 個案資訊</div>
+      <div class="meta-grid">
+        <div><b>病人</b>26 歲 ♀</div>
+        <div><b>孕週</b>28 週 (G1P0)</div>
+        <div><b>機轉</b>車禍 副駕</div>
+        <div><b>檢傷</b>1 級</div>
+        <div><b>BP</b>102/90</div>
+        <div><b>HR</b>144</div>
+        <div><b>RR</b>30</div>
+        <div><b>SpO₂</b>98%</div>
+      </div>
+
+      <div class="sb-title" style="margin-top:18px;">⏱ 錄音結構</div>
+      <ul class="keypoints">
+        <li><b>00:00–05:00</b> 讀題（靜音）</li>
+        <li><b>05:00–21:30</b> 練習答題</li>
+        <li><b>21:30–36:41</b> 學長 debrief 講評</li>
+      </ul>
+
+      <div class="sb-title" style="margin-top:18px;">⚠️ 本次主要漏分</div>
+      <div class="feedback-card">
+        <b>❌ 漏問：</b>產檢異常、陰道 pH、宮底高度、子宮形狀<br>
+        <b>❌ 漏講：</b>IV 橫膈膜上方、子宮左推、保暖、Vit K<br>
+        <b>❌ 鑑別診斷：</b>HELLP 沒提到、DIC 沒收尾<br>
+        <b>❌ 時間：</b>Lab 卡關 → 第二題 (PEA) 來不及
+      </div>
+
+      <div class="scenario" style="margin-top:18px;">
+        <b>💡 考試策略（學長）</b><br>
+        4 題 × 2 考官 = 8 分數；4 均分要 &gt; 60，最多只能當 1 關。<b>Trauma 架構最固定，目標拿高分</b>。
+      </div>
+
+      <div class="note">
+        <b>📌 製作說明</b><br>
+        此檔為線上模擬練習錄音（PLAUD.AI 錄製），由 whisper.cpp（medium 模型）切 5 分鐘分段轉錄。前 5 分鐘為讀題靜音段；考試答題實際從 5 分鐘左右開始，21:30 起進入學長 debrief。
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<script>
+  const player = document.getElementById('player');
+  document.querySelectorAll('.ts').forEach(el => {
+    el.addEventListener('click', () => {
+      const t = parseInt(el.dataset.t || '0', 10);
+      player.currentTime = t;
+      player.play();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  const tabs = document.querySelectorAll('.tab');
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    const view = t.dataset.view;
+    document.getElementById('transcriptView').classList.toggle('hidden', view !== 'transcript');
+    document.getElementById('summaryView').classList.toggle('active', view === 'summary');
+  }));
+</script>
+</body>
+</html>
