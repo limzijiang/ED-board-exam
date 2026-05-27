@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>急診專科口試逐字稿 · 2026-05-26</title>
+<style>
+:root {
+    --bg: #0f1115;
+    --panel: #161a22;
+    --panel-2: #1c2230;
+    --border: #2a3142;
+    --text: #e6e9f0;
+    --muted: #8a93a6;
+    --accent: #6ea8ff;
+    --warm: #ffb86b;
+    --cool: #7ee0c1;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); text-decoration: none; }
+
+.app { max-width: 980px; margin: 0 auto; padding: 24px 20px 220px; }
+
+.header { padding: 16px 0 20px; border-bottom: 1px solid var(--border); }
+.header h1 { margin: 0 0 6px; font-size: 22px; letter-spacing: 0.5px; }
+.header .sub { color: var(--muted); font-size: 13px; }
+
+.meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; font-size: 12px; }
+.chip { background: var(--panel); border: 1px solid var(--border); border-radius: 999px; padding: 4px 10px; color: var(--muted); }
+.chip.warn { color: #ffd28a; border-color: #5a4528; }
+.chip.ok { color: #b1f0db; border-color: #2d5249; }
+
+.summary { margin-top: 20px; background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 18px; }
+.summary h2 { margin: 0 0 10px; font-size: 15px; color: var(--accent); }
+.summary ul { margin: 0; padding-left: 18px; line-height: 1.85; font-size: 14px; }
+.summary b { color: #ffd28a; }
+.summary .danger { color: #ff9b9b; }
+
+.toc { margin-top: 18px; background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 12px 14px; }
+.toc h2 { margin: 0 0 8px; font-size: 13px; color: var(--muted); letter-spacing: 1px; }
+.toc-item { display: grid; grid-template-columns: 64px 1fr; gap: 8px; padding: 6px 4px; border-radius: 6px; font-size: 13px; }
+.toc-item:hover { background: var(--panel-2); color: var(--accent); }
+.toc-t { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--muted); font-size: 11px; padding-top: 2px; }
+
+.legend { margin: 18px 0 4px; display: flex; gap: 10px; flex-wrap: wrap; font-size: 11px; color: var(--muted); align-items: center; }
+.legend mark { padding: 1px 8px; border-radius: 4px; font-size: 11px; }
+
+.section { margin-top: 22px; }
+.sec-title { display: flex; align-items: center; gap: 10px; margin: 0 0 8px; padding: 8px 12px; background: var(--panel-2); border-radius: 10px; font-size: 15px; }
+.sec-title .ts-sec { background: rgba(110,168,255,0.12); border-color: rgba(110,168,255,0.35); color: var(--accent); }
+
+.sec-body { padding-left: 4px; }
+.seg { display: grid; grid-template-columns: 60px 1fr; gap: 12px; padding: 8px 10px; margin: 2px 0; border-radius: 8px; }
+.seg:hover { background: var(--panel); }
+.seg.playing { background: #1f2738; box-shadow: 0 0 0 1px rgba(110,168,255,0.35); }
+.seg-text { line-height: 1.75; font-size: 15px; }
+
+.ts { background: var(--panel); border: 1px solid var(--border); color: var(--muted); padding: 2px 6px; border-radius: 6px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; cursor: pointer; height: fit-content; }
+.ts:hover { color: var(--accent); border-color: var(--accent); }
+
+mark.hl-critical { background: rgba(255, 90, 90, 0.20); color: #ffb3b3; padding: 0 4px; border-radius: 3px; }
+mark.hl-vital    { background: rgba(110, 168, 255, 0.20); color: #bcd4ff; padding: 0 4px; border-radius: 3px; }
+mark.hl-lab      { background: rgba(126, 224, 193, 0.20); color: #b1f0db; padding: 0 4px; border-radius: 3px; }
+mark.hl-tx       { background: rgba(255, 184, 107, 0.20); color: #ffd9aa; padding: 0 4px; border-radius: 3px; }
+mark.hl-ddx      { background: rgba(196, 160, 255, 0.20); color: #d8c0ff; padding: 0 4px; border-radius: 3px; }
+
+.player { position: fixed; left: 0; right: 0; bottom: 0; background: rgba(15,17,21,0.96); backdrop-filter: blur(8px); border-top: 1px solid var(--border); padding: 12px 16px; z-index: 50; }
+.player-inner { max-width: 980px; margin: 0 auto; display: flex; flex-direction: column; gap: 6px; }
+.player audio { width: 100%; }
+.toolbar { display: flex; gap: 6px; flex-wrap: wrap; }
+.toolbar button { background: var(--panel); color: var(--text); border: 1px solid var(--border); padding: 5px 10px; border-radius: 8px; cursor: pointer; font-size: 12px; }
+.toolbar button:hover { border-color: var(--accent); color: var(--accent); }
+.toolbar input[type=search] { flex: 1; min-width: 160px; background: var(--panel); color: var(--text); border: 1px solid var(--border); border-radius: 8px; padding: 5px 10px; }
+
+.disclaimer { margin-top: 24px; padding: 12px 14px; font-size: 12px; color: var(--muted); border-left: 3px solid var(--border); }
+
+@media (max-width: 640px) {
+    .app { padding: 16px 12px 240px; }
+    .header h1 { font-size: 18px; }
+    .seg-text { font-size: 14px; }
+    .seg { grid-template-columns: 52px 1fr; gap: 8px; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+    <div class="header">
+        <h1>急診專科口試 · 模擬考逐字稿</h1>
+        <div class="sub">錄音時間：2026-05-26 22:33　·　時長：36:37　·　模型：Whisper Turbo（large-v3-turbo, ggml）　·　簡轉繁：OpenCC s2twp</div>
+        <div class="meta-row">
+            <span class="chip">🎓 考題一：20 歲男性 GI symptoms + cyanosis</span>
+            <span class="chip warn">⚠️ 真正診斷：KClO₃ 中毒 + Methemoglobinemia + AKI</span>
+            <span class="chip ok">🫘 隱藏體質：G6PD deficiency（蠶豆症）</span>
+        </div>
+    </div>
+
+    <div class="summary">
+        <h2>🩺 考題重點摘要</h2>
+        <ul>
+            <li><b>主訴</b>：20歲男性、體重 65 kg，連續三天嘔吐、腹瀉，今日突然<b>冒冷汗、胸悶、呼吸喘</b>。</li>
+            <li><b>檢傷</b>：T 36.2°C、HR 101、RR 20、BP 138/95、<b>SpO₂ 92% on RA</b>、GCS E4V5M6。</li>
+            <li><b class="danger">關鍵線索</b>：嘴唇與四肢末端 cyanosis；給氧後 SpO₂ 仍 94%；ABG <b>pO₂ 203 / SaO₂ 100%</b>（saturation gap）；動脈血呈 <b>chocolate brown</b>。</li>
+            <li><b>實驗室</b>：WBC 32100、Hb 13.6、<b>BUN 52 / Cr 5.53（AKI）</b>、AST 113、Trop-I &lt;0.16、MetHb 11.0%。</li>
+            <li><b>毒物</b>：家屬從垃圾桶找到 <b>Potassium Chlorate (KClO₃)</b> 空瓶。</li>
+            <li><b>特殊體質</b>：自幼<b>蠶豆症（G6PD deficiency）</b>。</li>
+            <li><b class="danger">正確處置</b>：<b>禁用 Methylene Blue</b>（會誘發溶血）→ 改用高劑量 <b>Vitamin C / Ascorbic acid</b>；嚴重 AKI + 毒物清除 → <b>Hemodialysis</b> 或 exchange transfusion；考慮 HBO；收 ICU；照會腎臟科 / 毒物科。</li>
+        </ul>
+    </div>
+
+    <div class="toc">
+        <h2>目錄</h2>
+        <a href="#sec-0" class="toc-item"><span class="toc-t">01:16</span><span>🎬 開場 / 暖場</span></a>
+<a href="#sec-1" class="toc-item"><span class="toc-t">09:12</span><span>🩺 模擬看診 — 鑑別診斷 與 檢驗判讀</span></a>
+<a href="#sec-2" class="toc-item"><span class="toc-t">12:20</span><span>💊 修正診斷 與 治療處置（KClO₃ 中毒 / G6PD）</span></a>
+<a href="#sec-3" class="toc-item"><span class="toc-t">13:42</span><span>🗣️ 後線照會 與 家屬解釋</span></a>
+<a href="#sec-4" class="toc-item"><span class="toc-t">15:20</span><span>📝 考官講評 — 答題策略與時間分配</span></a>
+<a href="#sec-5" class="toc-item"><span class="toc-t">21:38</span><span>📚 考官講評 — 鑑別診斷思路（cyanosis、毒物）</span></a>
+<a href="#sec-6" class="toc-item"><span class="toc-t">26:40</span><span>🧪 考官講評 — Methemoglobinemia / G6PD / 解毒處置</span></a>
+<a href="#sec-7" class="toc-item"><span class="toc-t">33:21</span><span>🗓️ 課後討論 / 下次練習約定</span></a>
+    </div>
+
+    <div class="legend">
+        <span>關鍵字色塊：</span>
+        <mark class="hl-critical">致命關鍵</mark>
+        <mark class="hl-vital">生命徵象</mark>
+        <mark class="hl-lab">檢驗 / 影像</mark>
+        <mark class="hl-tx">處置</mark>
+        <mark class="hl-ddx">鑑別診斷</mark>
+    </div>
+
+
+        <section class="section" id="sec-0">
+            <h3 class="sec-title">
+                <button class="ts ts-sec" data-t="76.00">01:16</button>
+                <span>🎬 開場 / 暖場</span>
+            </h3>
+            <div class="sec-body">
+            <div class="seg" data-start="76.00">
+                <button class="ts" data-t="76.00">01:16</button>
+                <div class="seg-text">這個我考過了 你考過了是不是 對</div>
+            </div></div>
+        </section>
+
+        <section class="section" id="sec-1">
+            <h3 class="sec-title">
+                <button class="ts ts-sec" data-t="552.00">09:12</button>
+                <span>🩺 模擬看診 — 鑑別診斷 與 檢驗判讀</span>
+            </h3>
+            <div class="sec-body">
+            <div class="seg" data-start="552.00">
+                <button class="ts" data-t="552.00">09:12</button>
+                <div class="seg-text">這個初步診斷看起來是一個central的<mark class="hl-critical">cyanosis</mark> 然後可能要想到比如說像有一些central <mark class="hl-critical">cyanosis</mark></div>
+            </div>
+
+            <div class="seg" data-start="576.00">
+                <button class="ts" data-t="576.00">09:36</button>
+                <div class="seg-text">第一個可能是很嚴重的Di...很嚴重的Di...很嚴重的Di...很比較嚴重的像<mark class="hl-ddx">pulmonary embolism</mark> (<mark class="hl-ddx">PE</mark>) 或者是像就是...然後它因為呼吸喘然後O2不好</div>
+            </div>
+
+            <div class="seg" data-start="595.00">
+                <button class="ts" data-t="595.00">09:55</button>
+                <div class="seg-text">所以可能<mark class="hl-ddx">pulmonary embolism</mark> (<mark class="hl-ddx">PE</mark>)是會發第一個診斷 然後再來就是有沒有可能是neuromuscular Rx 類的 然後再來就是它因為還是有一些就是嘔吐跟腹瀉的症狀</div>
+            </div>
+
+            <div class="seg" data-start="609.00">
+                <button class="ts" data-t="609.00">10:09</button>
+                <div class="seg-text">然後所以就是<mark class="hl-ddx">ischemic bowel</mark>可能還是要就是放入鑑別診斷這樣子 檢查就是第一個是就是一些檢查<mark class="hl-lab">CBC</mark>DC 然後Biochemistry就是B1C-<mark class="hl-lab">Lactate</mark></div>
+            </div>
+
+            <div class="seg" data-start="630.00">
+                <button class="ts" data-t="630.00">10:30</button>
+                <div class="seg-text">然後跟CRP-<mark class="hl-lab">Lactate</mark> 還有Gas 然後看...然後... 嗯...看coagulation profile這樣子 然後...它有... 嗯...好...然後再來就是UAU卡這樣子</div>
+            </div>
+
+            <div class="seg" data-start="645.00">
+                <button class="ts" data-t="645.00">10:45</button>
+                <div class="seg-text">然後看一下就是它的X光跟KUB 還有<mark class="hl-lab">EKG</mark> 好... 這麼快 哦...送給你 好...嗯...目前的話就是... 嗯...3萬2...就是很高...很...很高的<mark class="hl-lab">leukocytosis</mark></div>
+            </div>
+
+            <div class="seg" data-start="670.00">
+                <button class="ts" data-t="670.00">11:10</button>
+                <div class="seg-text">然後borderline就是borderline的<mark class="hl-lab">thrombocytopenia</mark> 沒有Ninia 目前的就是<mark class="hl-lab">creatinine</mark>不知道有一個很... 叫什麼Underline</div>
+            </div>
+
+            <div class="seg" data-start="683.00">
+                <button class="ts" data-t="683.00">11:23</button>
+                <div class="seg-text">然後...就是<mark class="hl-lab">creatinine</mark> <mark class="hl-lab">AKI</mark>這樣子 對...然後...那家... 目前的L<mark class="hl-vital">HR</mark>都還好 然後...有一點點稍微的...就是Liver...Liver Elevation</div>
+            </div>
+
+            <div class="seg" data-start="699.00">
+                <button class="ts" data-t="699.00">11:39</button>
+                <div class="seg-text">這樣子...Liver Function Elevation 大概的話...目前稍微有點高一點 那...PTA PTT都還算正常範圍之內 酮體 (ketone)沒有高</div>
+            </div>
+
+            <div class="seg" data-start="711.00">
+                <button class="ts" data-t="711.00">11:51</button>
+                <div class="seg-text">啊...Ga目前看起來是一個... respiratory的Acidosis 就是SRA<mark class="hl-lab">EKG</mark>啊? 呃...<mark class="hl-lab">EKG</mark>的部分目前看起來是... Tachycardia</div>
+            </div>
+
+            <div class="seg" data-start="727.00">
+                <button class="ts" data-t="727.00">12:07</button>
+                <div class="seg-text">然後X光的話... 目前的話... 目前的話... trachea好像就是...在正常的... 在正常的...沒有Deviation 然後Bong也都...看起來都...</div>
+            </div></div>
+        </section>
+
+        <section class="section" id="sec-2">
+            <h3 class="sec-title">
+                <button class="ts ts-sec" data-t="740.00">12:20</button>
+                <span>💊 修正診斷 與 治療處置（KClO₃ 中毒 / G6PD）</span>
+            </h3>
+            <div class="sec-body">
+            <div class="seg" data-start="740.00">
+                <button class="ts" data-t="740.00">12:20</button>
+                <div class="seg-text">沒有Flag...看起來都... 看起來都... 還...就看起來都... 好... 那個...家屬... 慌慌張張張的... 拿到... 說...跑進來說...</div>
+            </div>
+
+            <div class="seg" data-start="750.00">
+                <button class="ts" data-t="750.00">12:30</button>
+                <div class="seg-text">哪一個...在房間垃圾桶... 找到一個空的化學藥品? 是... 呃... 減亂修正和治療處置... 第五題... 第五題... 好... 哎... 對... 剛才答完第四題了嘛...</div>
+            </div>
+
+            <div class="seg" data-start="768.00">
+                <button class="ts" data-t="768.00">12:48</button>
+                <div class="seg-text">就是... 檢驗...檢查結果的判斷... 已經走... 第五題... 呃...第五題有判斷... 然後... 就是下一個... 下一個的... 對... 提出下一步...</div>
+            </div>
+
+            <div class="seg" data-start="781.00">
+                <button class="ts" data-t="781.00">13:01</button>
+                <div class="seg-text">哦...好... 那...那... 因為他... 他的... 他可能... 有... 因為第一個就是History的部分... 剛剛... 其實沒有問... 問到這件事情...</div>
+            </div>
+
+            <div class="seg" data-start="795.00">
+                <button class="ts" data-t="795.00">13:15</button>
+                <div class="seg-text">然後... 後來有一個... 有一個這個東西... 所以可能會有疑是... 這個... Hotel Sampora... 這是... 這是什麼東西... Potassium Chloride...</div>
+            </div>
+
+            <div class="seg" data-start="810.00">
+                <button class="ts" data-t="810.00">13:30</button>
+                <div class="seg-text">就是... overdose... 這樣子... 然後... 然後... 可能要... 驗那個... Methy... 嗯... Methy... Methy...</div>
+            </div></div>
+        </section>
+
+        <section class="section" id="sec-3">
+            <h3 class="sec-title">
+                <button class="ts ts-sec" data-t="822.00">13:42</button>
+                <span>🗣️ 後線照會 與 家屬解釋</span>
+            </h3>
+            <div class="sec-body">
+            <div class="seg" data-start="822.00">
+                <button class="ts" data-t="822.00">13:42</button>
+                <div class="seg-text">Hemoglobin Emia... 嗯... 對... 所以... 所以... 所以... 下一步... 要怎麼處置呢... 就是... 我們可能... 要給他那個...</div>
+            </div>
+
+            <div class="seg" data-start="835.00">
+                <button class="ts" data-t="835.00">13:55</button>
+                <div class="seg-text">Methy... 這樣子... 然後... 第一個是... Ivo2 Monitor... 然後... 嗯... 然後... 再來就是... 給<mark class="hl-tx">解毒劑</mark>... 然後<mark class="hl-tx">解毒劑</mark>的話...</div>
+            </div>
+
+            <div class="seg" data-start="851.00">
+                <button class="ts" data-t="851.00">14:11</button>
+                <div class="seg-text">就是那個... <mark class="hl-critical">Methylene</mark> Blue... 這樣子... 對... 然後我們... 可以跟就是... 如果... 就是不太小... 可能還不是很確定的話...</div>
+            </div>
+
+            <div class="seg" data-start="859.00">
+                <button class="ts" data-t="859.00">14:19</button>
+                <div class="seg-text">可能要去... 你要去打給北榮的讀物科 然後詢問就是他的症狀 然後那個劑量這樣子 然後或者是就是那個儲備網 就是讀物的儲備網去 對 那我可以知道就是他給完O monitor</div>
+            </div>
+
+            <div class="seg" data-start="891.60">
+                <button class="ts" data-t="891.60">14:51</button>
+                <div class="seg-text">的就是SPO2嗎 給完O 94嘴唇依然發乾 94然後依然發乾 好啊那他還是會要就是給那個 就是<mark class="hl-tx">解毒劑</mark>這樣子 然後所以他召會的話 就是會會打給就是讀物科 然後跟對打給讀物科</div>
+            </div></div>
+        </section>
+
+        <section class="section" id="sec-4">
+            <h3 class="sec-title">
+                <button class="ts ts-sec" data-t="920.16">15:20</button>
+                <span>📝 考官講評 — 答題策略與時間分配</span>
+            </h3>
+            <div class="sec-body">
+            <div class="seg" data-start="920.16">
+                <button class="ts" data-t="920.16">15:20</button>
+                <div class="seg-text">然後就是請他那你好 以iSPA的去交班 那你好我是急診看診醫師 你們是今天的讀物召會科嗎 我們這邊有一個就是20歲男性 然後他就是連續三天有O2跟腹瀉這樣子 這樣子那來的時候就是</div>
+            </div>
+
+            <div class="seg" data-start="940.94">
+                <button class="ts" data-t="940.94">15:40</button>
+                <div class="seg-text">就是汗跟熊門船這樣 這樣啊Central <mark class="hl-critical">cyanosis</mark> SPO2比較SO2這樣 SO2差這樣子 但Gas看起來是一個Math <mark class="hl-critical">MetHb</mark>它的那個就是真實的SPO2這樣子</div>
+            </div>
+
+            <div class="seg" data-start="954.94">
+                <button class="ts" data-t="954.94">15:54</button>
+                <div class="seg-text">那所以看起來是一個<mark class="hl-critical">MetHb</mark> 那我們目前在急診座的處置是有給那個<mark class="hl-tx">解毒劑</mark> <mark class="hl-critical">MetHb</mark>的Blu 後續可能還是會就是讓你們來評估跟就是收住院 好 好然後跟加速解釋 是那個急診看診醫師</div>
+            </div>
+
+            <div class="seg" data-start="975.98">
+                <button class="ts" data-t="975.98">16:15</button>
+                <div class="seg-text">請問你是他的教育 那你的教育程度是 大學 好大學 那我們就是以 那他媽媽他的那個就是他這次來的話 主要的症狀還是就是持續嘔吐跟腹瀉 那我們初步的就是評估 疑似就是有一個你剛拿進來的這個東西的種植</div>
+            </div>
+
+            <div class="seg" data-start="1007.26">
+                <button class="ts" data-t="1007.26">16:47</button>
+                <div class="seg-text">那目前的話已經在給予<mark class="hl-tx">解毒劑</mark>了 那後續的話他可能他是一個就是疑似有一個 那個叫什麼 疑似有這個拿過來的藥物的<mark class="hl-critical">中毒</mark> 那我們現在已經給<mark class="hl-tx">解毒劑</mark>之後 可能就是後續要再繼續跟跟跟住院</div>
+            </div>
+
+            <div class="seg" data-start="1032.18">
+                <button class="ts" data-t="1032.18">17:12</button>
+                <div class="seg-text">那是 有話哨 好 我差 那等一下 大家聽聲帶手 就是想要靠著 會真實的情況是在那個history那邊 然後後面再就是拿出這個東西嗎 這題也是我經年撿到的模擬實體</div>
+            </div>
+
+            <div class="seg" data-start="1061.44">
+                <button class="ts" data-t="1061.44">17:41</button>
+                <div class="seg-text">他其實 嗯 我不知道出題的人是誰啊 但他題目就這麼設計 沒打鉤等等的地方嗎 嗯 那些哦 外商不是有時候會有二段變化嗎 嗯 你可以先花一個一分鐘看一下題目啊 就是題目有個很奇怪的題目啊</div>
+            </div>
+
+            <div class="seg" data-start="1087.40">
+                <button class="ts" data-t="1087.40">18:07</button>
+                <div class="seg-text">有個什麼修正目前診斷 對吧 平時都不大會有這一個題目 對 如果 你看怪怪的題目就要 就要 就要小心他會有一些變化 這樣子 那哦 對我今天跟妮妮老師他也是有一題 就是什麼</div>
+            </div>
+
+            <div class="seg" data-start="1107.30">
+                <button class="ts" data-t="1107.30">18:27</button>
+                <div class="seg-text">返診之後 對 然後又回 對對對 然後我那時候還跟家屬講 那個是Ball 然後然後我就 哎 怎麼下一題就是返診 然後啊 所以你題目還是要花點時間看 然後把每個題目要問的重點圈起來吧</div>
+            </div>
+
+            <div class="seg" data-start="1125.30">
+                <button class="ts" data-t="1125.30">18:45</button>
+                <div class="seg-text">或是 這題是 復不一斷 這題是檢驗檢查 比如說 題目 其中一個安排檢驗檢查 有個重要立即處置 那時候也沒有講重要立即處置啊 對不對 嗯 哦好 我是沒有故意沒有提醒你</div>
+            </div>
+
+            <div class="seg" data-start="1142.06">
+                <button class="ts" data-t="1142.06">19:02</button>
+                <div class="seg-text">我也不知道考官會不會提醒你 那題目有時候不一定就是那麼標準的格式 那前面花的時間比較多在PE跟History啊 就是 就是沒有想到是什麼 所以就就是越問越滿 越問越滿</div>
+            </div>
+
+            <div class="seg" data-start="1159.00">
+                <button class="ts" data-t="1159.00">19:19</button>
+                <div class="seg-text">就是這樣 所以後面的時間就會被有點擠壓 但 還是很重要 因為沒有想到後面也會拿不到分數這樣子 所以我覺得時間分配還可以啊 還合理這樣子 那 其實就是會 討一些奇怪的東西嘛</div>
+            </div>
+
+            <div class="seg" data-start="1176.52">
+                <button class="ts" data-t="1176.52">19:36</button>
+                <div class="seg-text">比如說<mark class="hl-critical">Methemoglobinemia</mark> <mark class="hl-critical">變性血紅素</mark>血症就是會考出來嘛 所以 就是看到<mark class="hl-critical">cyanosis</mark> 可能就要想到這個檢別診斷啦 所以其實今天的間別診斷 它History加PE其實就只有<mark class="hl-critical">cyanosis</mark>嘛</div>
+            </div>
+
+            <div class="seg" data-start="1187.94">
+                <button class="ts" data-t="1187.94">19:47</button>
+                <div class="seg-text"><mark class="hl-critical">cyanosis</mark>和<mark class="hl-vital">血氧</mark>不好嘛 就是這個間別診斷那邊其實就應該把心肺全部講一輪啊 你講太久了 因為你想不到對的是什麼 但是至少你就把心肺全部講一輪一定都有分數啊 而且這種腸胃不舒服啊</div>
+            </div>
+
+            <div class="seg" data-start="1203.58">
+                <button class="ts" data-t="1203.58">20:03</button>
+                <div class="seg-text">氧氣不好 那個<mark class="hl-ddx">myocarditis</mark>就是其中一個想要考的啊 對不對 所以至少<mark class="hl-ddx">myocarditis</mark> 沒有講到<mark class="hl-ddx">myocarditis</mark> <mark class="hl-ddx">Sepsis</mark>也沒講到 有講到<mark class="hl-ddx">ischemic bowel</mark>啊</div>
+            </div>
+
+            <div class="seg" data-start="1214.10">
+                <button class="ts" data-t="1214.10">20:14</button>
+                <div class="seg-text">只是剛好這個它設計就沒有<mark class="hl-ddx">ischemic bowel</mark> 它就寫一個AGE 最普通的常常也是會招了一些分數 那像PE其他缺氧氣兇疾病有講就有分數 那毒物就沒有講到啊</div>
+            </div>
+
+            <div class="seg" data-start="1225.08">
+                <button class="ts" data-t="1225.08">20:25</button>
+                <div class="seg-text"><mark class="hl-critical">cyanosis</mark>有時候就是要考毒物啊 嗯 就沒事不會題目不會跟你強調一個<mark class="hl-critical">cyanosis</mark>啊 老實說他要考其他PE什麼 常常也不一定給你<mark class="hl-critical">cyanosis</mark>啊 這些<mark class="hl-critical">cyanosis</mark>其實就是一個</div>
+            </div>
+
+            <div class="seg" data-start="1239.26">
+                <button class="ts" data-t="1239.26">20:39</button>
+                <div class="seg-text">想要考你<mark class="hl-ddx">myocarditis</mark>的感覺這樣 而且你看他題目又設計一個<mark class="hl-critical">G6PD</mark> deficiency 不會特別跟你說有個<mark class="hl-critical">蠶豆症</mark>這樣 設計這個東西一定是有意義的 你看你看往下看你知道為什麼了</div>
+            </div>
+
+            <div class="seg" data-start="1254.70">
+                <button class="ts" data-t="1254.70">20:54</button>
+                <div class="seg-text">然後他檢驗檢查立即處置 他就把IV / O₂ / Monitor都發在這個立即處置這裡啊 那為什麼他會這樣設計 因為他想要告訴你就是你給了O2 氧氣沒有提升 嘴唇依舊發乾</div>
+            </div>
+
+            <div class="seg" data-start="1267.70">
+                <button class="ts" data-t="1267.70">21:07</button>
+                <div class="seg-text">他想要這樣子提示你啊 那你如果這也沒有講到重要處置 我也沒有講到這個氧氣沒有改變 那你後來有講氧氣嘛 就跟你講這件事情 <mark class="hl-lab">EKG</mark>還是要判讀一下 <mark class="hl-lab">EKG</mark>好像沒有聽到</div>
+            </div>
+
+            <div class="seg" data-start="1286.00">
+                <button class="ts" data-t="1286.00">21:26</button>
+                <div class="seg-text"><mark class="hl-lab">EKG</mark>好像沒特別聽到嗎 還是 Sinus Tachycardia 有講嗎 有講好 反正這個判讀基本上都沒什麼問題啊 性功能就特別懶嘛 對不對 這個後面就比較沒有提到</div>
+            </div></div>
+        </section>
+
+        <section class="section" id="sec-5">
+            <h3 class="sec-title">
+                <button class="ts ts-sec" data-t="1298.00">21:38</button>
+                <span>📚 考官講評 — 鑑別診斷思路（cyanosis、毒物）</span>
+            </h3>
+            <div class="sec-body">
+            <div class="seg" data-start="1298.00">
+                <button class="ts" data-t="1298.00">21:38</button>
+                <div class="seg-text">沒有提到就是AK整斷還有AK這件事情 剛剛的GaS應該看得出來就是GaS 看起來就是 嗯 SO2很好 但是其實他的SPO2會是就是 假的 就是 對啊 所以他這個</div>
+            </div>
+
+            <div class="seg" data-start="1318.20">
+                <button class="ts" data-t="1318.20">21:58</button>
+                <div class="seg-text">就是他不是那種 傳統氧氣的問題啊 那不管他就會告訴你 拿出一個瓶子給你 他的設計是這樣子 你就會得到 <mark class="hl-critical">變性血紅素</mark> (Methemoglobin) 所以<mark class="hl-critical">變性血紅素</mark></div>
+            </div>
+
+            <div class="seg" data-start="1334.04">
+                <button class="ts" data-t="1334.04">22:14</button>
+                <div class="seg-text">講錯了 <mark class="hl-critical">MetHb</mark>也是 也可以叫<mark class="hl-critical">變性血紅素</mark> (Methemoglobin) 對 對 就是<mark class="hl-critical">變性血紅素</mark> 好 那看到<mark class="hl-critical">cyanosis</mark> 就是抽血的GaS 也許就可以 還可以看一下</div>
+            </div>
+
+            <div class="seg" data-start="1346.38">
+                <button class="ts" data-t="1346.38">22:26</button>
+                <div class="seg-text">那個 這種懷疑<mark class="hl-critical">中毒</mark>的記者 就抽<mark class="hl-critical">MetHb</mark> GaS跟COHP 全部就可以一起抽一抽 我會在哪一個地方會想到啊 就是在你 <mark class="hl-critical">cyanosis</mark> 應該是<mark class="hl-critical">cyanosis</mark> 應該是<mark class="hl-critical">cyanosis</mark></div>
+            </div>
+
+            <div class="seg" data-start="1360.32">
+                <button class="ts" data-t="1360.32">22:40</button>
+                <div class="seg-text">應該是<mark class="hl-critical">cyanosis</mark> 應該是<mark class="hl-critical">cyanosis</mark> 應該是<mark class="hl-critical">cyanosis</mark> 應該是<mark class="hl-critical">cyanosis</mark> 應該是<mark class="hl-critical">cyanosis</mark> 所以我們會得到啦 又會得到啦 好吧 那反正治療的話</div>
+            </div>
+
+            <div class="seg" data-start="1372.84">
+                <button class="ts" data-t="1372.84">22:52</button>
+                <div class="seg-text">治療的重點就是 GCCT 旅行宣息 不能用<mark class="hl-critical">甲烯藍</mark> (<mark class="hl-critical">Methylene</mark> Blue)啦 只能用維他命C 然後只要毒物的<mark class="hl-critical">中毒</mark> 可能都要說到考慮都會毒物跟腎臟科 考慮要不要<mark class="hl-tx">洗腎</mark></div>
+            </div>
+
+            <div class="seg" data-start="1387.30">
+                <button class="ts" data-t="1387.30">23:07</button>
+                <div class="seg-text">考慮要不要洗胃 所以在時間不明 就是就算是時間不明 也會說就因為時間不明 不考慮洗胃 他說不定會有個 味道 就是他就沒有洗胃 我講我考慮過不洗胃 洗胃這兩個問題</div>
+            </div>
+
+            <div class="seg" data-start="1404.94">
+                <button class="ts" data-t="1404.94">23:24</button>
+                <div class="seg-text">嗯嗯 所以常常都會有分數 怎樣因為很多醫院都是 腎臟科在鼓服科 所以洗胃都會有分數 後面病也 就是沒有講到去<mark class="hl-tx">ICU</mark> 就是我們治療 的部分 就是治療部分有講過嗎 就算沒有問</div>
+            </div>
+
+            <div class="seg" data-start="1424.04">
+                <button class="ts" data-t="1424.04">23:44</button>
+                <div class="seg-text">照慧和disposition也都要講 他就是治療的一部分 disposition常常會在治療 他就是如果他有一題 特別問那就很好 但如果他沒有特別問 也都會是就是治療的一部分</div>
+            </div>
+
+            <div class="seg" data-start="1438.04">
+                <button class="ts" data-t="1438.04">23:58</button>
+                <div class="seg-text">自己要講 這樣子 好 呃 誒 他還會有<mark class="hl-tx">HBO</mark>的那個 嗯 你可以用<mark class="hl-tx">HBO</mark> 嗯 你說高壓 嗯 嗯 應該是可以吧 我 在這 每天我都沒人啊 特別用<mark class="hl-tx">HBO</mark> 對啊 我有聽過</div>
+            </div>
+
+            <div class="seg" data-start="1457.10">
+                <button class="ts" data-t="1457.10">24:17</button>
+                <div class="seg-text">既然要用Vit C的 應該是這樣子的 就是 要用Vit C (<mark class="hl-tx">ascorbic</mark> acid) 應該有這樣 高劑量的Vit C (<mark class="hl-tx">ascorbic</mark> acid) 我可以輸血啊</div>
+            </div>
+
+            <div class="seg" data-start="1467.36">
+                <button class="ts" data-t="1467.36">24:27</button>
+                <div class="seg-text">記得就是 他去試我 我沒有讀過 但我記得可以輸血 所以這是一個讀的 所以就是變成 就是前面看要不要想要 沒有想要讀就會很麻煩啊 那個 對啊 SIMO 不是口是<mark class="hl-critical">Methemoglobinemia</mark></div>
+            </div>
+
+            <div class="seg" data-start="1490.66">
+                <button class="ts" data-t="1490.66">24:50</button>
+                <div class="seg-text">或者說這樣子 有另外一把 就是CO 然後<mark class="hl-critical">Methemoglobinemia</mark> 還有一個 另外一個是Sofa <mark class="hl-critical">Methemoglobinemia</mark> 但那個 對 對 那個也是藥物造成的</div>
+            </div>
+
+            <div class="seg" data-start="1506.96">
+                <button class="ts" data-t="1506.96">25:06</button>
+                <div class="seg-text">就是 但就比較不會卡 因為他 他 是啊 你如果是CO<mark class="hl-critical">中毒</mark> 不大會被認識一下 嗯 嗯 我覺得 其實 這裡 其實 沒有的分數 有 我反而是覺得 你不知道 也 沒有關係</div>
+            </div>
+
+            <div class="seg" data-start="1529.00">
+                <button class="ts" data-t="1529.00">25:29</button>
+                <div class="seg-text">你反而是 鑑別診斷 講太少了 最重要是這一個 其他都沒什麼大問題啊 治療 就算治療錯一個 就是你打了<mark class="hl-critical">甲烯藍</mark> (<mark class="hl-critical">Methylene</mark> Blue) 那個最多 阿不就扣你兩分</div>
+            </div>
+
+            <div class="seg" data-start="1542.00">
+                <button class="ts" data-t="1542.00">25:42</button>
+                <div class="seg-text">或者三分 反而是 直接診斷 你沒有講到心臟系統 和讀物 這裡可能 還有被 就是這裡可能 會少掉四分 而且這個是應該 就是 反正就是把全部講下去 講至少 健全程都會</div>
+            </div>
+
+            <div class="seg" data-start="1558.64">
+                <button class="ts" data-t="1558.64">25:58</button>
+                <div class="seg-text">至少講個五六個吧 因為 他本來就是 至少會有五項的評分 這樣子 我想要問 就是學長在 那個 Tentative Dino 就是 我其實有時候 常常就是會想不到 至少</div>
+            </div>
+
+            <div class="seg" data-start="1572.38">
+                <button class="ts" data-t="1572.38">26:12</button>
+                <div class="seg-text">就是我可能就只有講三個 我覺得就是其實偏少 那就是 那練啊 整理一下不同東西 Tentative Dinosus 你可以講什麼 比如說 好 比如說發燒 來講一下發燒</div>
+            </div>
+
+            <div class="seg" data-start="1586.14">
+                <button class="ts" data-t="1586.14">26:26</button>
+                <div class="seg-text">Tentative Dinosus 它就各種影響 各種影響 然後在 各種影響 然後在 哦 匿莓尼啊 然後 UTI 然後跟就是 呃 就是 CNS Inflation</div>
+            </div></div>
+        </section>
+
+        <section class="section" id="sec-6">
+            <h3 class="sec-title">
+                <button class="ts ts-sec" data-t="1600.74">26:40</button>
+                <span>🧪 考官講評 — Methemoglobinemia / G6PD / 解毒處置</span>
+            </h3>
+            <div class="sec-body">
+            <div class="seg" data-start="1600.74">
+                <button class="ts" data-t="1600.74">26:40</button>
+                <div class="seg-text">也有可能 這樣子 然後在 就是 Cyroid Hyperthyroidism 就是Cyroid storm 也有可能 也有可能 對 然後 就是肚子的 IEI 也有可能</div>
+            </div>
+
+            <div class="seg" data-start="1621.34">
+                <button class="ts" data-t="1621.34">27:01</button>
+                <div class="seg-text">對 對 嗯 還有 不夠嗎 這都感染了 還有 只多了一個 Tyroid storm 還有嗎 還有 IE 然後 然後 IE 然後 跟 應該 對 Mycotic aneurism</div>
+            </div>
+
+            <div class="seg" data-start="1642.24">
+                <button class="ts" data-t="1642.24">27:22</button>
+                <div class="seg-text">也有可能 裡面就是有一些 那個 鑑別診斷 就是 一二三四五六七八九 列了九個就是 我自己那時候 有準備的鑑別診斷 就是可以講發燒啊 發燒就是 URI Nemonia</div>
+            </div>
+
+            <div class="seg" data-start="1659.14">
+                <button class="ts" data-t="1659.14">27:39</button>
+                <div class="seg-text">你剛剛好像也沒講到 UTI PID 沒有講到 <mark class="hl-ddx">Myocarditis</mark> Centralcarditis Meningitis 然後 Leucemia Lymphoma</div>
+            </div>
+
+            <div class="seg" data-start="1668.04">
+                <button class="ts" data-t="1668.04">27:48</button>
+                <div class="seg-text">那 有Tyrroya 一定有Philcomo Sytoma 對不對 然後 還會有Autoimmel 還會有血癌 它一定是這樣子啊 嗯 就是 如果你見了很多沒有很熟</div>
+            </div>
+
+            <div class="seg" data-start="1680.84">
+                <button class="ts" data-t="1680.84">28:00</button>
+                <div class="seg-text">也許你把這些看一看 然後 練習在不同阻素 會考阻素 其實就要寫嘛 胸痛腹痛 應該都可以講很多 這些比較少見的 比如hypertemia 我列出來就是這種 還有下腹筒</div>
+            </div>
+
+            <div class="seg" data-start="1696.64">
+                <button class="ts" data-t="1696.64">28:16</button>
+                <div class="seg-text">或者頭痛 這種的時候比較難記的 再看一下 參考一下 不然其他我覺得沒有什麼問題 其他大外大差不多 大概也是這樣 鑑別診斷可以多講點 嗯 你會遇到一些 急症喜歡考</div>
+            </div>
+
+            <div class="seg" data-start="1714.84">
+                <button class="ts" data-t="1714.84">28:34</button>
+                <div class="seg-text">但是平時沒有用那麼多的 就是比如hypertemia stride perpera 這種就是 可能就是要稍微看過 稍微背一下吧 嗯 懷孕 你搬到我見別診斷懷孕 我把懷孕</div>
+            </div>
+
+            <div class="seg" data-start="1730.94">
+                <button class="ts" data-t="1730.94">28:50</button>
+                <div class="seg-text">會考見別診斷 完全不列出來 這樣 哦對 就是 就 對我們今天就有考這個 就是 help 然後 utra utra lapture 懷孕有問題的 你可以就是直接把這個就不講一遍</div>
+            </div>
+
+            <div class="seg" data-start="1744.84">
+                <button class="ts" data-t="1744.84">29:04</button>
+                <div class="seg-text">應該就都在 我好像 p1也有寫啊 對 會考的題目就是這些 好 有時候 好 題目就是會喜歡出一些比較刁專的整段啊 然後考一個eSK-Me-Bowler 沒有什麼意思</div>
+            </div>
+
+            <div class="seg" data-start="1759.54">
+                <button class="ts" data-t="1759.54">29:19</button>
+                <div class="seg-text">對不對 像去年就考了什麼Prior Pinsen 結果是Lukinia嘛 然後 爾克就是 HOS啊 就是會考這種比較少見的 HOS syndrome 我計是TTP</div>
+            </div>
+
+            <div class="seg" data-start="1773.54">
+                <button class="ts" data-t="1773.54">29:33</button>
+                <div class="seg-text">我計是HOS 主數就會主數給你好像是Prior Pinsen 之類的 會過 只是 那樣子考完就比較清醒 這樣子 我現在好像就是 Border Line 我覺得很</div>
+            </div>
+
+            <div class="seg" data-start="1797.14">
+                <button class="ts" data-t="1797.14">29:57</button>
+                <div class="seg-text">有點就是 有點危險 然後 節目再花多一點時間 大家看清楚 再開始 所以花個一分鐘獨體 我覺得都沒有關係 然後 那個 Tentary Diagnosis 是要講多一點</div>
+            </div>
+
+            <div class="seg" data-start="1814.34">
+                <button class="ts" data-t="1814.34">30:14</button>
+                <div class="seg-text">然後Treatment的部分 要包括Disposition 好 那個 剛剛跟那個懷號考 然後他是 我念不完耶 就是 我從那個Prior Exhibitor 然後一路長到Secondary</div>
+            </div>
+
+            <div class="seg" data-start="1829.64">
+                <button class="ts" data-t="1829.64">30:29</button>
+                <div class="seg-text">然後又 因為疫情變化 又再講一遍 然後就 怎麼辦 有什麼好的建議 再多連一些嗎 Toma的那個 講的速度 就是要講到有 但是也不用講到太細 比如像你跟他P Chess那邊是講點點細</div>
+            </div>
+
+            <div class="seg" data-start="1850.84">
+                <button class="ts" data-t="1850.84">30:50</button>
+                <div class="seg-text">我覺得你可以先講 幾個 看導官回答的狀況 看你要不要吻習 如果還有 finding 你就再把他吻習一點 胸部 胸部跟他講很長 我可能只會講 就是 胸部試診 處診</div>
+            </div>
+
+            <div class="seg" data-start="1868.54">
+                <button class="ts" data-t="1868.54">31:08</button>
+                <div class="seg-text">有沒有什麼問題 然後胸部聽診 扣診 沒有問題 我通常就這樣 我就講很簡短 我不會說什麼 有沒有對稱等等 如果 他考官就是 露出猶豫 魚部有點不知道怎麼搭的時候 就是看他表情</div>
+            </div>
+
+            <div class="seg" data-start="1882.54">
+                <button class="ts" data-t="1882.54">31:22</button>
+                <div class="seg-text">就可能就會再講仔細一點 就是他一個地方 就沒有東西 沒有東西 所以就是 我回答的都是正常 這樣子 聽到考官就是 一直都在說正常正常 就知道這一區沒有 應該沒有問題</div>
+            </div>
+
+            <div class="seg" data-start="1898.04">
+                <button class="ts" data-t="1898.04">31:38</button>
+                <div class="seg-text">那聽到肚子上有痛 那你可能問 才要問仔細一點 有沒有反彈 痛 有沒有 就是什麼哭人塞了的 如果肚子聽起來都沒有 試診都說沒有問題 就也不用問到怎麼試 好 對啊 但至少這題的時間</div>
+            </div>
+
+            <div class="seg" data-start="1919.54">
+                <button class="ts" data-t="1919.54">31:59</button>
+                <div class="seg-text">暴風還可以吧 就是該講到的 都有講到的 嗯 對 那個 對啊 好吧 那學長還有一題嗎 沒有 你考過 下次再看看 再來準備 所以如果最好可以整理 你有考過才有辦法先</div>
+            </div>
+
+            <div class="seg" data-start="1946.64">
+                <button class="ts" data-t="1946.64">32:26</button>
+                <div class="seg-text">對一下 有沒有考過 哦 好 好 好 好 幾號考試 6月6號 很緊張 每天 早三餐講話 可以啊 早三餐講到6月6號就可以夠了 我每天就是早上練一輪 然後吃飯 下午又練一輪</div>
+            </div>
+
+            <div class="seg" data-start="1976.74">
+                <button class="ts" data-t="1976.74">32:56</button>
+                <div class="seg-text">然後晚上又接著練 這樣子 嗯 對啊 再練到最後可能不經意不練過 對但是我也是雖然我練過但是 我有可能我都會像今天跟李尼老師練我就是會有些 好像是這樣 對 語書可以在</div>
+            </div></div>
+        </section>
+
+        <section class="section" id="sec-7">
+            <h3 class="sec-title">
+                <button class="ts ts-sec" data-t="2001.24">33:21</button>
+                <span>🗓️ 課後討論 / 下次練習約定</span>
+            </h3>
+            <div class="sec-body">
+            <div class="seg" data-start="2001.24">
+                <button class="ts" data-t="2001.24">33:21</button>
+                <div class="seg-text">嗯 我覺得也不是語書 是就是我剛剛講的 就是 重要的東西講久一點 不重要的也許就那個 就是 對 只要看一下考官反應 決定那個 P1 就沒有要講那麼的底細 老實說</div>
+            </div>
+
+            <div class="seg" data-start="2022.44">
+                <button class="ts" data-t="2022.44">33:42</button>
+                <div class="seg-text">那省不了多少時間啊 還是把它講熟一點 就是 講的不用憂鬱 就是身體檢查系統講下來的時候 不會還在想我下一個要講什麼 這樣子 嗯 對啊 那我就是 就比如說那個診斷我完全</div>
+            </div>
+
+            <div class="seg" data-start="2038.94">
+                <button class="ts" data-t="2038.94">33:58</button>
+                <div class="seg-text">就是 Diagnosis完全講錯了 我覺得 因為失去後面的分 所以我才會說 我覺得你HistoryP前面花多點時間 沒有問題 因為就是為了不要完全miss掉 這樣子</div>
+            </div>
+
+            <div class="seg" data-start="2055.54">
+                <button class="ts" data-t="2055.54">34:15</button>
+                <div class="seg-text">那不要分數可能就會拿不到 如果完全miss掉 嗯 不然太難的題目 他們會有個公司 他們就會變出一張紙出來 不管你有沒有問到 好</div>
+            </div>
+
+            <div class="seg" data-start="2080.14">
+                <button class="ts" data-t="2080.14">34:40</button>
+                <div class="seg-text">那我學長我可以再跟你約嗎 可以啊 嗯 這個周 就你什麼時候還會有空 這周</div>
+            </div>
+
+            <div class="seg" data-start="2098.74">
+                <button class="ts" data-t="2098.74">34:58</button>
+                <div class="seg-text">我的Mindset一定要過 對 這周 對沒有 我可能要下一週 嗯 一二三四 的晚上 你說下週一二三四 一二三四 好啊 那我一二三跟你約 什麼時候 看你啊 你去先拍</div>
+            </div>
+
+            <div class="seg" data-start="2127.84">
+                <button class="ts" data-t="2127.84">35:27</button>
+                <div class="seg-text">呃 我每天都跟你約嗎 一二三四 每天應該有兩個啦 其他找 其他人啊 好好 各種的人會有不同的 cover到不同的東西 哎 好啊好 那就 兩天這樣 那 那就一跟三</div>
+            </div>
+
+            <div class="seg" data-start="2154.44">
+                <button class="ts" data-t="2154.44">35:54</button>
+                <div class="seg-text">一跟三 一跟三 然後 11點 11點 還不太晚 幾點 11點 還不太晚 11點 哦 哎 哎呦 10點 白吧 10點 好好 10點 10點嗎 好 哎 10點可以嗎</div>
+            </div>
+
+            <div class="seg" data-start="2183.04">
+                <button class="ts" data-t="2183.04">36:23</button>
+                <div class="seg-text">可以 好 一跟三十點哦 好 謝謝 今天這樣咯 好 謝謝學長 拜拜 拜拜</div>
+            </div></div>
+        </section>
+
+    <div class="disclaimer">
+        ⓘ 本逐字稿由 Whisper large-v3-turbo 自動生成。安靜段落可能出現「請不吝點讚⋯」等典型幻覺已過濾；英文醫學詞彙已對常見錯字（Saino→cyanosis、Miocharditis→myocarditis 等）做了字面修正。可能仍存在誤聽與口語化錯字，正式引用前請對照音檔複核。
+    </div>
+</div>
+
+<div class="player">
+    <div class="player-inner">
+        <div class="toolbar">
+            <button onclick="setRate(0.8)">0.8x</button>
+            <button onclick="setRate(1)">1.0x</button>
+            <button onclick="setRate(1.25)">1.25x</button>
+            <button onclick="setRate(1.5)">1.5x</button>
+            <button onclick="setRate(2)">2.0x</button>
+            <input type="search" id="searchBox" placeholder="搜尋逐字稿…">
+            <button onclick="downloadTxt()">⬇ 下載 TXT</button>
+        </div>
+        <audio id="audio" controls preload="metadata" src="candidate-a.ogg"></audio>
+    </div>
+</div>
+
+<script>
+const audio = document.getElementById('audio');
+const segs = Array.from(document.querySelectorAll('.seg'));
+document.querySelectorAll('.ts').forEach(b => {
+    b.addEventListener('click', e => {
+        e.stopPropagation();
+        const t = parseFloat(b.dataset.t);
+        audio.currentTime = t;
+        audio.play();
+    });
+});
+segs.forEach(s => s.addEventListener('click', () => {
+    audio.currentTime = parseFloat(s.dataset.start);
+    audio.play();
+}));
+
+let currentSeg = null;
+audio.addEventListener('timeupdate', () => {
+    const t = audio.currentTime;
+    let active = null;
+    for (const s of segs) {
+        if (parseFloat(s.dataset.start) <= t) active = s; else break;
+    }
+    if (active !== currentSeg) {
+        if (currentSeg) currentSeg.classList.remove('playing');
+        if (active) {
+            active.classList.add('playing');
+            // scroll into view smoothly (only if not in viewport)
+            const r = active.getBoundingClientRect();
+            if (r.top < 80 || r.bottom > window.innerHeight - 180) {
+                active.scrollIntoView({behavior: 'smooth', block: 'center'});
+            }
+        }
+        currentSeg = active;
+    }
+});
+
+function setRate(r) { audio.playbackRate = r; }
+
+document.getElementById('searchBox').addEventListener('input', e => {
+    const q = e.target.value.trim();
+    segs.forEach(s => {
+        if (!q) { s.style.display = ''; return; }
+        s.style.display = s.textContent.includes(q) ? '' : 'none';
+    });
+});
+
+const PLAIN_B64 = "Cj09PSDwn46sIOmWi+WgtCAvIOaaluWgtCDvvIgwMToxNu+8iSA9PT0KClswMToxNl0g6YCZ5YCL5oiR6ICD6YGO5LqGIOS9oOiAg+mBjuS6huaYr+S4jeaYryDlsI0KCj09PSDwn6m6IOaooeaTrOeci+iouiDigJQg6ZGR5Yil6Ki65pa3IOiIhyDmqqLpqZfliKToroAg77yIMDk6MTLvvIkgPT09CgpbMDk6MTJdIOmAmeWAi+WIneatpeiouuaWt+eci+i1t+S+huaYr+S4gOWAi2NlbnRyYWznmoRjeWFub3NpcyDnhLblvozlj6/og73opoHmg7PliLDmr5TlpoLoqqrlg4/mnInkuIDkuptjZW50cmFsIGN5YW5vc2lzClswOTozNl0g56ys5LiA5YCL5Y+v6IO95piv5b6I5Zq06YeN55qERGkuLi7lvojlmrTph43nmoREaS4uLuW+iOWatOmHjeeahERpLi4u5b6I5q+U6LyD5Zq06YeN55qE5YOPcHVsbW9uYXJ5IGVtYm9saXNtIChQRSkg5oiW6ICF5piv5YOP5bCx5pivLi4u54S25b6M5a6D5Zug54K65ZG85ZC45ZaY54S25b6MTzLkuI3lpb0KWzA5OjU1XSDmiYDku6Xlj6/og71wdWxtb25hcnkgZW1ib2xpc20gKFBFKeaYr+acg+eZvOesrOS4gOWAi+iouuaWtyDnhLblvozlho3kvoblsLHmmK/mnInmspLmnInlj6/og73mmK9uZXVyb211c2N1bGFyIFJ4IOmhnueahCDnhLblvozlho3kvoblsLHmmK/lroPlm6DngrrpgoTmmK/mnInkuIDkupvlsLHmmK/lmJTlkJDot5/ohbnngInnmoTnl4fni4AKWzEwOjA5XSDnhLblvozmiYDku6XlsLHmmK9pc2NoZW1pYyBib3dlbOWPr+iDvemChOaYr+imgeWwseaYr+aUvuWFpemRkeWIpeiouuaWt+mAmeaoo+WtkCDmqqLmn6XlsLHmmK/nrKzkuIDlgIvmmK/lsLHmmK/kuIDkupvmqqLmn6VDQkNEQyDnhLblvoxCaW9jaGVtaXN0cnnlsLHmmK9CMUMtTGFjdGF0ZQpbMTA6MzBdIOeEtuW+jOi3n0NSUC1MYWN0YXRlIOmChOaciUdhcyDnhLblvoznnIsuLi7nhLblvowuLi4g5ZevLi4u55yLY29hZ3VsYXRpb24gcHJvZmlsZemAmeaoo+WtkCDnhLblvowuLi7lroPmnIkuLi4g5ZevLi4u5aW9Li4u54S25b6M5YaN5L6G5bCx5pivVUFV5Y2h6YCZ5qij5a2QClsxMDo0NV0g54S25b6M55yL5LiA5LiL5bCx5piv5a6D55qEWOWFiei3n0tVQiDpgoTmnIlFS0cg5aW9Li4uIOmAmem6vOW/qyDlk6YuLi7pgIHntabkvaAg5aW9Li4u5ZevLi4u55uu5YmN55qE6Kmx5bCx5pivLi4uIOWXry4uLjPokKwyLi4u5bCx5piv5b6I6auYLi4u5b6ILi4u5b6I6auY55qEbGV1a29jeXRvc2lzClsxMToxMF0g54S25b6MYm9yZGVybGluZeWwseaYr2JvcmRlcmxpbmXnmoR0aHJvbWJvY3l0b3BlbmlhIOaykuaciU5pbmlhIOebruWJjeeahOWwseaYr2NyZWF0aW5pbmXkuI3nn6XpgZPmnInkuIDlgIvlvoguLi4g5Y+r5LuA6bq8VW5kZXJsaW5lClsxMToyM10g54S25b6MLi4u5bCx5pivY3JlYXRpbmluZSBBS0npgJnmqKPlrZAg5bCNLi4u54S25b6MLi4u6YKj5a62Li4uIOebruWJjeeahExIUumDvemChOWlvSDnhLblvowuLi7mnInkuIDpu57pu57nqI3lvq7nmoQuLi7lsLHmmK9MaXZlci4uLkxpdmVyIEVsZXZhdGlvbgpbMTE6MzldIOmAmeaoo+WtkC4uLkxpdmVyIEZ1bmN0aW9uIEVsZXZhdGlvbiDlpKfmpoLnmoToqbEuLi7nm67liY3nqI3lvq7mnInpu57pq5jkuIDpu54g6YKjLi4uUFRBIFBUVOmDvemChOeul+ato+W4uOevhOWcjeS5i+WFpyDpha7pq5QgKGtldG9uZSnmspLmnInpq5gKWzExOjUxXSDllYouLi5HYeebruWJjeeci+i1t+S+huaYr+S4gOWAiy4uLiByZXNwaXJhdG9yeeeahEFjaWRvc2lzIOWwseaYr1NSQUVLR+WVij8g5ZGDLi4uRUtH55qE6YOo5YiG55uu5YmN55yL6LW35L6G5pivLi4uIFRhY2h5Y2FyZGlhClsxMjowN10g54S25b6MWOWFieeahOipsS4uLiDnm67liY3nmoToqbEuLi4g55uu5YmN55qE6KmxLi4uIHRyYWNoZWHlpb3lg4/lsLHmmK8uLi7lnKjmraPluLjnmoQuLi4g5Zyo5q2j5bi455qELi4u5rKS5pyJRGV2aWF0aW9uIOeEtuW+jEJvbmfkuZ/pg70uLi7nnIvotbfkvobpg70uLi4KCj09PSDwn5KKIOS/ruato+iouuaWtyDoiIcg5rK755mC6JmV572u77yIS0NsT+KCgyDkuK3mr5IgLyBHNlBE77yJIO+8iDEyOjIw77yJID09PQoKWzEyOjIwXSDmspLmnIlGbGFnLi4u55yL6LW35L6G6YO9Li4uIOeci+i1t+S+humDvS4uLiDpgoQuLi7lsLHnnIvotbfkvobpg70uLi4g5aW9Li4uIOmCo+WAiy4uLuWutuWxrC4uLiDmhYzmhYzlvLXlvLXlvLXnmoQuLi4g5ou/5YiwLi4uIOiqqi4uLui3kemAsuS+huiqqi4uLgpbMTI6MzBdIOWTquS4gOWAiy4uLuWcqOaIv+mWk+Weg+Wcvuahti4uLiDmib7liLDkuIDlgIvnqbrnmoTljJblrbjol6Xlk4E/IOaYry4uLiDlkYMuLi4g5rib5LqC5L+u5q2j5ZKM5rK755mC6JmV572uLi4uIOesrOS6lOmhjC4uLiDnrKzkupTpoYwuLi4g5aW9Li4uIOWTji4uLiDlsI0uLi4g5Ymb5omN562U5a6M56ys5Zub6aGM5LqG5ZibLi4uClsxMjo0OF0g5bCx5pivLi4uIOaqoumply4uLuaqouafpee1kOaenOeahOWIpOaWty4uLiDlt7LntpPotbAuLi4g56ys5LqU6aGMLi4uIOWRgy4uLuesrOS6lOmhjOacieWIpOaWty4uLiDnhLblvowuLi4g5bCx5piv5LiL5LiA5YCLLi4uIOS4i+S4gOWAi+eahC4uLiDlsI0uLi4g5o+Q5Ye65LiL5LiA5q2lLi4uClsxMzowMV0g5ZOmLi4u5aW9Li4uIOmCoy4uLumCoy4uLiDlm6Dngrrku5YuLi4g5LuW55qELi4uIOS7luWPr+iDvS4uLiDmnIkuLi4g5Zug54K656ys5LiA5YCL5bCx5pivSGlzdG9yeeeahOmDqOWIhi4uLiDliZvliZsuLi4g5YW25a+m5rKS5pyJ5ZWPLi4uIOWVj+WIsOmAmeS7tuS6i+aDhS4uLgpbMTM6MTVdIOeEtuW+jC4uLiDlvozkvobmnInkuIDlgIsuLi4g5pyJ5LiA5YCL6YCZ5YCL5p2x6KW/Li4uIOaJgOS7peWPr+iDveacg+acieeWkeaYry4uLiDpgJnlgIsuLi4gSG90ZWwgU2FtcG9yYS4uLiDpgJnmmK8uLi4g6YCZ5piv5LuA6bq85p2x6KW/Li4uIFBvdGFzc2l1bSBDaGxvcmlkZS4uLgpbMTM6MzBdIOWwseaYry4uLiBvdmVyZG9zZS4uLiDpgJnmqKPlrZAuLi4g54S25b6MLi4uIOeEtuW+jC4uLiDlj6/og73opoEuLi4g6amX6YKj5YCLLi4uIE1ldGh5Li4uIOWXry4uLiBNZXRoeS4uLiBNZXRoeS4uLgoKPT09IPCfl6PvuI8g5b6M57ea54Wn5pyDIOiIhyDlrrblsazop6Pph4sg77yIMTM6NDLvvIkgPT09CgpbMTM6NDJdIEhlbW9nbG9iaW4gRW1pYS4uLiDll68uLi4g5bCNLi4uIOaJgOS7pS4uLiDmiYDku6UuLi4g5omA5LulLi4uIOS4i+S4gOatpS4uLiDopoHmgI7purzomZXnva7lkaIuLi4g5bCx5pivLi4uIOaIkeWAkeWPr+iDvS4uLiDopoHntabku5bpgqPlgIsuLi4KWzEzOjU1XSBNZXRoeS4uLiDpgJnmqKPlrZAuLi4g54S25b6MLi4uIOesrOS4gOWAi+aYry4uLiBJdm8yIE1vbml0b3IuLi4g54S25b6MLi4uIOWXry4uLiDnhLblvowuLi4g5YaN5L6G5bCx5pivLi4uIOe1puino+avkuWKkS4uLiDnhLblvozop6Pmr5LlipHnmoToqbEuLi4KWzE0OjExXSDlsLHmmK/pgqPlgIsuLi4gTWV0aHlsZW5lIEJsdWUuLi4g6YCZ5qij5a2QLi4uIOWwjS4uLiDnhLblvozmiJHlgJEuLi4g5Y+v5Lul6Lef5bCx5pivLi4uIOWmguaenC4uLiDlsLHmmK/kuI3lpKrlsI8uLi4g5Y+v6IO96YKE5LiN5piv5b6I56K65a6a55qE6KmxLi4uClsxNDoxOV0g5Y+v6IO96KaB5Y67Li4uIOS9oOimgeWOu+aJk+e1puWMl+amrueahOiugOeJqeenkSDnhLblvozoqaLllY/lsLHmmK/ku5bnmoTnl4fni4Ag54S25b6M6YKj5YCL5YqR6YeP6YCZ5qij5a2QIOeEtuW+jOaIluiAheaYr+WwseaYr+mCo+WAi+WEsuWCmee2siDlsLHmmK/oroDniannmoTlhLLlgpnntrLljrsg5bCNIOmCo+aIkeWPr+S7peefpemBk+WwseaYr+S7lue1puWujE8gbW9uaXRvcgpbMTQ6NTFdIOeahOWwseaYr1NQTzLll44g57Wm5a6MTyA5NOWYtOWUh+S+neeEtueZvOS5viA5NOeEtuW+jOS+neeEtueZvOS5viDlpb3llYrpgqPku5bpgoTmmK/mnIPopoHlsLHmmK/ntabpgqPlgIsg5bCx5piv6Kej5q+S5YqR6YCZ5qij5a2QIOeEtuW+jOaJgOS7peS7luWPrOacg+eahOipsSDlsLHmmK/mnIPmnIPmiZPntablsLHmmK/oroDniannp5Eg54S25b6M6Lef5bCN5omT57Wm6K6A54mp56eRCgo9PT0g8J+TnSDogIPlrpjorJvoqZUg4oCUIOetlOmhjOetlueVpeiIh+aZgumWk+WIhumFjSDvvIgxNToyMO+8iSA9PT0KClsxNToyMF0g54S25b6M5bCx5piv6KuL5LuW6YKj5L2g5aW9IOS7pWlTUEHnmoTljrvkuqTnj60g6YKj5L2g5aW95oiR5piv5oCl6Ki655yL6Ki66Yar5birIOS9oOWAkeaYr+S7iuWkqeeahOiugOeJqeWPrOacg+enkeWXjiDmiJHlgJHpgJnpgormnInkuIDlgIvlsLHmmK8yMOatsueUt+aApyDnhLblvozku5blsLHmmK/pgKPnuozkuInlpKnmnIlPMui3n+iFueeAiemAmeaoo+WtkCDpgJnmqKPlrZDpgqPkvobnmoTmmYLlgJnlsLHmmK8KWzE1OjQwXSDlsLHmmK/msZfot5/nhorploDoiLnpgJnmqKMg6YCZ5qij5ZWKQ2VudHJhbCBjeWFub3NpcyBTUE8y5q+U6LyDU08y6YCZ5qijIFNPMuW3rumAmeaoo+WtkCDkvYZHYXPnnIvotbfkvobmmK/kuIDlgItNYXRoIE1ldEhi5a6D55qE6YKj5YCL5bCx5piv55yf5a+m55qEU1BPMumAmeaoo+WtkApbMTU6NTRdIOmCo+aJgOS7peeci+i1t+S+huaYr+S4gOWAi01ldEhiIOmCo+aIkeWAkeebruWJjeWcqOaApeiouuW6p+eahOiZlee9ruaYr+aciee1pumCo+WAi+ino+avkuWKkSBNZXRIYueahEJsdSDlvoznuozlj6/og73pgoTmmK/mnIPlsLHmmK/orpPkvaDlgJHkvoboqZXkvLDot5/lsLHmmK/mlLbkvY/pmaIg5aW9IOWlveeEtuW+jOi3n+WKoOmAn+ino+mHiyDmmK/pgqPlgIvmgKXoqLrnnIvoqLrphqvluKsKWzE2OjE1XSDoq4vllY/kvaDmmK/ku5bnmoTmlZnogrIg6YKj5L2g55qE5pWZ6IKy56iL5bqm5pivIOWkp+WtuCDlpb3lpKflrbgg6YKj5oiR5YCR5bCx5piv5LulIOmCo+S7luWqveWqveS7lueahOmCo+WAi+WwseaYr+S7lumAmeasoeS+hueahOipsSDkuLvopoHnmoTnl4fni4DpgoTmmK/lsLHmmK/mjIHnuozlmJTlkJDot5/ohbnngIkg6YKj5oiR5YCR5Yid5q2l55qE5bCx5piv6KmV5LywIOeWkeS8vOWwseaYr+acieS4gOWAi+S9oOWJm+aLv+mAsuS+hueahOmAmeWAi+adseilv+eahOeoruakjQpbMTY6NDddIOmCo+ebruWJjeeahOipseW3sue2k+WcqOe1puS6iOino+avkuWKkeS6hiDpgqPlvoznuoznmoToqbHku5blj6/og73ku5bmmK/kuIDlgIvlsLHmmK/nlpHkvLzmnInkuIDlgIsg6YKj5YCL5Y+r5LuA6bq8IOeWkeS8vOaciemAmeWAi+aLv+mBjuS+hueahOiXpeeJqeeahOS4reavkiDpgqPmiJHlgJHnj77lnKjlt7LntpPntabop6Pmr5LlipHkuYvlvowg5Y+v6IO95bCx5piv5b6M57qM6KaB5YaN57m857qM6Lef6Lef6Lef5L2P6ZmiClsxNzoxMl0g6YKj5pivIOacieipseWTqCDlpb0g5oiR5beuIOmCo+etieS4gOS4iyDlpKflrrbogb3ogbLluLbmiYsg5bCx5piv5oOz6KaB6Z2g6JGXIOacg+ecn+WvpueahOaDheazgeaYr+WcqOmCo+WAi2hpc3RvcnnpgqPpgoog54S25b6M5b6M6Z2i5YaN5bCx5piv5ou/5Ye66YCZ5YCL5p2x6KW/5ZeOIOmAmemhjOS5n+aYr+aIkee2k+W5tOaSv+WIsOeahOaooeaTrOWvpumrlApbMTc6NDFdIOS7luWFtuWvpiDll68g5oiR5LiN55+l6YGT5Ye66aGM55qE5Lq65piv6Kqw5ZWKIOS9huS7lumhjOebruWwsemAmem6vOioreioiCDmspLmiZPpiaTnrYnnrYnnmoTlnLDmlrnll44g5ZevIOmCo+S6m+WTpiDlpJbllYbkuI3mmK/mnInmmYLlgJnmnIPmnInkuozmrrXororljJbll44g5ZevIOS9oOWPr+S7peWFiOiKseS4gOWAi+S4gOWIhumQmOeci+S4gOS4i+mhjOebruWViiDlsLHmmK/poYznm67mnInlgIvlvojlpYfmgKrnmoTpoYznm67llYoKWzE4OjA3XSDmnInlgIvku4Dpurzkv67mraPnm67liY3oqLrmlrcg5bCN5ZCnIOW5s+aZgumDveS4jeWkp+acg+aciemAmeS4gOWAi+mhjOebriDlsI0g5aaC5p6cIOS9oOeci+aAquaAqueahOmhjOebruWwseimgSDlsLHopoEg5bCx6KaB5bCP5b+D5LuW5pyD5pyJ5LiA5Lqb6K6K5YyWIOmAmeaoo+WtkCDpgqPlk6Yg5bCN5oiR5LuK5aSp6Lef5aau5aau6ICB5bir5LuW5Lmf5piv5pyJ5LiA6aGMIOWwseaYr+S7gOm6vApbMTg6MjddIOi/lOiouuS5i+W+jCDlsI0g54S25b6M5Y+I5ZueIOWwjeWwjeWwjSDnhLblvozmiJHpgqPmmYLlgJnpgoTot5/lrrblsazorJsg6YKj5YCL5pivQmFsbCDnhLblvoznhLblvozmiJHlsLEg5ZOOIOaAjum6vOS4i+S4gOmhjOWwseaYr+i/lOiouiDnhLblvozllYog5omA5Lul5L2g6aGM55uu6YKE5piv6KaB6Iqx6bue5pmC6ZaT55yLIOeEtuW+jOaKiuavj+WAi+mhjOebruimgeWVj+eahOmHjem7nuWciOi1t+S+huWQpwpbMTg6NDVdIOaIluaYryDpgJnpoYzmmK8g5b6p5LiN5LiA5pa3IOmAmemhjOaYr+aqoumpl+aqouafpSDmr5TlpoLoqqog6aGM55uuIOWFtuS4reS4gOWAi+WuieaOkuaqoumpl+aqouafpSDmnInlgIvph43opoHnq4vljbPomZXnva4g6YKj5pmC5YCZ5Lmf5rKS5pyJ6Kyb6YeN6KaB56uL5Y2z6JmV572u5ZWKIOWwjeS4jeWwjSDll68g5ZOm5aW9IOaIkeaYr+aykuacieaVheaEj+aykuacieaPkOmGkuS9oApbMTk6MDJdIOaIkeS5n+S4jeefpemBk+iAg+WumOacg+S4jeacg+aPkOmGkuS9oCDpgqPpoYznm67mnInmmYLlgJnkuI3kuIDlrprlsLHmmK/pgqPpurzmqJnmupbnmoTmoLzlvI8g6YKj5YmN6Z2i6Iqx55qE5pmC6ZaT5q+U6LyD5aSa5ZyoUEXot59IaXN0b3J55ZWKIOWwseaYryDlsLHmmK/mspLmnInmg7PliLDmmK/ku4Dpurwg5omA5Lul5bCx5bCx5piv6LaK5ZWP6LaK5ru/IOi2iuWVj+i2iua7vwpbMTk6MTldIOWwseaYr+mAmeaooyDmiYDku6XlvozpnaLnmoTmmYLplpPlsLHmnIPooqvmnInpu57mk6Dlo5Mg5L2GIOmChOaYr+W+iOmHjeimgSDlm6DngrrmspLmnInmg7PliLDlvozpnaLkuZ/mnIPmi7/kuI3liLDliIbmlbjpgJnmqKPlrZAg5omA5Lul5oiR6Ka65b6X5pmC6ZaT5YiG6YWN6YKE5Y+v5Lul5ZWKIOmChOWQiOeQhumAmeaoo+WtkCDpgqMg5YW25a+m5bCx5piv5pyDIOiojuS4gOS6m+Wlh+aAqueahOadseilv+WYmwpbMTk6MzZdIOavlOWmguiqqk1ldGhlbW9nbG9iaW5lbWlhIOiuiuaAp+ihgOe0hee0oOihgOeXh+WwseaYr+acg+iAg+WHuuS+huWYmyDmiYDku6Ug5bCx5piv55yL5YiwY3lhbm9zaXMg5Y+v6IO95bCx6KaB5oOz5Yiw6YCZ5YCL5qqi5Yil6Ki65pa35ZWmIOaJgOS7peWFtuWvpuS7iuWkqeeahOmWk+WIpeiouuaWtyDlroNIaXN0b3J55YqgUEXlhbblr6blsLHlj6rmnIljeWFub3Npc+WYmwpbMTk6NDddIGN5YW5vc2lz5ZKM6KGA5rCn5LiN5aW95ZibIOWwseaYr+mAmeWAi+mWk+WIpeiouuaWt+mCo+mCiuWFtuWvpuWwseaHieipsuaKiuW/g+iCuuWFqOmDqOism+S4gOi8quWViiDkvaDorJvlpKrkuYXkuoYg5Zug54K65L2g5oOz5LiN5Yiw5bCN55qE5piv5LuA6bq8IOS9huaYr+iHs+WwkeS9oOWwseaKiuW/g+iCuuWFqOmDqOism+S4gOi8quS4gOWumumDveacieWIhuaVuOWViiDogIzkuJTpgJnnqK7ohbjog4PkuI3oiJLmnI3llYoKWzIwOjAzXSDmsKfmsKPkuI3lpb0g6YKj5YCLbXlvY2FyZGl0aXPlsLHmmK/lhbbkuK3kuIDlgIvmg7PopoHogIPnmoTllYog5bCN5LiN5bCNIOaJgOS7peiHs+WwkW15b2NhcmRpdGlzIOaykuacieism+WIsG15b2NhcmRpdGlzIFNlcHNpc+S5n+aykuism+WIsCDmnInorJvliLBpc2NoZW1pYyBib3dlbOWVigpbMjA6MTRdIOWPquaYr+WJm+WlvemAmeWAi+Wug+ioreioiOWwseaykuaciWlzY2hlbWljIGJvd2VsIOWug+WwseWvq+S4gOWAi0FHRSDmnIDmma7pgJrnmoTluLjluLjkuZ/mmK/mnIPmi5vkuobkuIDkupvliIbmlbgg6YKj5YOPUEXlhbbku5bnvLrmsKfmsKPlhYfnlr7nl4XmnInorJvlsLHmnInliIbmlbgg6YKj5q+S54mp5bCx5rKS5pyJ6Kyb5Yiw5ZWKClsyMDoyNV0gY3lhbm9zaXPmnInmmYLlgJnlsLHmmK/opoHogIPmr5LnianllYog5ZevIOWwseaykuS6i+S4jeacg+mhjOebruS4jeacg+i3n+S9oOW8t+iqv+S4gOWAi2N5YW5vc2lz5ZWKIOiAgeWvpuiqquS7luimgeiAg+WFtuS7llBF5LuA6bq8IOW4uOW4uOS5n+S4jeS4gOWumue1puS9oGN5YW5vc2lz5ZWKIOmAmeS6m2N5YW5vc2lz5YW25a+m5bCx5piv5LiA5YCLClsyMDozOV0g5oOz6KaB6ICD5L2gbXlvY2FyZGl0aXPnmoTmhJ/oprrpgJnmqKMg6ICM5LiU5L2g55yL5LuW6aGM55uu5Y+I6Kit6KiI5LiA5YCLRzZQRCBkZWZpY2llbmN5IOS4jeacg+eJueWIpei3n+S9oOiqquacieWAi+igtuixhueXh+mAmeaooyDoqK3oqIjpgJnlgIvmnbHopb/kuIDlrprmmK/mnInmhI/nvqnnmoQg5L2g55yL5L2g55yL5b6A5LiL55yL5L2g55+l6YGT54K65LuA6bq85LqGClsyMDo1NF0g54S25b6M5LuW5qqi6amX5qqi5p+l56uL5Y2z6JmV572uIOS7luWwseaKiklWIC8gT+KCgiAvIE1vbml0b3Lpg73nmbzlnKjpgJnlgIvnq4vljbPomZXnva7pgJnoo6HllYog6YKj54K65LuA6bq85LuW5pyD6YCZ5qij6Kit6KiIIOWboOeCuuS7luaDs+imgeWRiuiotOS9oOWwseaYr+S9oOe1puS6hk8yIOawp+awo+aykuacieaPkOWNhyDlmLTllIfkvp3oiIrnmbzkub4KWzIxOjA3XSDku5bmg7PopoHpgJnmqKPlrZDmj5DnpLrkvaDllYog6YKj5L2g5aaC5p6c6YCZ5Lmf5rKS5pyJ6Kyb5Yiw6YeN6KaB6JmV572uIOaIkeS5n+aykuacieism+WIsOmAmeWAi+awp+awo+aykuacieaUueiuiiDpgqPkvaDlvozkvobmnInorJvmsKfmsKPlmJsg5bCx6Lef5L2g6Kyb6YCZ5Lu25LqL5oOFIEVLR+mChOaYr+imgeWIpOiugOS4gOS4iyBFS0flpb3lg4/mspLmnInogb3liLAKWzIxOjI2XSBFS0flpb3lg4/mspLnibnliKXogb3liLDll44g6YKE5pivIFNpbnVzIFRhY2h5Y2FyZGlhIOacieism+WXjiDmnInorJvlpb0g5Y+N5q2j6YCZ5YCL5Yik6K6A5Z+65pys5LiK6YO95rKS5LuA6bq85ZWP6aGM5ZWKIOaAp+WKn+iDveWwseeJueWIpeaHtuWYmyDlsI3kuI3lsI0g6YCZ5YCL5b6M6Z2i5bCx5q+U6LyD5rKS5pyJ5o+Q5YiwCgo9PT0g8J+TmiDogIPlrpjorJvoqZUg4oCUIOmRkeWIpeiouuaWt+aAnei3r++8iGN5YW5vc2lz44CB5q+S54mp77yJIO+8iDIxOjM477yJID09PQoKWzIxOjM4XSDmspLmnInmj5DliLDlsLHmmK9BS+aVtOaWt+mChOaciUFL6YCZ5Lu25LqL5oOFIOWJm+WJm+eahEdhU+aHieipsueci+W+l+WHuuS+huWwseaYr0dhUyDnnIvotbfkvoblsLHmmK8g5ZevIFNPMuW+iOWlvSDkvYbmmK/lhbblr6bku5bnmoRTUE8y5pyD5piv5bCx5pivIOWBh+eahCDlsLHmmK8g5bCN5ZWKIOaJgOS7peS7lumAmeWAiwpbMjE6NThdIOWwseaYr+S7luS4jeaYr+mCo+eoriDlgrPntbHmsKfmsKPnmoTllY/poYzllYog6YKj5LiN566h5LuW5bCx5pyD5ZGK6Ki05L2gIOaLv+WHuuS4gOWAi+eTtuWtkOe1puS9oCDku5bnmoToqK3oqIjmmK/pgJnmqKPlrZAg5L2g5bCx5pyD5b6X5YiwIOiuiuaAp+ihgOe0hee0oCAoTWV0aGVtb2dsb2Jpbikg5omA5Lul6K6K5oCn6KGA57SF57SgClsyMjoxNF0g6Kyb6Yyv5LqGIE1ldEhi5Lmf5pivIOS5n+WPr+S7peWPq+iuiuaAp+ihgOe0hee0oCAoTWV0aGVtb2dsb2Jpbikg5bCNIOWwjSDlsLHmmK/orormgKfooYDntIXntKAg5aW9IOmCo+eci+WIsGN5YW5vc2lzIOWwseaYr+aKveihgOeahEdhUyDkuZ/oqLHlsLHlj6/ku6Ug6YKE5Y+v5Lul55yL5LiA5LiLClsyMjoyNl0g6YKj5YCLIOmAmeeoruaHt+eWkeS4reavkueahOiomOiAhSDlsLHmir1NZXRIYiBHYVPot59DT0hQIOWFqOmDqOWwseWPr+S7peS4gOi1t+aKveS4gOaKvSDmiJHmnIPlnKjlk6rkuIDlgIvlnLDmlrnmnIPmg7PliLDllYog5bCx5piv5Zyo5L2gIGN5YW5vc2lzIOaHieipsuaYr2N5YW5vc2lzIOaHieipsuaYr2N5YW5vc2lzClsyMjo0MF0g5oeJ6Kmy5pivY3lhbm9zaXMg5oeJ6Kmy5pivY3lhbm9zaXMg5oeJ6Kmy5pivY3lhbm9zaXMg5oeJ6Kmy5pivY3lhbm9zaXMg5oeJ6Kmy5pivY3lhbm9zaXMg5omA5Lul5oiR5YCR5pyD5b6X5Yiw5ZWmIOWPiOacg+W+l+WIsOWVpiDlpb3lkKcg6YKj5Y+N5q2j5rK755mC55qE6KmxClsyMjo1Ml0g5rK755mC55qE6YeN6bue5bCx5pivIEdDQ1Qg5peF6KGM5a6j5oGvIOS4jeiDveeUqOeUsueDr+iXjSAoTWV0aHlsZW5lIEJsdWUp5ZWmIOWPquiDveeUqOe2reS7luWRvUMg54S25b6M5Y+q6KaB5q+S54mp55qE5Lit5q+SIOWPr+iDvemDveimgeiqquWIsOiAg+aFrumDveacg+avkueJqei3n+iFjuiHn+enkSDogIPmha7opoHkuI3opoHmtJfohY4KWzIzOjA3XSDogIPmha7opoHkuI3opoHmtJfog4Mg5omA5Lul5Zyo5pmC6ZaT5LiN5piOIOWwseaYr+Wwseeul+aYr+aZgumWk+S4jeaYjiDkuZ/mnIPoqqrlsLHlm6DngrrmmYLplpPkuI3mmI4g5LiN6ICD5oWu5rSX6IODIOS7luiqquS4jeWumuacg+acieWAiyDlkbPpgZMg5bCx5piv5LuW5bCx5rKS5pyJ5rSX6IODIOaIkeism+aIkeiAg+aFrumBjuS4jea0l+iDgyDmtJfog4PpgJnlhanlgIvllY/poYwKWzIzOjI0XSDll6/ll68g5omA5Lul5bi45bi46YO95pyD5pyJ5YiG5pW4IOaAjuaoo+WboOeCuuW+iOWkmumGq+mZoumDveaYryDohY7oh5/np5HlnKjpvJPmnI3np5Eg5omA5Lul5rSX6IOD6YO95pyD5pyJ5YiG5pW4IOW+jOmdoueXheS5nyDlsLHmmK/mspLmnInorJvliLDljrtJQ1Ug5bCx5piv5oiR5YCR5rK755mCIOeahOmDqOWIhiDlsLHmmK/msrvnmYLpg6jliIbmnInorJvpgY7ll44g5bCx566X5rKS5pyJ5ZWPClsyMzo0NF0g54Wn5oWn5ZKMZGlzcG9zaXRpb27kuZ/pg73opoHorJsg5LuW5bCx5piv5rK755mC55qE5LiA6YOo5YiGIGRpc3Bvc2l0aW9u5bi45bi45pyD5Zyo5rK755mCIOS7luWwseaYr+WmguaenOS7luacieS4gOmhjCDnibnliKXllY/pgqPlsLHlvojlpb0g5L2G5aaC5p6c5LuW5rKS5pyJ54m55Yil5ZWPIOS5n+mDveacg+aYr+WwseaYr+ayu+eZgueahOS4gOmDqOWIhgpbMjM6NThdIOiHquW3seimgeismyDpgJnmqKPlrZAg5aW9IOWRgyDoqpIg5LuW6YKE5pyD5pyJSEJP55qE6YKj5YCLIOWXryDkvaDlj6/ku6XnlKhIQk8g5ZevIOS9oOiqqumrmOWjkyDll68g5ZevIOaHieipsuaYr+WPr+S7peWQpyDmiJEg5Zyo6YCZIOavj+WkqeaIkemDveaykuS6uuWViiDnibnliKXnlKhIQk8g5bCN5ZWKIOaIkeacieiBvemBjgpbMjQ6MTddIOaXoueEtuimgeeUqFZpdCBD55qEIOaHieipsuaYr+mAmeaoo+WtkOeahCDlsLHmmK8g6KaB55SoVml0IEMgKGFzY29yYmljIGFjaWQpIOaHieipsuaciemAmeaooyDpq5jlipHph4/nmoRWaXQgQyAoYXNjb3JiaWMgYWNpZCkg5oiR5Y+v5Lul6Ly46KGA5ZWKClsyNDoyN10g6KiY5b6X5bCx5pivIOS7luWOu+ippuaIkSDmiJHmspLmnInoroDpgY4g5L2G5oiR6KiY5b6X5Y+v5Lul6Ly46KGAIOaJgOS7pemAmeaYr+S4gOWAi+iugOeahCDmiYDku6XlsLHmmK/orormiJAg5bCx5piv5YmN6Z2i55yL6KaB5LiN6KaB5oOz6KaBIOaykuacieaDs+imgeiugOWwseacg+W+iOm6u+eFqeWViiDpgqPlgIsg5bCN5ZWKIFNJTU8g5LiN5piv5Y+j5pivTWV0aGVtb2dsb2JpbmVtaWEKWzI0OjUwXSDmiJbogIXoqqrpgJnmqKPlrZAg5pyJ5Y+m5aSW5LiA5oqKIOWwseaYr0NPIOeEtuW+jE1ldGhlbW9nbG9iaW5lbWlhIOmChOacieS4gOWAiyDlj6blpJbkuIDlgIvmmK9Tb2ZhIE1ldGhlbW9nbG9iaW5lbWlhIOS9humCo+WAiyDlsI0g5bCNIOmCo+WAi+S5n+aYr+iXpeeJqemAoOaIkOeahApbMjU6MDZdIOWwseaYryDkvYblsLHmr5TovIPkuI3mnIPljaEg5Zug54K65LuWIOS7liDmmK/llYog5L2g5aaC5p6c5pivQ0/kuK3mr5Ig5LiN5aSn5pyD6KKr6KqN6K2Y5LiA5LiLIOWXryDll68g5oiR6Ka65b6XIOWFtuWvpiDpgJnoo6Eg5YW25a+mIOaykuacieeahOWIhuaVuCDmnIkg5oiR5Y+N6ICM5piv6Ka65b6XIOS9oOS4jeefpemBkyDkuZ8g5rKS5pyJ6Zec5L+CClsyNToyOV0g5L2g5Y+N6ICM5pivIOmRkeWIpeiouuaWtyDorJvlpKrlsJHkuoYg5pyA6YeN6KaB5piv6YCZ5LiA5YCLIOWFtuS7lumDveaykuS7gOm6vOWkp+WVj+mhjOWViiDmsrvnmYIg5bCx566X5rK755mC6Yyv5LiA5YCLIOWwseaYr+S9oOaJk+S6hueUsueDr+iXjSAoTWV0aHlsZW5lIEJsdWUpIOmCo+WAi+acgOWkmiDpmL/kuI3lsLHmiaPkvaDlhanliIYKWzI1OjQyXSDmiJbogIXkuInliIYg5Y+N6ICM5pivIOebtOaOpeiouuaWtyDkvaDmspLmnInorJvliLDlv4Poh5/ns7vntbEg5ZKM6K6A54mpIOmAmeijoeWPr+iDvSDpgoTmnInooqsg5bCx5piv6YCZ6KOh5Y+v6IO9IOacg+WwkeaOieWbm+WIhiDogIzkuJTpgJnlgIvmmK/mh4noqbIg5bCx5pivIOWPjeato+WwseaYr+aKiuWFqOmDqOism+S4i+WOuyDorJvoh7PlsJEg5YGl5YWo56iL6YO95pyDClsyNTo1OF0g6Iez5bCR6Kyb5YCL5LqU5YWt5YCL5ZCnIOWboOeCuiDku5bmnKzkvoblsLHmmK8g6Iez5bCR5pyD5pyJ5LqU6aCF55qE6KmV5YiGIOmAmeaoo+WtkCDmiJHmg7PopoHllY8g5bCx5piv5a246ZW35ZyoIOmCo+WAiyBUZW50YXRpdmUgRGlubyDlsLHmmK8g5oiR5YW25a+m5pyJ5pmC5YCZIOW4uOW4uOWwseaYr+acg+aDs+S4jeWIsCDoh7PlsJEKWzI2OjEyXSDlsLHmmK/miJHlj6/og73lsLHlj6rmnInorJvkuInlgIsg5oiR6Ka65b6X5bCx5piv5YW25a+m5YGP5bCRIOmCo+WwseaYryDpgqPnt7TllYog5pW055CG5LiA5LiL5LiN5ZCM5p2x6KW/IFRlbnRhdGl2ZSBEaW5vc3VzIOS9oOWPr+S7peism+S7gOm6vCDmr5TlpoLoqqog5aW9IOavlOWmguiqqueZvOeHkiDkvoborJvkuIDkuIvnmbznh5IKWzI2OjI2XSBUZW50YXRpdmUgRGlub3N1cyDlroPlsLHlkITnqK7lvbHpn78g5ZCE56iu5b2x6Z+/IOeEtuW+jOWcqCDlkITnqK7lvbHpn78g54S25b6M5ZyoIOWTpiDljL/ojpPlsLzllYog54S25b6MIFVUSSDnhLblvozot5/lsLHmmK8g5ZGDIOWwseaYryBDTlMgSW5mbGF0aW9uCgo9PT0g8J+nqiDogIPlrpjorJvoqZUg4oCUIE1ldGhlbW9nbG9iaW5lbWlhIC8gRzZQRCAvIOino+avkuiZlee9riDvvIgyNjo0MO+8iSA9PT0KClsyNjo0MF0g5Lmf5pyJ5Y+v6IO9IOmAmeaoo+WtkCDnhLblvozlnKgg5bCx5pivIEN5cm9pZCBIeXBlcnRoeXJvaWRpc20g5bCx5pivQ3lyb2lkIHN0b3JtIOS5n+acieWPr+iDvSDkuZ/mnInlj6/og70g5bCNIOeEtuW+jCDlsLHmmK/ogprlrZDnmoQgSUVJIOS5n+acieWPr+iDvQpbMjc6MDFdIOWwjSDlsI0g5ZevIOmChOaciSDkuI3lpKDll44g6YCZ6YO95oSf5p+T5LqGIOmChOaciSDlj6rlpJrkuobkuIDlgIsgVHlyb2lkIHN0b3JtIOmChOacieWXjiDpgoTmnIkgSUUg54S25b6MIOeEtuW+jCBJRSDnhLblvowg6LefIOaHieipsiDlsI0gTXljb3RpYyBhbmV1cmlzbQpbMjc6MjJdIOS5n+acieWPr+iDvSDoo6HpnaLlsLHmmK/mnInkuIDkupsg6YKj5YCLIOmRkeWIpeiouuaWtyDlsLHmmK8g5LiA5LqM5LiJ5Zub5LqU5YWt5LiD5YWr5LmdIOWIl+S6huS5neWAi+WwseaYryDmiJHoh6rlt7HpgqPmmYLlgJkg5pyJ5rqW5YKZ55qE6ZGR5Yil6Ki65pa3IOWwseaYr+WPr+S7peism+eZvOeHkuWViiDnmbznh5LlsLHmmK8gVVJJIE5lbW9uaWEKWzI3OjM5XSDkvaDliZvliZvlpb3lg4/kuZ/mspLorJvliLAgVVRJIFBJRCDmspLmnInorJvliLAgTXlvY2FyZGl0aXMgQ2VudHJhbGNhcmRpdGlzIE1lbmluZ2l0aXMg54S25b6MIExldWNlbWlhIEx5bXBob21hClsyNzo0OF0g6YKjIOaciVR5cnJveWEg5LiA5a6a5pyJUGhpbGNvbW8gU3l0b21hIOWwjeS4jeWwjSDnhLblvowg6YKE5pyD5pyJQXV0b2ltbWVsIOmChOacg+acieihgOeZjCDlroPkuIDlrprmmK/pgJnmqKPlrZDllYog5ZevIOWwseaYryDlpoLmnpzkvaDopovkuoblvojlpJrmspLmnInlvojnhp8KWzI4OjAwXSDkuZ/oqLHkvaDmiorpgJnkupvnnIvkuIDnnIsg54S25b6MIOe3tOe/kuWcqOS4jeWQjOmYu+e0oCDmnIPogIPpmLvntKAg5YW25a+m5bCx6KaB5a+r5ZibIOiDuOeXm+iFueeXmyDmh4noqbLpg73lj6/ku6XorJvlvojlpJog6YCZ5Lqb5q+U6LyD5bCR6KaL55qEIOavlOWmgmh5cGVydGVtaWEg5oiR5YiX5Ye65L6G5bCx5piv6YCZ56iuIOmChOacieS4i+iFueetkgpbMjg6MTZdIOaIluiAhemgreeXmyDpgJnnqK7nmoTmmYLlgJnmr5TovIPpm6PoqJjnmoQg5YaN55yL5LiA5LiLIOWPg+iAg+S4gOS4iyDkuI3nhLblhbbku5bmiJHoprrlvpfmspLmnInku4DpurzllY/poYwg5YW25LuW5aSn5aSW5aSn5beu5LiN5aSaIOWkp+amguS5n+aYr+mAmeaooyDpkZHliKXoqLrmlrflj6/ku6XlpJrorJvpu54g5ZevIOS9oOacg+mBh+WIsOS4gOS6myDmgKXnl4fllpzmraHogIMKWzI4OjM0XSDkvYbmmK/lubPmmYLmspLmnInnlKjpgqPpurzlpJrnmoQg5bCx5piv5q+U5aaCaHlwZXJ0ZW1pYSBzdHJpZGUgcGVycGVyYSDpgJnnqK7lsLHmmK8g5Y+v6IO95bCx5piv6KaB56iN5b6u55yL6YGOIOeojeW+ruiDjOS4gOS4i+WQpyDll68g5oe35a2VIOS9oOaQrOWIsOaIkeimi+WIpeiouuaWt+aHt+WtlSDmiJHmiormh7flrZUKWzI4OjUwXSDmnIPogIPopovliKXoqLrmlrcg5a6M5YWo5LiN5YiX5Ye65L6GIOmAmeaooyDlk6blsI0g5bCx5pivIOWwsSDlsI3miJHlgJHku4rlpKnlsLHmnInogIPpgJnlgIsg5bCx5pivIGhlbHAg54S25b6MIHV0cmEgdXRyYSBsYXB0dXJlIOaHt+WtleacieWVj+mhjOeahCDkvaDlj6/ku6XlsLHmmK/nm7TmjqXmiorpgJnlgIvlsLHkuI3orJvkuIDpgY0KWzI5OjA0XSDmh4noqbLlsLHpg73lnKgg5oiR5aW95YOPIHAx5Lmf5pyJ5a+r5ZWKIOWwjSDmnIPogIPnmoTpoYznm67lsLHmmK/pgJnkupsg5aW9IOacieaZguWAmSDlpb0g6aGM55uu5bCx5piv5pyD5Zac5q2h5Ye65LiA5Lqb5q+U6LyD5YiB5bCI55qE5pW05q615ZWKIOeEtuW+jOiAg+S4gOWAi2VTSy1NZS1Cb3dsZXIg5rKS5pyJ5LuA6bq85oSP5oCdClsyOToxOV0g5bCN5LiN5bCNIOWDj+WOu+W5tOWwseiAg+S6huS7gOm6vFByaW9yIFBpbnNlbiDntZDmnpzmmK9MdWtpbmlh5ZibIOeEtuW+jCDniL7lhYvlsLHmmK8gSE9T5ZWKIOWwseaYr+acg+iAg+mAmeeoruavlOi8g+Wwkeimi+eahCBIT1Mgc3luZHJvbWUg5oiR6KiI5pivVFRQClsyOTozM10g5oiR6KiI5pivSE9TIOS4u+aVuOWwseacg+S4u+aVuOe1puS9oOWlveWDj+aYr1ByaW9yIFBpbnNlbiDkuYvpoZ7nmoQg5pyD6YGOIOWPquaYryDpgqPmqKPlrZDogIPlrozlsLHmr5TovIPmuIXphpIg6YCZ5qij5a2QIOaIkeePvuWcqOWlveWDj+WwseaYryBCb3JkZXIgTGluZSDmiJHoprrlvpflvogKWzI5OjU3XSDmnInpu57lsLHmmK8g5pyJ6bue5Y2x6ZqqIOeEtuW+jCDnr4Dnm67lho3oirHlpJrkuIDpu57mmYLplpMg5aSn5a6255yL5riF5qWaIOWGjemWi+WniyDmiYDku6XoirHlgIvkuIDliIbpkJjnjajpq5Qg5oiR6Ka65b6X6YO95rKS5pyJ6Zec5L+CIOeEtuW+jCDpgqPlgIsgVGVudGFyeSBEaWFnbm9zaXMg5piv6KaB6Kyb5aSa5LiA6bueClszMDoxNF0g54S25b6MVHJlYXRtZW5055qE6YOo5YiGIOimgeWMheaLrERpc3Bvc2l0aW9uIOWlvSDpgqPlgIsg5Ymb5Ymb6Lef6YKj5YCL5oe36Jmf6ICDIOeEtuW+jOS7luaYryDmiJHlv7XkuI3lrozogLYg5bCx5pivIOaIkeW+numCo+WAi1ByaW9yIEV4aGliaXRvciDnhLblvozkuIDot6/plbfliLBTZWNvbmRhcnkKWzMwOjI5XSDnhLblvozlj4gg5Zug54K655ar5oOF6K6K5YyWIOWPiOWGjeism+S4gOmBjSDnhLblvozlsLEg5oCO6bq86L6mIOacieS7gOm6vOWlveeahOW7uuitsCDlho3lpJrpgKPkuIDkupvll44gVG9tYeeahOmCo+WAiyDorJvnmoTpgJ/luqYg5bCx5piv6KaB6Kyb5Yiw5pyJIOS9huaYr+S5n+S4jeeUqOism+WIsOWkque0sCDmr5TlpoLlg4/kvaDot5/ku5ZQIENoZXNz6YKj6YKK5piv6Kyb6bue6bue57SwClszMDo1MF0g5oiR6Ka65b6X5L2g5Y+v5Lul5YWI6KybIOW5vuWAiyDnnIvlsI7lrpjlm57nrZTnmoTni4Dms4Eg55yL5L2g6KaB5LiN6KaB5ZC757+SIOWmguaenOmChOaciSBmaW5kaW5nIOS9oOWwseWGjeaKiuS7luWQu+e/kuS4gOm7niDog7jpg6gg6IO46YOo6Lef5LuW6Kyb5b6I6ZW3IOaIkeWPr+iDveWPquacg+ismyDlsLHmmK8g6IO46YOo6Kmm6Ki6IOiZleiougpbMzE6MDhdIOacieaykuacieS7gOm6vOWVj+mhjCDnhLblvozog7jpg6jogb3oqLog5omj6Ki6IOaykuacieWVj+mhjCDmiJHpgJrluLjlsLHpgJnmqKMg5oiR5bCx6Kyb5b6I57Ch55+tIOaIkeS4jeacg+iqquS7gOm6vCDmnInmspLmnInlsI3nqLHnrYnnrYkg5aaC5p6cIOS7luiAg+WumOWwseaYryDpnLLlh7rnjLbosasg6a2a6YOo5pyJ6bue5LiN55+l6YGT5oCO6bq85pCt55qE5pmC5YCZIOWwseaYr+eci+S7luihqOaDhQpbMzE6MjJdIOWwseWPr+iDveWwseacg+WGjeism+S7lOe0sOS4gOm7niDlsLHmmK/ku5bkuIDlgIvlnLDmlrkg5bCx5rKS5pyJ5p2x6KW/IOaykuacieadseilvyDmiYDku6XlsLHmmK8g5oiR5Zue562U55qE6YO95piv5q2j5bi4IOmAmeaoo+WtkCDogb3liLDogIPlrpjlsLHmmK8g5LiA55u06YO95Zyo6Kqq5q2j5bi45q2j5bi4IOWwseefpemBk+mAmeS4gOWNgOaykuaciSDmh4noqbLmspLmnInllY/poYwKWzMxOjM4XSDpgqPogb3liLDogprlrZDkuIrmnInnl5sg6YKj5L2g5Y+v6IO95ZWPIOaJjeimgeWVj+S7lOe0sOS4gOm7niDmnInmspLmnInlj43lvYgg55ebIOacieaykuaciSDlsLHmmK/ku4Dpurzlk63kurrloZ7kuobnmoQg5aaC5p6c6IKa5a2Q6IG96LW35L6G6YO95rKS5pyJIOippuiouumDveiqquaykuacieWVj+mhjCDlsLHkuZ/kuI3nlKjllY/liLDmgI7purzoqaYg5aW9IOWwjeWViiDkvYboh7PlsJHpgJnpoYznmoTmmYLplpMKWzMxOjU5XSDmmrTpoqjpgoTlj6/ku6XlkKcg5bCx5piv6Kmy6Kyb5Yiw55qEIOmDveacieism+WIsOeahCDll68g5bCNIOmCo+WAiyDlsI3llYog5aW95ZCnIOmCo+WtuOmVt+mChOacieS4gOmhjOWXjiDmspLmnIkg5L2g6ICD6YGOIOS4i+asoeWGjeeci+eciyDlho3kvobmupblgpkg5omA5Lul5aaC5p6c5pyA5aW95Y+v5Lul5pW055CGIOS9oOacieiAg+mBjuaJjeaciei+puazleWFiApbMzI6MjZdIOWwjeS4gOS4iyDmnInmspLmnInogIPpgY4g5ZOmIOWlvSDlpb0g5aW9IOWlvSDlub7omZ/ogIPoqaYgNuaciDbomZ8g5b6I57eK5by1IOavj+WkqSDml6nkuInppJDorJvoqbEg5Y+v5Lul5ZWKIOaXqeS4iemkkOism+WIsDbmnIg26Jmf5bCx5Y+v5Lul5aSg5LqGIOaIkeavj+WkqeWwseaYr+aXqeS4iue3tOS4gOi8qiDnhLblvozlkIPpo68g5LiL5Y2I5Y+I57e05LiA6LyqClszMjo1Nl0g54S25b6M5pma5LiK5Y+I5o6l6JGX57e0IOmAmeaoo+WtkCDll68g5bCN5ZWKIOWGjee3tOWIsOacgOW+jOWPr+iDveS4jee2k+aEj+S4jee3tOmBjiDlsI3kvYbmmK/miJHkuZ/mmK/pm5bnhLbmiJHnt7TpgY7kvYbmmK8g5oiR5pyJ5Y+v6IO95oiR6YO95pyD5YOP5LuK5aSp6Lef5p2O5bC86ICB5bir57e05oiR5bCx5piv5pyD5pyJ5LqbIOWlveWDj+aYr+mAmeaooyDlsI0g6Kqe5pu45Y+v5Lul5ZyoCgo9PT0g8J+Xk++4jyDoqrLlvozoqI7oq5YgLyDkuIvmrKHnt7Tnv5LntITlrpog77yIMzM6MjHvvIkgPT09CgpbMzM6MjFdIOWXryDmiJHoprrlvpfkuZ/kuI3mmK/oqp7mm7gg5piv5bCx5piv5oiR5Ymb5Ymb6Kyb55qEIOWwseaYryDph43opoHnmoTmnbHopb/orJvkuYXkuIDpu54g5LiN6YeN6KaB55qE5Lmf6Kix5bCx6YKj5YCLIOWwseaYryDlsI0g5Y+q6KaB55yL5LiA5LiL6ICD5a6Y5Y+N5oeJIOaxuuWumumCo+WAiyBQMSDlsLHmspLmnInopoHorJvpgqPpurznmoTlupXntLAg6ICB5a+m6KqqClszMzo0Ml0g6YKj55yB5LiN5LqG5aSa5bCR5pmC6ZaT5ZWKIOmChOaYr+aKiuWug+ism+eGn+S4gOm7niDlsLHmmK8g6Kyb55qE5LiN55So5oaC6ayxIOWwseaYr+i6q+mrlOaqouafpeezu+e1seism+S4i+S+hueahOaZguWAmSDkuI3mnIPpgoTlnKjmg7PmiJHkuIvkuIDlgIvopoHorJvku4Dpurwg6YCZ5qij5a2QIOWXryDlsI3llYog6YKj5oiR5bCx5pivIOWwseavlOWmguiqqumCo+WAi+iouuaWt+aIkeWujOWFqApbMzM6NThdIOWwseaYryBEaWFnbm9zaXPlrozlhajorJvpjK/kuoYg5oiR6Ka65b6XIOWboOeCuuWkseWOu+W+jOmdoueahOWIhiDmiYDku6XmiJHmiY3mnIPoqqog5oiR6Ka65b6X5L2gSGlzdG9yeVDliY3pnaLoirHlpJrpu57mmYLplpMg5rKS5pyJ5ZWP6aGMIOWboOeCuuWwseaYr+eCuuS6huS4jeimgeWujOWFqG1pc3Pmjokg6YCZ5qij5a2QClszNDoxNV0g6YKj5LiN6KaB5YiG5pW45Y+v6IO95bCx5pyD5ou/5LiN5YiwIOWmguaenOWujOWFqG1pc3Pmjokg5ZevIOS4jeeEtuWkqumbo+eahOmhjOebriDku5blgJHmnIPmnInlgIvlhazlj7gg5LuW5YCR5bCx5pyD6K6K5Ye65LiA5by157SZ5Ye65L6GIOS4jeeuoeS9oOacieaykuacieWVj+WIsCDlpb0KWzM0OjQwXSDpgqPmiJHlrbjplbfmiJHlj6/ku6Xlho3ot5/kvaDntITll44g5Y+v5Lul5ZWKIOWXryDpgJnlgIvlkagg5bCx5L2g5LuA6bq85pmC5YCZ6YKE5pyD5pyJ56m6IOmAmeWRqApbMzQ6NThdIOaIkeeahE1pbmRzZXTkuIDlrpropoHpgY4g5bCNIOmAmeWRqCDlsI3mspLmnIkg5oiR5Y+v6IO96KaB5LiL5LiA6YCxIOWXryDkuIDkuozkuInlm5sg55qE5pma5LiKIOS9oOiqquS4i+mAseS4gOS6jOS4ieWbmyDkuIDkuozkuInlm5sg5aW95ZWKIOmCo+aIkeS4gOS6jOS4iei3n+S9oOe0hCDku4DpurzmmYLlgJkg55yL5L2g5ZWKIOS9oOWOu+WFiOaLjQpbMzU6MjddIOWRgyDmiJHmr4/lpKnpg73ot5/kvaDntITll44g5LiA5LqM5LiJ5ZubIOavj+WkqeaHieipsuacieWFqeWAi+WVpiDlhbbku5bmib4g5YW25LuW5Lq65ZWKIOWlveWlvSDlkITnqK7nmoTkurrmnIPmnInkuI3lkIznmoQgY292ZXLliLDkuI3lkIznmoTmnbHopb8g5ZOOIOWlveWViuWlvSDpgqPlsLEg5YWp5aSp6YCZ5qijIOmCoyDpgqPlsLHkuIDot5/kuIkKWzM1OjU0XSDkuIDot5/kuIkg5LiA6Lef5LiJIOeEtuW+jCAxMem7niAxMem7niDpgoTkuI3lpKrmmZog5bm+6bueIDEx6bueIOmChOS4jeWkquaZmiAxMem7niDlk6Yg5ZOOIOWTjuWRpiAxMOm7niDnmb3lkKcgMTDpu54g5aW95aW9IDEw6bueIDEw6bue5ZeOIOWlvSDlk44gMTDpu57lj6/ku6Xll44KWzM2OjIzXSDlj6/ku6Ug5aW9IOS4gOi3n+S4ieWNgem7nuWTpiDlpb0g6Kyd6KydIOS7iuWkqemAmeaoo+WSryDlpb0g6Kyd6Kyd5a246ZW3IOaLnOaLnCDmi5zmi5w=";
+function downloadTxt() {
+    const bytes = Uint8Array.from(atob(PLAIN_B64), c => c.charCodeAt(0));
+    const blob = new Blob([bytes], {type: 'text/plain;charset=utf-8'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = '口試逐字稿_2026-05-26.txt';
+    a.click();
+}
+</script>
+</body>
+</html>
