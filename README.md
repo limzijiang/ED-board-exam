@@ -13,6 +13,7 @@
 | Bell palsy／Ramsay Hunt／顏面 VZV | [practice](facial-nerve/practice.html) | [answer-key](facial-nerve/answer-key.html) | 5 |
 | 自發性蜘蛛膜下腔出血（Spontaneous SAH） | [practice](sah/practice.html) | [answer-key](sah/answer-key.html) | 7 |
 | 腸阻塞（SBO／LBO／Ileus） | [practice](bowel-obstruction/practice.html) | [answer-key](bowel-obstruction/answer-key.html) | 5 |
+| 外科手術後併發症（CH 87） | [practice](post-op-complications/practice.html) | [answer-key](post-op-complications/answer-key.html) | 4 |
 
 ## 文件格式
 
