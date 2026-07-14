@@ -70,20 +70,20 @@
 
 <div class="topbar">
   <div class="brand">📊 孕婦創傷口試 · 評量比較看板</div>
-  <div class="meta">五位考生 · 基準＝考生 A + 113 教案評分單</div>
+  <div class="meta">六位考生 · 標桿＝考生 A、考生 B + 113 教案評分單</div>
   <a href="./">← 回主題目錄</a>
 </div>
 
 <div class="wrap">
-  <h1>孕婦創傷情境 — 五位考生評量比較</h1>
-  <div class="sub">以「考生 A（完整標準跑法）」與 113 年度外傷新式教案評分單為基準，對 r1 / r2 / r3 wang / r3 nai 逐項評分。總分 98（九大項）。</div>
+  <h1>孕婦創傷情境 — 六位考生評量比較</h1>
+  <div class="sub">以兩份標桿「考生 A、考生 B（完整標準跑法）」與 113 年度外傷新式教案評分單為基準，對 r1 / r2 / r3 wang / r3 nai 逐項評分。總分 98（九大項）。</div>
 
   <!-- RANKING -->
   <div class="panel">
     <h2>🏆 總排名</h2>
     <div id="ranking"></div>
     <div class="note" style="margin-top:14px;">
-      <b>評分說明：</b>分數為<b>依評分單關鍵字涵蓋度所做的估算</b>（非官方評分），滿分 98。及格線以各關卡平均概念約 60% 為參考。考生 A 為標準基準（紫）。
+      <b>評分說明：</b>分數為<b>依評分單關鍵字涵蓋度所做的估算</b>（非官方評分），滿分 98。及格線以各關卡平均概念約 60% 為參考。<b>考生 B（金）、考生 A（紫）為兩份標桿</b>。
     </div>
   </div>
 
@@ -136,6 +136,8 @@ const SECTIONS = [
 ];
 // scores per candidate, aligned to SECTIONS order
 const CAND = [
+  {id:"B",      name:"考生 B", color:"#b45309", link:"oral-exam-pregnant-trauma/candidate-b.html", base:true, star:true,
+   s:[7.5,19,12,9,14,4,4,16,4]},
   {id:"A",      name:"考生 A", color:"#7c3aed", link:"oral-exam-pregnant-trauma/candidate-a.html", base:true,
    s:[7,18,11,10,13,3.5,3.5,15,3.5]},
   {id:"nai",    name:"r3 nai", color:"#0d9488", link:"oral-exam-pregnant-trauma/r3-nai.html",
@@ -156,7 +158,8 @@ CAND.forEach(c=>{ c.total = c.s.reduce((a,b)=>a+b,0); c.pct = Math.round(c.total
   const maxScore = ranked[0].total;
   const html = ranked.map((c,i)=>{
     const w = Math.round(c.total/MAXTOTAL*100);
-    let badge = c.base ? '<span class="badge base">基準</span>'
+    let badge = c.star ? '<span class="badge base">🏅 標桿</span>'
+              : c.base ? '<span class="badge base">基準</span>'
               : c.pct>=65 ? '<span class="badge pass">佳</span>'
               : c.pct>=55 ? '<span class="badge border">中等</span>'
               : c.pct>=48 ? '<span class="badge border">低空</span>'
@@ -240,6 +243,8 @@ CAND.forEach(c=>{ c.total = c.s.reduce((a,b)=>a+b,0); c.pct = Math.round(c.total
 
 // ---- Cards ----
 const CARD_DATA = {
+  B: { good:["<b>五份最完整・標桿</b>：九大項幾乎全到位","DDx：胎盤剝離(主)＋uterine rupture＋PE＋DIC","進階：<b>Kleihauer-Betke</b>／上肢大號IV／MTP 6:6:1／O-neg血／RhoGAM／破傷風／止痛","CPR：子宮左推＋Bosmin q3min＋<b>4分perimortem C/S</b>＋兒科NICU＋REBOA/TAE","ISBAR 交台大婦產科；病人+家屬解釋完整"],
+       miss:["HELLP 未明確命名(有講 DIC)","結尾一度碎碎唸(考官提醒正式考宜精簡)"] },
   A: { good:["九大項全數完整，標準跑法","DDx：胎盤剝離＋HELLP＋DIC","治療含 Rho(D)Ig/TXA/VitK/MgSO₄","CPR：子宮左推＋perimortem C/S 時間窗＋MTP 1:1:1"],
        miss:["（作為基準，細節最完整）"] },
   nai:{ good:["<b>DDx 最完整</b>：胎盤剝離＋HELLP＋DIC＋TTP＋hypovolemic shock","有問產檢高血壓→抓到 HELLP","認出 MAHA(schistocyte)","CPR 有子宮左推＋Bosmin＋5H5T＋echo"],
@@ -267,15 +272,15 @@ const CARD_DATA = {
 // ---- Differentiators table ----
 (() => {
   const rows = [
-    ["主診斷 = 胎盤剝離 (placental abruption)", {A:"✓",nai:"✓",wang:"✕ 子宮破裂",r2:"✕ 子宮破裂",r1:"✕ 不明"}],
-    ["命名 HELLP", {A:"✓",nai:"✓",wang:"△ 描述未命名",r2:"✕",r1:"✕"}],
-    ["命名 DIC", {A:"✓",nai:"✓",wang:"△",r2:"✕",r1:"✕"}],
-    ["產檢高血壓追問", {A:"✓",nai:"✓",wang:"✓",r2:"✕",r1:"✓"}],
-    ["CPR 子宮左推", {A:"✓",nai:"✓",wang:"✕",r2:"✕",r1:"✓"}],
-    ["perimortem C-section", {A:"✓",nai:"△",wang:"✓",r2:"✕",r1:"✕"}],
-    ["ISBAR 轉院交班", {A:"✓",nai:"△",wang:"✓ 最佳",r2:"△",r1:"✕"}],
-    ["Rho(D) Ig / TXA / VitK", {A:"✓",nai:"✕",wang:"✕",r2:"△ TXA",r1:"✕"}],
-    ["進階(REBOA/MTP)", {A:"MTP",nai:"—",wang:"✓ REBOA+MTP",r2:"—",r1:"—"}],
+    ["主診斷 = 胎盤剝離 (placental abruption)", {B:"✓",A:"✓",nai:"✓",wang:"✕ 子宮破裂",r2:"✕ 子宮破裂",r1:"✕ 不明"}],
+    ["命名 HELLP", {B:"△ 未明命名",A:"✓",nai:"✓",wang:"△ 描述未命名",r2:"✕",r1:"✕"}],
+    ["命名 DIC", {B:"✓",A:"✓",nai:"✓",wang:"△",r2:"✕",r1:"✕"}],
+    ["產檢高血壓追問", {B:"✓",A:"✓",nai:"✓",wang:"✓",r2:"✕",r1:"✓"}],
+    ["CPR 子宮左推", {B:"✓",A:"✓",nai:"✓",wang:"✕",r2:"✕",r1:"✓"}],
+    ["perimortem C-section", {B:"✓",A:"✓",nai:"△",wang:"✓",r2:"✕",r1:"✕"}],
+    ["ISBAR 轉院交班", {B:"✓",A:"✓",nai:"△",wang:"✓ 最佳",r2:"△",r1:"✕"}],
+    ["Rho(D) Ig / TXA / VitK", {B:"✓ RhoGAM",A:"✓",nai:"✕",wang:"✕",r2:"△ TXA",r1:"✕"}],
+    ["進階(Kleihauer-Betke/REBOA/MTP)", {B:"✓ K-B/REBOA/TAE",A:"MTP",nai:"—",wang:"✓ REBOA+MTP",r2:"—",r1:"—"}],
   ];
   const mark = v => {
     if(v==="✓"||v==="✓ 最佳") return `<span style="color:#16a34a;font-weight:700">${v}</span>`;
