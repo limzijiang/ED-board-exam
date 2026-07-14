@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>孕婦創傷口試 — 五位考生評量比較看板</title>
+<style>
+  :root {
+    --bg:#f5f6f8; --panel:#fff; --text:#1f2330; --muted:#6b7280; --border:#e5e7eb;
+    --accent:#ff6b1a;
+    --cA:#7c3aed; --cNai:#0d9488; --cWang:#2563eb; --cR2:#d97706; --cR1:#dc2626;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin:0; padding:0; font-family:-apple-system, BlinkMacSystemFont, "Segoe UI","PingFang TC","Microsoft JhengHei","Noto Sans TC",Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; }
+  .topbar { height:56px; background:#fff; border-bottom:1px solid var(--border); display:flex; align-items:center; padding:0 24px; gap:16px; position:sticky; top:0; z-index:50; }
+  .brand { font-weight:700; color:var(--accent); letter-spacing:.5px; }
+  .topbar .meta { color:var(--muted); font-size:13px; }
+  .topbar a { color:var(--muted); text-decoration:none; font-size:13px; margin-left:auto; }
+  .topbar a:hover { color:var(--accent); }
+  .wrap { max-width:1080px; margin:24px auto; padding:0 24px 60px; }
+  h1 { font-size:24px; margin:0 0 4px; }
+  .sub { color:var(--muted); font-size:14px; margin-bottom:20px; }
+  .panel { background:var(--panel); border:1px solid var(--border); border-radius:14px; padding:22px; box-shadow:0 1px 3px rgba(0,0,0,.04); margin-bottom:22px; }
+  h2 { font-size:17px; margin:0 0 14px; display:flex; align-items:center; gap:8px; }
+  /* podium */
+  .rank-row { display:flex; align-items:center; gap:14px; padding:12px 14px; border-radius:10px; margin-bottom:8px; border:1px solid var(--border); }
+  .rank-num { font-size:20px; font-weight:800; width:34px; text-align:center; }
+  .rank-name { font-weight:700; font-size:15px; flex:0 0 120px; }
+  .rank-name .swatch { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:6px; vertical-align:middle; }
+  .bar-track { flex:1; background:#f1f2f5; border-radius:999px; height:22px; overflow:hidden; position:relative; }
+  .bar-fill { height:100%; border-radius:999px; display:flex; align-items:center; justify-content:flex-end; padding-right:8px; color:#fff; font-size:12px; font-weight:700; }
+  .rank-score { flex:0 0 84px; text-align:right; font-weight:700; font-size:15px; }
+  .rank-score small { color:var(--muted); font-weight:500; font-size:12px; }
+  .badge { font-size:11px; padding:2px 8px; border-radius:999px; font-weight:700; margin-left:8px; }
+  .badge.base { background:#f3e8ff; color:#7c3aed; }
+  .badge.pass { background:#dcfce7; color:#16a34a; }
+  .badge.border { background:#fef9c3; color:#a16207; }
+  .badge.fail { background:#fee2e2; color:#dc2626; }
+  /* radar */
+  .radar-wrap { display:flex; gap:20px; flex-wrap:wrap; align-items:center; justify-content:center; }
+  .radar-legend { display:flex; flex-direction:column; gap:8px; font-size:13px; }
+  .radar-legend div { display:flex; align-items:center; gap:8px; }
+  .radar-legend .sw { width:14px; height:3px; border-radius:2px; display:inline-block; }
+  /* table */
+  .tbl-scroll { overflow-x:auto; }
+  table { border-collapse:collapse; width:100%; font-size:13px; min-width:640px; }
+  th, td { padding:8px 10px; text-align:center; border-bottom:1px solid var(--border); }
+  th { background:#fafbfc; font-weight:600; color:#374151; position:sticky; top:0; }
+  td.sec { text-align:left; font-weight:600; color:#374151; white-space:nowrap; }
+  td.max { color:var(--muted); font-size:12px; }
+  .cell { border-radius:6px; padding:3px 6px; font-weight:600; display:inline-block; min-width:34px; }
+  tr.total td { font-weight:800; font-size:14px; border-top:2px solid var(--border); background:#fafbfc; }
+  /* cards */
+  .cards { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  @media (max-width:760px){ .cards { grid-template-columns:1fr; } }
+  .card { border:1px solid var(--border); border-radius:12px; padding:14px 16px; }
+  .card h3 { margin:0 0 8px; font-size:15px; display:flex; align-items:center; gap:8px; }
+  .card h3 a { color:inherit; text-decoration:none; }
+  .card h3 a:hover { text-decoration:underline; }
+  .card .pct { margin-left:auto; font-size:13px; font-weight:800; }
+  .card ul { margin:6px 0 0; padding-left:18px; }
+  .card li { font-size:12.5px; line-height:1.55; margin:3px 0; color:#374151; }
+  .good { color:#059669; } .miss { color:#dc2626; }
+  .swatch { display:inline-block; width:11px; height:11px; border-radius:50%; }
+  .note { font-size:12px; color:var(--muted); line-height:1.6; background:#f9fafb; border-radius:8px; padding:12px 14px; margin-top:4px; }
+  .kbd { background:#eef0f3; border-radius:4px; padding:1px 5px; font-size:12px; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">📊 孕婦創傷口試 · 評量比較看板</div>
+  <div class="meta">五位考生 · 基準＝考生 A + 113 教案評分單</div>
+  <a href="./">← 回主題目錄</a>
+</div>
+
+<div class="wrap">
+  <h1>孕婦創傷情境 — 五位考生評量比較</h1>
+  <div class="sub">以「考生 A（完整標準跑法）」與 113 年度外傷新式教案評分單為基準，對 r1 / r2 / r3 wang / r3 nai 逐項評分。總分 98（九大項）。</div>
+
+  <!-- RANKING -->
+  <div class="panel">
+    <h2>🏆 總排名</h2>
+    <div id="ranking"></div>
+    <div class="note" style="margin-top:14px;">
+      <b>評分說明：</b>分數為<b>依評分單關鍵字涵蓋度所做的估算</b>（非官方評分），滿分 98。及格線以各關卡平均概念約 60% 為參考。考生 A 為標準基準（紫）。
+    </div>
+  </div>
+
+  <!-- RADAR -->
+  <div class="panel">
+    <h2>🕸️ 九大項雷達圖（得分率 %）</h2>
+    <div class="radar-wrap">
+      <svg id="radar" width="440" height="440" viewBox="0 0 440 440"></svg>
+      <div class="radar-legend" id="radarLegend"></div>
+    </div>
+  </div>
+
+  <!-- BREAKDOWN TABLE -->
+  <div class="panel">
+    <h2>📋 逐項得分明細</h2>
+    <div class="tbl-scroll">
+      <table id="breakdown"></table>
+    </div>
+    <div class="note" style="margin-top:12px;">
+      儲存格顏色：<span style="color:#16a34a;font-weight:700;">綠</span>＝該項 ≥75%，<span style="color:#a16207;font-weight:700;">黃</span>＝40–75%，<span style="color:#dc2626;font-weight:700;">紅</span>＝&lt;40%。
+    </div>
+  </div>
+
+  <!-- PER-CANDIDATE CARDS -->
+  <div class="panel">
+    <h2>🔍 各考生重點講評</h2>
+    <div class="cards" id="cards"></div>
+  </div>
+
+  <!-- KEY DIFFERENTIATORS -->
+  <div class="panel">
+    <h2>🎯 關鍵差異（與考生 A / 標準答案對照）</h2>
+    <div class="tbl-scroll">
+      <table id="differ"></table>
+    </div>
+  </div>
+</div>
+
+<script>
+const SECTIONS = [
+  {k:"病史", max:8},
+  {k:"外傷評估", max:21},
+  {k:"檢驗", max:13},
+  {k:"臨床臆斷", max:12},
+  {k:"治療處置", max:15},
+  {k:"交班", max:4},
+  {k:"病情解釋(病人)", max:4},
+  {k:"病情變化(CPR)", max:17},
+  {k:"病情解釋(家屬)", max:4},
+];
+// scores per candidate, aligned to SECTIONS order
+const CAND = [
+  {id:"A",      name:"考生 A", color:"#7c3aed", link:"oral-exam-pregnant-trauma/candidate-a.html", base:true,
+   s:[7,18,11,10,13,3.5,3.5,15,3.5]},
+  {id:"nai",    name:"r3 nai", color:"#0d9488", link:"oral-exam-pregnant-trauma/r3-nai.html",
+   s:[6.5,14,10,11,8,2.5,3.5,13,3.5]},
+  {id:"wang",   name:"r3 wang", color:"#2563eb", link:"oral-exam-pregnant-trauma/r3-wang.html",
+   s:[6.5,15,11,4.5,8,3.5,3,13,3]},
+  {id:"r2",     name:"r2", color:"#d97706", link:"oral-exam-pregnant-trauma/r2.html",
+   s:[5,10,8,4,7,1.5,3,9,3.5]},
+  {id:"r1",     name:"r1", color:"#dc2626", link:"oral-exam-pregnant-trauma/r1.html",
+   s:[5.5,9,8,4,5,1,2,9,1]},
+];
+const MAXTOTAL = SECTIONS.reduce((a,s)=>a+s.max,0);
+CAND.forEach(c=>{ c.total = c.s.reduce((a,b)=>a+b,0); c.pct = Math.round(c.total/MAXTOTAL*100); });
+
+// ---- Ranking ----
+(() => {
+  const ranked = [...CAND].sort((a,b)=>b.total-a.total);
+  const maxScore = ranked[0].total;
+  const html = ranked.map((c,i)=>{
+    const w = Math.round(c.total/MAXTOTAL*100);
+    let badge = c.base ? '<span class="badge base">基準</span>'
+              : c.pct>=65 ? '<span class="badge pass">佳</span>'
+              : c.pct>=55 ? '<span class="badge border">中等</span>'
+              : c.pct>=48 ? '<span class="badge border">低空</span>'
+              : '<span class="badge fail">待加強</span>';
+    return `<div class="rank-row">
+      <div class="rank-num">${i+1}</div>
+      <div class="rank-name"><span class="swatch" style="background:${c.color}"></span>${c.name}${badge}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${w}%;background:${c.color}">${w}%</div></div>
+      <div class="rank-score">${c.total}<small>/${MAXTOTAL}</small></div>
+    </div>`;
+  }).join("");
+  document.getElementById("ranking").innerHTML = html;
+})();
+
+// ---- Radar ----
+(() => {
+  const svg = document.getElementById("radar");
+  const cx=220, cy=225, R=150, N=SECTIONS.length;
+  const ns="http://www.w3.org/2000/svg";
+  const ang = i => (-90 + i*360/N) * Math.PI/180;
+  const pt = (i,r)=>[cx+r*Math.cos(ang(i)), cy+r*Math.sin(ang(i))];
+  // grid rings
+  [0.25,0.5,0.75,1].forEach(f=>{
+    const p = SECTIONS.map((_,i)=>pt(i,R*f).join(",")).join(" ");
+    const poly=document.createElementNS(ns,"polygon");
+    poly.setAttribute("points",p); poly.setAttribute("fill","none");
+    poly.setAttribute("stroke","#e5e7eb"); poly.setAttribute("stroke-width","1");
+    svg.appendChild(poly);
+  });
+  // spokes + labels
+  SECTIONS.forEach((s,i)=>{
+    const [x,y]=pt(i,R);
+    const ln=document.createElementNS(ns,"line");
+    ln.setAttribute("x1",cx);ln.setAttribute("y1",cy);ln.setAttribute("x2",x);ln.setAttribute("y2",y);
+    ln.setAttribute("stroke","#e5e7eb");ln.setAttribute("stroke-width","1");svg.appendChild(ln);
+    const [lx,ly]=pt(i,R+22);
+    const t=document.createElementNS(ns,"text");
+    t.setAttribute("x",lx);t.setAttribute("y",ly);
+    t.setAttribute("font-size","10.5");t.setAttribute("fill","#4b5563");
+    t.setAttribute("text-anchor", Math.abs(lx-cx)<10?"middle":(lx<cx?"end":"start"));
+    t.setAttribute("dominant-baseline","middle");
+    t.textContent=s.k; svg.appendChild(t);
+  });
+  // series
+  CAND.forEach(c=>{
+    const p = SECTIONS.map((s,i)=>{
+      const frac = c.s[i]/s.max;
+      return pt(i, R*frac).join(",");
+    }).join(" ");
+    const poly=document.createElementNS(ns,"polygon");
+    poly.setAttribute("points",p);
+    poly.setAttribute("fill",c.color);
+    poly.setAttribute("fill-opacity", c.base?"0.10":"0.06");
+    poly.setAttribute("stroke",c.color);
+    poly.setAttribute("stroke-width", c.base?"2.5":"1.6");
+    if(!c.base) poly.setAttribute("stroke-dasharray","");
+    svg.appendChild(poly);
+  });
+  // legend
+  document.getElementById("radarLegend").innerHTML = CAND.map(c=>
+    `<div><span class="sw" style="background:${c.color};height:${c.base?4:3}px"></span><b style="color:${c.color}">${c.name}</b> <span style="color:#6b7280">${c.pct}%</span></div>`
+  ).join("");
+})();
+
+// ---- Breakdown table ----
+(() => {
+  const cellColor = frac => frac>=0.75 ? "#dcfce7;color:#166534" : frac>=0.40 ? "#fef9c3;color:#854d0e" : "#fee2e2;color:#991b1b";
+  let head = `<tr><th style="text-align:left">評分項目</th><th class="max">滿分</th>` +
+    CAND.map(c=>`<th style="color:${c.color}">${c.name}</th>`).join("") + `</tr>`;
+  let rows = SECTIONS.map((s,i)=>{
+    return `<tr><td class="sec">${s.k}</td><td class="max">${s.max}</td>` +
+      CAND.map(c=>{
+        const v=c.s[i], frac=v/s.max;
+        return `<td><span class="cell" style="background:${cellColor(frac)}">${v}</span></td>`;
+      }).join("") + `</tr>`;
+  }).join("");
+  let total = `<tr class="total"><td class="sec">總分</td><td class="max">${MAXTOTAL}</td>` +
+    CAND.map(c=>`<td style="color:${c.color}">${c.total}<br><small style="color:#6b7280">${c.pct}%</small></td>`).join("") + `</tr>`;
+  document.getElementById("breakdown").innerHTML = head + rows + total;
+})();
+
+// ---- Cards ----
+const CARD_DATA = {
+  A: { good:["九大項全數完整，標準跑法","DDx：胎盤剝離＋HELLP＋DIC","治療含 Rho(D)Ig/TXA/VitK/MgSO₄","CPR：子宮左推＋perimortem C/S 時間窗＋MTP 1:1:1"],
+       miss:["（作為基準，細節最完整）"] },
+  nai:{ good:["<b>DDx 最完整</b>：胎盤剝離＋HELLP＋DIC＋TTP＋hypovolemic shock","有問產檢高血壓→抓到 HELLP","認出 MAHA(schistocyte)","CPR 有子宮左推＋Bosmin＋5H5T＋echo"],
+       miss:["治療缺 Rho/TXA/VitK/破傷風","宮底高度、IV 橫膈上未明講","perimortem 時間窗未明講"] },
+  wang:{ good:["<b>Primary+Secondary 最完整</b>(head-to-toe 全)","<b>ISBAR 轉院交班最完整</b>","進階：MTP/trauma kit/<b>REBOA</b>/perimortem C/S","Lab 判讀細，RhD 陰性有注意"],
+       miss:["主診斷選 uterine rupture(非胎盤剝離)","沒命名 HELLP/DIC/TTP","RhD 陰性卻沒給 Rho(D)Ig","CPR 未提子宮左推"] },
+  r2:{ good:["結構清楚、時間掌控好(學長評『不錯』)","PE 有神經學(rebound/guarding/GCS/瞳孔)","提 TXA/code trauma/CTA","家屬解釋清楚(優先救媽媽)"],
+       miss:["主診斷 uterine rupture(2分)非胎盤剝離(3分)","完全沒提 HELLP/DIC","病史缺痛性質/時長/G-P/產檢","CPR 沒子宮左推/perimortem"] },
+  r1:{ good:["有問產檢高血壓＋慢性病","抽血方向對(溶血/schisto/LDH/D-dimer)","POCUS 有掃、想到寶寶活動力","CPR 有子宮左推＋echo"],
+       miss:["<b>診斷錯誤</b>：溶血歸因『母胎 ABO 不合』","沒命名 HELLP/DIC/TTP、胎盤剝離不明","結構鬆散、無 ISBAR、治療單薄","時間掌控差，第二題倉促"] },
+};
+(() => {
+  document.getElementById("cards").innerHTML = CAND.map(c=>{
+    const d=CARD_DATA[c.id];
+    return `<div class="card" style="border-top:3px solid ${c.color}">
+      <h3><span class="swatch" style="background:${c.color}"></span>
+        <a href="${c.link}">${c.name}</a>
+        <span class="pct" style="color:${c.color}">${c.pct}% · ${c.total}/${MAXTOTAL}</span></h3>
+      <ul>${d.good.map(x=>`<li><span class="good">✓</span> ${x}</li>`).join("")}
+          ${d.miss.map(x=>`<li><span class="miss">✕</span> ${x}</li>`).join("")}</ul>
+    </div>`;
+  }).join("");
+})();
+
+// ---- Differentiators table ----
+(() => {
+  const rows = [
+    ["主診斷 = 胎盤剝離 (placental abruption)", {A:"✓",nai:"✓",wang:"✕ 子宮破裂",r2:"✕ 子宮破裂",r1:"✕ 不明"}],
+    ["命名 HELLP", {A:"✓",nai:"✓",wang:"△ 描述未命名",r2:"✕",r1:"✕"}],
+    ["命名 DIC", {A:"✓",nai:"✓",wang:"△",r2:"✕",r1:"✕"}],
+    ["產檢高血壓追問", {A:"✓",nai:"✓",wang:"✓",r2:"✕",r1:"✓"}],
+    ["CPR 子宮左推", {A:"✓",nai:"✓",wang:"✕",r2:"✕",r1:"✓"}],
+    ["perimortem C-section", {A:"✓",nai:"△",wang:"✓",r2:"✕",r1:"✕"}],
+    ["ISBAR 轉院交班", {A:"✓",nai:"△",wang:"✓ 最佳",r2:"△",r1:"✕"}],
+    ["Rho(D) Ig / TXA / VitK", {A:"✓",nai:"✕",wang:"✕",r2:"△ TXA",r1:"✕"}],
+    ["進階(REBOA/MTP)", {A:"MTP",nai:"—",wang:"✓ REBOA+MTP",r2:"—",r1:"—"}],
+  ];
+  const mark = v => {
+    if(v==="✓"||v==="✓ 最佳") return `<span style="color:#16a34a;font-weight:700">${v}</span>`;
+    if(v.startsWith("✕")) return `<span style="color:#dc2626;font-weight:700">${v}</span>`;
+    if(v.startsWith("△")) return `<span style="color:#a16207;font-weight:600">${v}</span>`;
+    return `<span style="color:#374151">${v}</span>`;
+  };
+  let head = `<tr><th style="text-align:left">關鍵要點</th>` +
+    CAND.map(c=>`<th style="color:${c.color}">${c.name}</th>`).join("") + `</tr>`;
+  let body = rows.map(([label,m])=>
+    `<tr><td class="sec">${label}</td>` +
+    CAND.map(c=>`<td>${mark(m[c.id]||"—")}</td>`).join("") + `</tr>`
+  ).join("");
+  document.getElementById("differ").innerHTML = head + body;
+})();
+</script>
+</body>
+</html>

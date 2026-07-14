@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>急診專科口試 — 孕婦創傷情境模擬（r2）｜對話逐字稿</title>
+<style>
+  :root {
+    --bg: #f5f6f8; --panel: #ffffff; --text: #1f2330; --muted: #6b7280;
+    --border: #e5e7eb; --accent: #ff6b1a; --accent-soft: #fff1e8;
+    --examiner: #2563eb; --examiner-soft: #eaf1ff;
+    --student: #0d9488; --student-soft: #e6f7f5; --section: #7c3aed;
+    --feedback: #c2410c; --feedback-soft: #fff7ed;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+  .topbar { height: 56px; background: #fff; border-bottom: 1px solid var(--border); display: flex; align-items: center; padding: 0 24px; gap: 16px; position: sticky; top: 0; z-index: 50; }
+  .brand { font-weight: 700; color: var(--accent); letter-spacing: .5px; }
+  .topbar .meta { color: var(--muted); font-size: 13px; }
+  .topbar a { color: var(--muted); text-decoration: none; font-size: 13px; }
+  .topbar a:hover { color: var(--accent); }
+  .container { max-width: 1100px; margin: 24px auto; padding: 0 24px; display: grid; grid-template-columns: 1fr 320px; gap: 24px; }
+  @media (max-width: 900px) { .container { grid-template-columns: 1fr; } .sidebar { order: -1; } }
+  .panel { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,.04); }
+  h1 { font-size: 22px; margin: 0 0 6px; }
+  .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 16px; }
+  .audio-wrap { background: linear-gradient(135deg, #fff7ef 0%, #ffe7d6 100%); border-radius: 12px; padding: 14px 16px; margin: 12px 0 6px; display: flex; align-items: center; gap: 12px; }
+  audio { flex: 1; height: 36px; }
+  .tabs { display: flex; gap: 8px; margin: 18px 0 14px; border-bottom: 1px solid var(--border); }
+  .tab { padding: 8px 14px; cursor: pointer; font-size: 14px; color: var(--muted); border-bottom: 2px solid transparent; }
+  .tab.active { color: var(--accent); border-color: var(--accent); font-weight: 600; }
+  .legend { display: flex; gap: 10px; flex-wrap: wrap; margin: 8px 0 16px; font-size: 12px; }
+  .pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: #f3f4f6; color: #374151; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .dot.examiner { background: var(--examiner); }
+  .dot.student  { background: var(--student); }
+  .dot.section  { background: var(--section); }
+  .dot.feedback { background: var(--feedback); }
+  .section-bar { margin: 22px 0 8px; padding: 8px 12px; background: #f5f3ff; border-left: 4px solid var(--section); color: #4c1d95; border-radius: 6px; font-weight: 600; font-size: 13px; letter-spacing: .3px; }
+  .section-bar.feedback { background: var(--feedback-soft); border-color: var(--feedback); color: #7c2d12; }
+  .turn { display: grid; grid-template-columns: 64px 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px dashed #f0f0f3; }
+  .turn:last-child { border-bottom: none; }
+  .ts { color: var(--muted); font-size: 12px; padding-top: 3px; font-feature-settings: "tnum"; cursor: pointer; }
+  .ts:hover { color: var(--accent); text-decoration: underline; }
+  .bubble { display: flex; flex-direction: column; gap: 4px; }
+  .speaker { font-size: 12px; font-weight: 700; }
+  .speaker.examiner { color: var(--examiner); }
+  .speaker.student  { color: var(--student); }
+  .speaker.feedback { color: var(--feedback); }
+  .text { background: #fff; padding: 10px 12px; border-radius: 10px; line-height: 1.7; font-size: 15px; color: #111827; border: 1px solid #f0f0f3; white-space: pre-wrap; }
+  .text.examiner { background: var(--examiner-soft); border-color: #dbe7ff; }
+  .text.student  { background: var(--student-soft); border-color: #cff0ec; }
+  .text.feedback { background: var(--feedback-soft); border-color: #fed7aa; }
+  .text small { color: var(--muted); }
+  .sb-title { font-weight: 700; font-size: 14px; margin: 6px 0 8px; color: #111827; }
+  .keypoints li { margin: 6px 0; font-size: 13px; line-height: 1.6; color: #374151; }
+  .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 12px; }
+  .meta-grid div { background: #f9fafb; padding: 8px 10px; border-radius: 8px; }
+  .meta-grid b { color: #111827; display: block; font-size: 11px; color: var(--muted); font-weight: 500; }
+  .scenario { background: #fffbeb; border: 1px solid #fde68a; color: #78350f; border-radius: 10px; padding: 12px; font-size: 13px; line-height: 1.6; }
+  .note { margin-top: 12px; font-size: 12px; color: var(--muted); line-height: 1.5; padding: 10px; background: #f9fafb; border-radius: 8px; }
+  .summary-view { display: none; }
+  .summary-view.active { display: block; }
+  .transcript-view.hidden { display: none; }
+  .scoring h3 { font-size: 14px; margin: 14px 0 6px; color: #111827; }
+  .scoring ul { margin: 4px 0 8px; padding-left: 20px; }
+  .scoring li { font-size: 13px; line-height: 1.6; color: #374151; }
+  .good { color: #059669; font-weight: 600; }
+  .miss { color: #dc2626; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">📝 急診口試逐字稿</div>
+  <div class="meta">r2 · 2026·07·14 · 全長 14:58 · 中文（繁中）</div>
+  <a href="../" style="margin-left:auto;">← 回主題目錄</a>
+</div>
+
+<div class="container">
+  <div>
+    <div class="panel">
+      <h1>急診專科口試 — 孕婦創傷情境模擬（r2）</h1>
+      <div class="subtitle">26 歲懷孕 28 週副駕駛，車禍後下腹痛｜一般級急救責任醫院（無婦產科）</div>
+
+      <div class="audio-wrap">
+        <span style="font-size:22px;">🎧</span>
+        <audio id="player" controls preload="metadata" src="r2.mp3"></audio>
+      </div>
+
+      <div class="tabs">
+        <div class="tab active" data-view="transcript">逐字稿</div>
+        <div class="tab" data-view="summary">摘要 / 評分重點</div>
+      </div>
+
+      <div class="legend">
+        <span class="pill"><span class="dot examiner"></span>考官 / 病人角色</span>
+        <span class="pill"><span class="dot student"></span>考生 r2</span>
+        <span class="pill"><span class="dot feedback"></span>學長講評</span>
+        <span class="pill"><span class="dot section"></span>段落</span>
+      </div>
+
+      <div class="transcript-view" id="transcriptView">
+
+        <div class="section-bar">⏱ 00:00 — 一、病史詢問</div>
+        <div class="turn"><div class="ts" data-t="0">00:00</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">我們先詢問病人的病史——問她是怎麼發生的？（汽車與汽車車禍，副駕駛）當下有沒有失去意識？（沒有）有繫安全帶。本身有沒有慢性病史、有沒有吃抗凝血的藥物？然後問她哪裡不舒服——下腹痛？有沒有呼吸喘、頭痛頭暈？（都沒有，就下腹痛）</div>
+        </div></div>
+
+        <div class="section-bar">⏱ 01:20 — 二、身體檢查</div>
+        <div class="turn"><div class="ts" data-t="80">01:20</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">做一些身體檢查——按壓腹部看哪裡疼痛、有沒有 rebound pain、muscle guarding。然後做簡單的神經學：coordination、finger-nose。</div>
+        </div></div>
+        <div class="turn"><div class="ts" data-t="110">01:50</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">下腹、腰痛，finger-nose 都正常。GCS 是 E3V5M6，瞳孔 3/3 有 light reflex。</div>
+        </div></div>
+
+        <div class="section-bar">⏱ 02:10 — 三、檢驗 + POCUS</div>
+        <div class="turn"><div class="ts" data-t="130">02:10</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">先安排抽血：CBC/DC、三管、Gas、D-dimer。然後安排 echo（E-FAST），看有沒有腹腔內出血、有沒有 hemoperitoneum 的情況。治療基本先上 IV。</div>
+        </div></div>
+        <div class="turn"><div class="ts" data-t="175">02:55</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">檢查結果——看起來體內有一些 ascites，懷疑可能是脹氣/臟器損傷，有可能是 spleen 或 liver，也有可能是子宮出血，甚至子宮破裂或胎盤剝離都可能。因為出血是比較隱匿的問題，可能需要輸血，也會驗血型，並照會婦產科醫師安排後續的陰道超音波。</div>
+        </div></div>
+
+        <div class="section-bar">⏱ 03:45 — 四、向病人解釋 + 治療</div>
+        <div class="turn"><div class="ts" data-t="225">03:45</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">跟病人解釋：我們掃超音波看到肚子裡有一些積液，有可能是出血。會先給她輸液/輸血，找婦產科醫師做後續檢查。假如真的有子宮破裂或胎盤剝離，是有可能需要進一步手術的。</div>
+        </div></div>
+
+        <div class="section-bar">⏱ 04:55 — 五、第二題：突發大出血 → 急救</div>
+        <div class="turn"><div class="ts" data-t="295">04:55</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">她生命徵象還算不會太差——假如突然大出血，直接被推入急救室。</div>
+        </div></div>
+        <div class="turn"><div class="ts" data-t="310">05:10</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">突然大出血表示出血問題變嚴重了。可能要緊急做檢查，比如 CTA 看是不是有動脈出血。也要跟病人解釋處置的必要性、對胎兒的影響。輸血一定要，可能給止血藥物——全靜脈、TXA 之類避免繼續出血。再根據後續檢查，找 code trauma team 評估，是不是有內臟臟器出血或血管出血的可能。</div>
+        </div></div>
+
+        <div class="section-bar">⏱ 06:11 — 六、臨床臆斷（第四題）</div>
+        <div class="turn"><div class="ts" data-t="380">06:20</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">可能臆斷第一個就是<b>子宮破裂（uterine rupture）</b>——因為 echo 上子宮旁邊有一個 hypoechoic lesion（應該是 ascites），而且子宮體本身看起來有缺損，所以可能是子宮體破裂，這是最可能的臆斷。當然可能合併其他臟器損傷（像 spleen 破掉）。但我還是以子宮體破裂為最可能。</div>
+        </div></div>
+
+        <div class="section-bar">⏱ 07:20 — 七、心跳停止 → CPR</div>
+        <div class="turn"><div class="ts" data-t="441">07:21</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">她現在沒有 pulse。</div>
+        </div></div>
+        <div class="turn"><div class="ts" data-t="450">07:30</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">沒有 pulse → CPR，上 monitor。Monitor 顯示 PEA → 繼續 CPR。扣搭在一起、給予高級呼吸道（插管）、給予高品質 CPR、給予藥物——每 3 分鐘打一次 epinephrine，分析心律看有沒有需要電擊的節律。輸血，然後掃 echo，找 5H5T 看有沒有其他導致的問題。</div>
+        </div></div>
+
+        <div class="section-bar">⏱ 08:30 — 八、向家屬解釋病情</div>
+        <div class="turn"><div class="ts" data-t="510">08:30</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">跟家屬說：我們懷疑她有子宮體破裂，有可能導致腹內大出血。會找 trauma team 及婦產科醫師來看要不要做緊急手術。她現在可能是失血過多導致心跳停止，我們正在緊急急救。現在是緊急狀況，胎兒有可能保不住，我們會以優先拯救媽媽為主。</div>
+        </div></div>
+
+        <!-- DEBRIEF -->
+        <div class="section-bar feedback">📣 09:40 — 學長講評（Debrief，剩約 5 分鐘）</div>
+        <div class="turn"><div class="ts" data-t="585">09:45</div><div class="bubble">
+          <span class="speaker feedback">學長</span>
+          <div class="text feedback">差不多這樣，還有 5 分 14 秒，<b>時間掌控還蠻不錯的</b>。<br><br>病史詢問可以再補：病人下腹痛要問<b>痛的性質</b>（一陣痛？鈍痛？）、<b>痛多久</b>、怎麼發生（車禍）、什麼情況緩解或加劇、除了下腹痛有沒有其他症狀。還要問<b>車禍當下的速度</b>——高速撞擊還是停等被撞、當下有沒有 consciousness change。</div>
+        </div></div>
+        <div class="turn"><div class="ts" data-t="660">11:00</div><div class="bubble">
+          <span class="speaker feedback">學長</span>
+          <div class="text feedback">身體檢查——除了按壓腹部，還要看有沒有其他地方瘀斑、聽診呼吸音、檢查頭部外傷、肢體明顯損傷變形。神經學 N1 看 muscle power、能不能 follow、視力有無缺損、有沒有 diplopia。</div>
+        </div></div>
+        <div class="turn"><div class="ts" data-t="720">12:00</div><div class="bubble">
+          <span class="speaker feedback">學長</span>
+          <div class="text feedback">處置主要就是輸血、輸液。動向的話——找後線外科、trauma、婦產科。急救時 IV / O₂ / monitor、CPR、epinephrine、5H5T 要找，還要再抽一次血看有沒有 electrolyte imbalance、看 gas 有沒有變很酸、看陰道有無大出血。必要時插管。跟病人講解後續除了手術還要住加護病房——如果 CPR 救回來，可能還要做更多詳細檢查。</div>
+        </div></div>
+
+      </div>
+
+      <!-- SUMMARY -->
+      <div class="summary-view" id="summaryView">
+        <div class="scoring">
+          <h3>🩺 情境設定</h3>
+          <p style="font-size:13px;color:#374151;line-height:1.6;">26 歲懷孕 28 週副駕駛，車禍後下腹痛｜一般級急救責任醫院（無婦產科）。</p>
+
+          <h3>✅ 表現亮點</h3>
+          <ul>
+            <li><span class="good">結構清楚、時間掌控好</span>（學長評「還蠻不錯的」，剩 5 分鐘）</li>
+            <li><span class="good">PE 有做神經學</span>（rebound、guarding、finger-nose、GCS、瞳孔）</li>
+            <li><span class="good">POCUS / E-FAST</span> 有掃，判讀積液 → 想到子宮破裂/胎盤剝離/臟器損傷</li>
+            <li><span class="good">有提 TXA 止血藥、code trauma、CTA 找動脈出血</span></li>
+            <li><span class="good">CPR：PEA → epinephrine q3min + 5H5T + echo</span>；家屬解釋清楚（優先救媽媽）</li>
+          </ul>
+
+          <h3>⚠️ 失分 / 方向差異</h3>
+          <ul>
+            <li><span class="miss">主診斷選 uterine rupture</span>（評分單僅 2 分）而非標準答案 placental abruption（3 分）</li>
+            <li><span class="miss">完全沒提 HELLP</span>（沒問產檢血壓、沒判讀 schistocyte/肝指數）、<span class="miss">沒提 DIC</span></li>
+            <li><span class="miss">病史缺</span>：痛的性質/時長、撞擊速度、G/P、AMPLE 不完整（學長點出）</li>
+            <li><span class="miss">CPR 沒提子宮左推 / perimortem C-section</span>（此題兩位標準要點）</li>
+            <li><span class="miss">治療缺</span>：Rho(D) Ig / Vit K / 破傷風、宮底高度、ISBAR 交班</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <aside>
+    <div class="panel sidebar">
+      <div class="sb-title">🩺 個案資訊</div>
+      <div class="meta-grid">
+        <div><b>病人</b>26 歲 ♀</div>
+        <div><b>孕週</b>28 週 (G1P0)</div>
+        <div><b>機轉</b>車禍 副駕</div>
+        <div><b>檢傷</b>1 級</div>
+        <div><b>BP</b>102/90</div>
+        <div><b>HR</b>144</div>
+        <div><b>RR</b>30</div>
+        <div><b>SpO₂</b>98%</div>
+      </div>
+
+      <div class="sb-title" style="margin-top:18px;">🔑 本次涵蓋重點</div>
+      <ul class="keypoints">
+        <li>病史 + 神經學 PE</li>
+        <li>E-FAST → 積液</li>
+        <li>主診斷：<b>子宮破裂</b>（非胎盤剝離）</li>
+        <li>TXA / code trauma / CTA</li>
+        <li>PEA → CPR + epinephrine + 5H5T</li>
+        <li>家屬解釋（優先救媽媽）</li>
+      </ul>
+
+      <div class="scenario" style="margin-top:18px;">
+        <b>⚠️ 情境提示</b><br>
+        一般級急救責任醫院，<b>無婦產科</b>。需轉院至醫學中心。
+      </div>
+
+      <div class="note">
+        <b>📌 製作說明</b><br>
+        whisper.cpp（MacWhisper small 模型，繁中）轉錄，依 113 年評分單關鍵字校對重組。末段約 5 分鐘為學長 debrief 講評。醫學名詞 whisper 誤字已依脈絡校正。
+      </div>
+    </div>
+  </aside>
+</div>
+
+<script>
+  const player = document.getElementById('player');
+  document.querySelectorAll('.ts').forEach(el => {
+    el.addEventListener('click', () => {
+      player.currentTime = parseInt(el.dataset.t || '0', 10);
+      player.play();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+  const tabs = document.querySelectorAll('.tab');
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    const view = t.dataset.view;
+    document.getElementById('transcriptView').classList.toggle('hidden', view !== 'transcript');
+    document.getElementById('summaryView').classList.toggle('active', view === 'summary');
+  }));
+</script>
+</body>
+</html>
