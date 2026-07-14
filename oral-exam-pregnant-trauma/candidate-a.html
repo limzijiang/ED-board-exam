@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>急診專科口試 — 孕婦創傷情境模擬｜對話逐字稿</title>
+<style>
+  :root {
+    --bg: #f5f6f8;
+    --panel: #ffffff;
+    --text: #1f2330;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --accent: #ff6b1a;
+    --accent-soft: #fff1e8;
+    --examiner: #2563eb;
+    --examiner-soft: #eaf1ff;
+    --student: #0d9488;
+    --student-soft: #e6f7f5;
+    --section: #7c3aed;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+  }
+  .topbar {
+    height: 56px; background: #fff; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; padding: 0 24px; gap: 16px;
+    position: sticky; top: 0; z-index: 50;
+  }
+  .brand { font-weight: 700; color: var(--accent); letter-spacing: .5px; }
+  .topbar .meta { color: var(--muted); font-size: 13px; }
+  .container {
+    max-width: 1100px; margin: 24px auto; padding: 0 24px;
+    display: grid; grid-template-columns: 1fr 320px; gap: 24px;
+  }
+  @media (max-width: 900px) {
+    .container { grid-template-columns: 1fr; }
+    .sidebar { order: -1; }
+  }
+  .panel {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 14px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,.04);
+  }
+  h1 { font-size: 22px; margin: 0 0 6px; }
+  .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 16px; }
+  .audio-wrap {
+    background: linear-gradient(135deg, #fff7ef 0%, #ffe7d6 100%);
+    border-radius: 12px; padding: 14px 16px; margin: 12px 0 6px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  audio { flex: 1; height: 36px; }
+  .tabs { display: flex; gap: 8px; margin: 18px 0 14px; border-bottom: 1px solid var(--border); }
+  .tab {
+    padding: 8px 14px; cursor: pointer; font-size: 14px;
+    color: var(--muted); border-bottom: 2px solid transparent;
+  }
+  .tab.active { color: var(--accent); border-color: var(--accent); font-weight: 600; }
+  .legend { display: flex; gap: 10px; flex-wrap: wrap; margin: 8px 0 16px; font-size: 12px; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 10px; border-radius: 999px; background: #f3f4f6; color: #374151;
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .dot.examiner { background: var(--examiner); }
+  .dot.student  { background: var(--student); }
+  .dot.section  { background: var(--section); }
+
+  .section-bar {
+    margin: 22px 0 8px; padding: 8px 12px;
+    background: #f5f3ff; border-left: 4px solid var(--section); color: #4c1d95;
+    border-radius: 6px; font-weight: 600; font-size: 13px; letter-spacing: .3px;
+  }
+  .turn { display: grid; grid-template-columns: 64px 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px dashed #f0f0f3; }
+  .turn:last-child { border-bottom: none; }
+  .ts {
+    color: var(--muted); font-size: 12px; padding-top: 3px;
+    font-feature-settings: "tnum"; cursor: pointer;
+  }
+  .ts:hover { color: var(--accent); text-decoration: underline; }
+  .bubble { display: flex; flex-direction: column; gap: 4px; }
+  .speaker { font-size: 12px; font-weight: 700; }
+  .speaker.examiner { color: var(--examiner); }
+  .speaker.student  { color: var(--student); }
+  .text {
+    background: #fff; padding: 10px 12px; border-radius: 10px;
+    line-height: 1.7; font-size: 15px; color: #111827;
+    border: 1px solid #f0f0f3;
+    white-space: pre-wrap;
+  }
+  .text.examiner { background: var(--examiner-soft); border-color: #dbe7ff; }
+  .text.student  { background: var(--student-soft); border-color: #cff0ec; }
+  .text small { color: var(--muted); }
+
+  /* Sidebar */
+  .sb-title { font-weight: 700; font-size: 14px; margin: 6px 0 8px; color: #111827; }
+  .keypoints li { margin: 6px 0; font-size: 13px; line-height: 1.6; color: #374151; }
+  .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 12px; }
+  .meta-grid div { background: #f9fafb; padding: 8px 10px; border-radius: 8px; }
+  .meta-grid b { color: #111827; display: block; font-size: 11px; color: var(--muted); font-weight: 500; }
+  .scenario {
+    background: #fffbeb; border: 1px solid #fde68a; color: #78350f;
+    border-radius: 10px; padding: 12px; font-size: 13px; line-height: 1.6;
+  }
+  .note {
+    margin-top: 12px; font-size: 12px; color: var(--muted); line-height: 1.5;
+    padding: 10px; background: #f9fafb; border-radius: 8px;
+  }
+  .summary-view { display: none; }
+  .summary-view.active { display: block; }
+  .transcript-view.hidden { display: none; }
+  .scoring h3 { font-size: 14px; margin: 14px 0 6px; color: #111827; }
+  .scoring p { margin: 4px 0; font-size: 13px; color: #374151; line-height: 1.6; }
+  .scoring ul { margin: 4px 0 8px; padding-left: 20px; }
+  .scoring li { font-size: 13px; line-height: 1.6; color: #374151; }
+  .tag { display: inline-block; background: var(--accent-soft); color: var(--accent); padding: 2px 8px; border-radius: 999px; font-size: 11px; margin-left: 6px; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">📝 急診口試逐字稿</div>
+  <div class="meta">2026·05·13 · 全長 15:34 · 中文（繁中）</div>
+  <a href="../" style="margin-left:auto; color:#6b7280; text-decoration:none; font-size:13px;">← 回主題目錄</a>
+</div>
+
+<div class="container">
+
+  <!-- MAIN -->
+  <div>
+    <div class="panel">
+      <h1>急診專科口試 — 孕婦創傷情境模擬</h1>
+      <div class="subtitle">26 歲懷孕 28 週副駕駛，車禍後下腹痛｜一般級急救責任醫院（無婦產科）</div>
+
+      <div class="audio-wrap">
+        <span style="font-size:22px;">🎧</span>
+        <audio id="player" controls preload="metadata" src="candidate-a.mp3"></audio>
+      </div>
+
+      <div class="tabs">
+        <div class="tab active" data-view="transcript">逐字稿</div>
+        <div class="tab" data-view="summary">摘要 / 評分重點</div>
+      </div>
+
+      <div class="legend">
+        <span class="pill"><span class="dot examiner"></span>考官 / 病人角色</span>
+        <span class="pill"><span class="dot student"></span>考生</span>
+        <span class="pill"><span class="dot section"></span>段落</span>
+      </div>
+
+      <!-- TRANSCRIPT VIEW -->
+      <div class="transcript-view" id="transcriptView">
+
+        <div class="section-bar">⏱ 00:00 — 開場・準備</div>
+
+        <div class="turn"><div class="ts" data-t="0">00:00</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">28 週。有兩頁喔。這邊有 case sheet，好，OK。</div>
+        </div></div>
+
+        <div class="section-bar">⏱ 00:05 — 一、病史詢問（與 EMT 交班 + 病人問診）</div>
+
+        <div class="turn"><div class="ts" data-t="5">00:05</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">好，問病史。現在救護車送入了，所以我會先用 MIST 的方式跟 EMT 交班。請問這個 mechanism 是怎麼樣？包含說……是汽車跟汽車的車禍？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="17">00:17</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">汽車跟汽車那樣的。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="19">00:19</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">OK，那時速怎麼樣？然後有沒有車體嚴重變形？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="21">00:21</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">她是副駕駛，安全氣囊沒有爆開，她有繫安全帶。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="26">00:26</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">OK，有繫安全帶。譬如說有困難脫困，或是現場其他的傷者……</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="28">00:28</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">這種都沒有。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="31">00:31</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">那初步有沒有看到什麼明顯的擦傷、撕裂傷？然後有沒有做什麼樣的處置？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="36">00:36</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">下腹部有個擦挫傷，有做包紮。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="40">00:40</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">下腹擦挫傷，OK，知道了。那再來進到病人的部分。病人，您好。請問現在哪邊覺得不舒服或哪邊疼痛？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="49">00:49</div><div class="bubble">
+          <span class="speaker examiner">考官（病人）</span>
+          <div class="text examiner">就下腹痛。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="51">00:51</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">就下腹而已喔？確認一下，有沒有頭痛？或是胸口、背痛？或是四肢活動都 OK 嗎？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="56">00:56</div><div class="bubble">
+          <span class="speaker examiner">考官（病人）</span>
+          <div class="text examiner">沒有，都 OK。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="57">00:57</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">那剛剛發生什麼事？您有印象嗎？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="59">00:59</div><div class="bubble">
+          <span class="speaker examiner">考官（病人）</span>
+          <div class="text examiner">就老公開車啊，不知道為什麼就車禍。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="63">01:03</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">所以整個過程您都記得、有印象，沒有失憶這種？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="65">01:05</div><div class="bubble">
+          <span class="speaker examiner">考官（病人）</span>
+          <div class="text examiner">對。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="66">01:06</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">現在會噁心、嘔吐這種嗎？有沒有覺得比較沒力氣，或是感覺有異常那種？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="70">01:10</div><div class="bubble">
+          <span class="speaker examiner">考官（病人）</span>
+          <div class="text examiner">沒有，就是肚子痛而已。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="73">01:13</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">那其他病史的部分，您以前有什麼慢性病、長期吃藥或開刀住院嗎？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="78">01:18</div><div class="bubble">
+          <span class="speaker examiner">考官（病人）</span>
+          <div class="text examiner">沒有，都沒有。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="81">01:21</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">那有沒有抽菸、喝酒、嚼檳榔，然後使用非法藥物這種？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="85">01:25</div><div class="bubble">
+          <span class="speaker examiner">考官（病人）</span>
+          <div class="text examiner">沒有。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="87">01:27</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">這是您自己的車？然後以前有沒有⋯⋯G 幾 P 幾？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="89">01:29</div><div class="bubble">
+          <span class="speaker examiner">考官（病人）</span>
+          <div class="text examiner">G1P0。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="91">01:31</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">G1P0，OK。所以現在是頭一胎。那產檢目前⋯⋯</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="97">01:37</div><div class="bubble">
+          <span class="speaker examiner">考官（病人）</span>
+          <div class="text examiner">產檢有講血壓好像有高一點，但是我後來忘記回去追蹤了。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="105">01:45</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">嗯，OK，所以血壓比較高一點。那也沒有在吃藥就對了？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="111">01:51</div><div class="bubble">
+          <span class="speaker examiner">考官（病人）</span>
+          <div class="text examiner">沒有。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="113">01:53</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">那 AMPLE 的部分——有沒有食物或藥物過敏？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="118">01:58</div><div class="bubble">
+          <span class="speaker examiner">考官（病人）</span>
+          <div class="text examiner">沒有。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="120">02:00</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">沒有特別在用藥嘛。那上一餐大概什麼時候吃的？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="125">02:05</div><div class="bubble">
+          <span class="speaker examiner">考官（病人）</span>
+          <div class="text examiner">一小時前。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="128">02:08</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">一小時前，OK。<small>（檢視 vital：呼吸比較快，分流 1 級）</small></div>
+        </div></div>
+
+        <div class="section-bar">⏱ 02:30 — 二、外傷評估與處置（Primary Survey）</div>
+
+        <div class="turn"><div class="ts" data-t="150">02:30</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">那這大概就是我病史詢問的部分，再來我會做 Primary Survey，從頭到腳，用 ABCDE 的方式去看。首先看一下 scene 有沒有明顯的大量出血。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="170">02:50</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">沒有。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="172">02:52</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">A 的部分會看一下她的 airway——她現在有辦法跟我這樣講話。有沒有聽到一些呼吸的異音、雜音？然後壓一下她後面的 C-spine，後面有沒有 tenderness？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="190">03:10</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">沒有，都沒有。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="195">03:15</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">B（Breathing）的部分會看兩側的胸廓起伏是否對稱，兩側呼吸音是否對稱、聽得到。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="210">03:30</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">都對稱。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="212">03:32</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">心音有沒有聽到新雜音？或是 rales/rhonchi？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="218">03:38</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">都正常。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="220">03:40</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">B 的部分有沒有用一些 accessory muscle？或是有沒有頸靜脈怒張、氣管偏移？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="228">03:48</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">沒有，都沒有。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="232">03:52</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">C 的部分會測一下她的 capillary refill time。D 的部分會看一下她的 pupil，並且看一下四肢的 muscle power。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="248">04:08</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">Pupil 3/3 有 light reflex；muscle power 大致對稱。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="258">04:18</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">有沒有覺得手腳哪邊沒力氣，或是麻木這種？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="266">04:26</div><div class="bubble">
+          <span class="speaker examiner">考官（病人）</span>
+          <div class="text examiner">沒有。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="268">04:28</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">E 的部分會到一個比較隱密的地方，請護理師陪同，看一下身上、背後有沒有擦傷、撕裂傷、瘀青等等。Exposure 完之後也會給她保暖。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="287">04:47</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">就是下腹部擦傷。<br><small>提醒：因為我們現在沒有婦產科。</small></div>
+        </div></div>
+
+        <div class="section-bar">⏱ 05:00 — Secondary Survey（含產科檢查）</div>
+
+        <div class="turn"><div class="ts" data-t="300">05:00</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">PE 的部分還是會大致做一下 N1：pupil、四肢剛剛看過，anal tone 還是會看一下。聽說她是一個懷孕的婦人，所以我還是會壓一下肚子，看哪邊特別壓到比較疼痛，並且看一下 fundus 的位置大概在哪邊。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="335">05:35</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">下腹部痛；宮底高度大概在肚臍以上，28 週。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="350">05:50</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">那會請護理師陪同，看一下外陰部有沒有明顯出血，或是有沒有撕裂傷？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="365">06:05</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">陰道沒有出血，有一些分泌物——本來就有一些，但好像再多一點點。</div>
+        </div></div>
+
+        <div class="section-bar">⏱ 06:30 — Adjuncts：POCUS / E-FAST</div>
+
+        <div class="turn"><div class="ts" data-t="385">06:25</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">因為她血壓比較差，所以這個時候我會先幫她做一個 basic echo / E-FAST，看有沒有 free fluid 跟 intra-abdominal 的問題。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="410">06:50</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">目前看起來：可以看到 fetal pole，前面看起來沒有什麼異常；不過肚子裡面有一些 free fluid 的樣子，但這位置目前不是很明顯。Pericardial effusion 也會幫她看一下；morrison's pouch、splenorenal recess 看起來也好像有一些 fluid。沒有看到明顯的 laceration。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="445">07:25</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner"><b>POCUS 結果：</b>腹腔內出血 (-)；<b>placental abruption (+)</b>。</div>
+        </div></div>
+
+        <div class="section-bar">⏱ 07:40 — 三、檢驗檢查（Lab + Imaging）</div>
+
+        <div class="turn"><div class="ts" data-t="465">07:45</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">這個病人受了創傷之後下腹痛，並且有 intra-abdominal free fluid，所以我會幫她安排——抽 CBC、生化（包含肝腎、電解質）、凝血功能；如果等一下要輸血，先驗血型備血。再幫她留個 UA，看有沒有泌尿道的損傷。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="510">08:30</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">因為現在沒辦法做 sterile speculum，所以我會幫她驗一下分泌物的 pH 試紙看怎麼樣。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="528">08:48</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">pH 看起來是 5。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="535">08:55</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">OK，目前看起來不太像是破水。然後還是會幫她做 EKG、Chest X-ray、Pelvic X-ray 這個基本 primary survey 的 adjunct。因為她心跳比較快，血壓也是 borderline，所以我會先給她第一輪的 1:1:1 輸液。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="568">09:28</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">先做檢查，治療還沒有。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="572">09:32</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">好，對不起。那我先問一下，您 5 年內有沒有打過破傷風疫苗？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="580">09:40</div><div class="bubble">
+          <span class="speaker examiner">考官（病人）</span>
+          <div class="text examiner">沒有。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="585">09:45</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">OK。那檢驗檢查大概就是這些。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="600">10:00</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">有些有結果了。Hb 稍微掉一點、platelet 比較低，可能 schistocyte 看起來這趴比較高；目前看起來不能排除。Liver function 比較高一點，platelet 比較低 → 會擔心 HELLP syndrome；bilirubin 也比較高，LDH 比較高；D-dimer 第二輪會升，PT/PTT 稍微長一些 → 也會擔心 DIC。Vital sign 上 BP 偏低、HR 偏快。沒有 AKI。</div>
+        </div></div>
+
+        <div class="section-bar">⏱ 11:00 — 四、可能診斷（Differential Diagnosis）</div>
+
+        <div class="turn"><div class="ts" data-t="660">11:00</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">所以可能診斷——第一個會擔心是 intra-abdominal hemorrhage（合併 placental abruption）。對不起，這邊我前面檢查就會跟她講需要安排打 contrast 的 CT，從 chest 到 abdomen，因為她比較 unstable 並且有 abdominal free fluid。也會跟家屬說對胎兒可能有潛在影響。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="710">11:50</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">我們沒有 CT。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="715">11:55</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">沒有 CT，好。所以可能診斷：1) intra-abdominal hemorrhage（懷疑 liver / spleen / intestinal laceration）；2) 因為 elevated liver function、platelet 低 → HELLP syndrome / pre-eclampsia；3) DIC。</div>
+        </div></div>
+
+        <div class="section-bar">⏱ 12:30 — 五、治療處置</div>
+
+        <div class="turn"><div class="ts" data-t="755">12:35</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">治療上會先幫她打破傷風疫苗。輸血用 MTP 1:1:1 的方式去輸；同時還是會先給她 500 cc normal saline challenge 去 maintain 她的 BP。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="785">13:05</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">我們這邊沒有 MTP。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="790">13:10</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">沒有 MTP，那我們就先叫姊姊（血庫）給她輸。然後幫病人打破傷風、做傷口包紮，給病人都上 monitor，IV 穩定，大概是這樣。</div>
+        </div></div>
+
+        <div class="section-bar">⏱ 13:30 — 六、病人動向 / 轉院交班（ISBAR）</div>
+
+        <div class="turn"><div class="ts" data-t="815">13:35</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">這個病人需要轉診，要轉到有外傷中心跟婦產科會診的醫學中心。<br><br>「醫學中心您好，我們這邊有一位 26 歲車禍的懷孕婦女，懷孕 28 週。目前 abdominal echo 上看到 free fluid，並且她比較 shock。因為我們醫院沒有婦產科會診，也沒有 CT，所以我們這邊先幫她輸血、打破傷風跟包紮、Foley 上後，想麻煩你們幫忙做 CT 並且做婦產科會診。意識 GCS E3V5M6。等一下她先生會陪她坐救護車過去。」</div>
+        </div></div>
+
+        <div class="section-bar">⏱ 14:00 — 七、向病人解釋病情（SPIKES）</div>
+
+        <div class="turn"><div class="ts" data-t="855">14:15</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">病人大學畢業，請解釋病情。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="860">14:20</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">病人您好，我是急診的醫師。我會用 SPIKES 的方式跟您交班、解釋病情。請問您目前對自己病情的了解程度大概到什麼樣的情況？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="880">14:40</div><div class="bubble">
+          <span class="speaker examiner">考官（病人）</span>
+          <div class="text examiner">好痛、很痛。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="885">14:45</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">好，那等一下我們會 order 給您打嗎啡來止痛。然後現在我們檢查起來，您肚子裡面有腹腔內的出血，並且抽血看起來肝指數比較高，也可能潛在影響到凝血功能。因為我們醫院沒有婦產科急會診，也沒有打顯影劑的電腦斷層，所以需要幫您轉診到附近的醫學中心做這些治療。我們現在已經幫您輸血並且打上一些可以用的藥物。到底檢查到什麼問題、需不需要緊急開刀或緊急生產，都要由那邊來進行評估。我知道這狀況對您來說比較嚴重、比較突然——您有什麼想問的問題嗎？</div>
+        </div></div>
+
+        <div class="section-bar">⏱ 15:30 — 八、病情變化（CPR / PEA 急救）</div>
+
+        <div class="turn"><div class="ts" data-t="950">15:50</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">第二題：現在變成醫學中心。轉院過去突然發現大家出血、意識喪失，直接退到沒有意識。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="970">16:10</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">好，那我會先幫她 check pulse，看她的 O₂、IV、monitor 重新接上去。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="985">16:25</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">沒有 pulse。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="990">16:30</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">沒有 pulse，第一個就是幫她做 CPR、壓胸；同時 bagging 三比二的方式去做，並且用 RSI 去幫她插管。同時這個情況——CPR 的同時，我會直接叫 MTP 過來幫她輸，1:1:1 去輸；並且同時請會診婦產科，準備接下來 perimortem C-section，評估有沒有辦法直接幫病人緊急生產。這個時候我也會先 echo 過來掃一下，看她 IVC 狀況、pericardial effusion，或是肚子裡面有沒有 free fluid / hemorrhage。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1080">18:00</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">看起來跟剛剛差不多。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1090">18:10</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">那我們現在就先繼續 resuscitation，先給她用 1:1:1 去輸血。我們有輸血加溫器嗎？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1110">18:30</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">應該有。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1115">18:35</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">好，那我們就用輸血加溫器幫她 resuscitate。</div>
+        </div></div>
+
+        <div class="section-bar">⏱ 19:00 — 九、向家屬解釋病情</div>
+
+        <div class="turn"><div class="ts" data-t="1140">19:00</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">最後一題——解釋病情。經過 resuscitation 病人有什麼變化嗎？目前還在急救。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1170">19:30</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">好，那我會走過去跟病人先生解釋。因為這是比較壞的狀況，所以我會先把家屬帶到一個比較獨立、安靜的空間，並先確認家屬身分。<br><br>「您太太在轉院過程當中病情有突然的變化，目前到我們這邊是沒有生命徵象的。我們現在正在緊急幫她做急救、輸血，並且做心臟按摩；同時也請了婦產科來會診，看有沒有辦法做緊急生產去保住小孩的部分。因為現在這個狀況媽媽是沒有生命徵象的，所以很可能急救會面臨到無效的情況，最後媽媽可能會是死亡的；並且小孩的狀況其實不會到真的太好。所以可能要請您有心理準備——這個狀況是蠻差的。不過我們現在都在盡力救治。我們知道這個狀況蠻危急、蠻突然的；如果您有任何想問的問題，都可以再詢問我們。」</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1310">21:50</div><div class="bubble">
+          <span class="speaker examiner">考官（家屬）</span>
+          <div class="text examiner">求您幫幫她。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1315">21:55</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">好，OK，我們會盡力救治。</div>
+        </div></div>
+
+        <div class="section-bar">⏱ 22:00 — 結束 / 講評</div>
+
+        <div class="turn"><div class="ts" data-t="1325">22:05</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">那我們剛剛在做 E-FAST 的時候，兩邊的肺部分也都一樣？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1335">22:15</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">對，一樣。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1345">22:25</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">好，OK。以上，謝謝。<br><br>很棒。您時間把握我覺得都不錯，但還是有一些可以再看一下的地方，我先圈起來，等一下會統一講一下。<br><br>聽了不同幾位的，應該有發現，就是完整度跟時間的差別——有的人就會做得比較好。</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1410">23:30</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">這都是評分。對，這是評分單。怎麼有個評分單叫出來？這是我的嗎？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1420">23:40</div><div class="bubble">
+          <span class="speaker student">考生</span>
+          <div class="text student">對，這是您的。<br>好緊張⋯⋯我可以錄我自己嗎？</div>
+        </div></div>
+
+        <div class="turn"><div class="ts" data-t="1430">23:50</div><div class="bubble">
+          <span class="speaker examiner">考官</span>
+          <div class="text examiner">可以啊。等我，回去聽聽看。</div>
+        </div></div>
+
+      </div>
+
+      <!-- SUMMARY VIEW -->
+      <div class="summary-view" id="summaryView">
+        <div class="scoring">
+          <h3>🩺 情境設定</h3>
+          <p>一般級急救責任醫院（無婦產科）急診值班，救護車送入 26 歲女性，懷孕 28 週（先生陪同），下腹痛。<br>
+          檢傷分流 1 級｜GCS E3V5M6｜BP 102/90｜HR 144｜RR 30｜SpO₂ 98%｜T 36°C</p>
+
+          <h3>① 病史 (8分) <span class="tag">~02:30</span></h3>
+          <ul>
+            <li>MIST 交班：機轉、傷勢、症狀、處置</li>
+            <li>OB 史：G1P0、產檢曾發現高血壓但未追蹤</li>
+            <li>AMPLE：無過敏 / 無用藥 / 一小時前進食</li>
+          </ul>
+
+          <h3>② 外傷評估 Primary + Secondary Survey (21分) <span class="tag">~07:30</span></h3>
+          <ul>
+            <li>A：airway 通暢、C-spine 無壓痛</li>
+            <li>B：胸部對稱、雙側呼吸音正常</li>
+            <li>C：高度懷疑出血性休克 → 兩條 18G IV、晶體輸液（孕婦量需 +50%）、左側臥</li>
+            <li>D：GCS E3V5M6、瞳孔 3/3 對光</li>
+            <li>E：下腹擦挫傷，注意保暖</li>
+            <li>Adjunct：CXR、E-FAST → <b>placental abruption (+)</b></li>
+            <li>Secondary：宮底高度（28 週應到肚臍以上）、子宮張力、陰道分泌物</li>
+          </ul>
+
+          <h3>③ 檢驗 (13分) <span class="tag">~10:00</span></h3>
+          <ul>
+            <li>CBC / 生化 / 凝血功能 / 備血</li>
+            <li>分泌物 pH 試紙 → pH 5（非破水）</li>
+            <li>POCUS：腹腔出血 (-)，placental abruption (+)</li>
+          </ul>
+
+          <h3>④ 臨床臆斷 (12分) <span class="tag">~11:30</span></h3>
+          <ul>
+            <li><b>Placental abruption</b></li>
+            <li>HELLP syndrome（產檢曾血壓高 + 肝指數高 + platelet 低）</li>
+            <li>DIC</li>
+            <li>Uterine rupture / Hemolytic transfusion reaction</li>
+          </ul>
+
+          <h3>⑤ 治療 (15分) <span class="tag">~13:00</span></h3>
+          <ul>
+            <li>IV、O₂、左側臥</li>
+            <li>輸液 1500 ml crystalloid，急領 O 型血</li>
+            <li>NG 減壓、止痛、Tetanus、Rho(D) Ig、TXA、Vit K、考慮 MgSO₄</li>
+          </ul>
+
+          <h3>⑥ 轉院交班 (4分) <span class="tag">~13:30</span></h3>
+          <p>ISBAR 形式 → 需 6hr 胎兒監視器 + 產科超音波</p>
+
+          <h3>⑦ 病情解釋（SPIKES） (4分) <span class="tag">~14:30</span></h3>
+          <p>對病人解釋：腹腔出血、肝指數高、凝血異常 → 需轉院做 CT 與婦產科處置。</p>
+
+          <h3>⑧ 病情變化（PEA / 急救） (17分) <span class="tag">~15:50</span></h3>
+          <ul>
+            <li>啟動外傷小組 + 婦產科</li>
+            <li>重新 ABCDE → PEA → CPR + 子宮往左推</li>
+            <li>4 分鐘內決定 perimortem C/S（&gt;24 週），5 分鐘內生完</li>
+            <li>啟動大量輸血流程（1:1:1，台灣 6/6/1U）</li>
+            <li>放置 central line</li>
+          </ul>
+
+          <h3>⑨ 對家屬解釋病情 (4分) <span class="tag">~19:30</span></h3>
+          <p>SPIKES｜獨立空間、確認身分、告知壞消息、不確定性、共同決策。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside>
+    <div class="panel sidebar">
+      <div class="sb-title">🩺 個案資訊</div>
+      <div class="meta-grid">
+        <div><b>病人</b>26 歲 ♀</div>
+        <div><b>孕週</b>28 週 (G1P0)</div>
+        <div><b>機轉</b>汽車車禍 副駕</div>
+        <div><b>檢傷</b>1 級</div>
+        <div><b>BP</b>102/90</div>
+        <div><b>HR</b>144</div>
+        <div><b>RR</b>30</div>
+        <div><b>SpO₂</b>98%</div>
+      </div>
+
+      <div class="sb-title" style="margin-top:18px;">🔑 關鍵字</div>
+      <ul class="keypoints">
+        <li>MIST 交班 / AMPLE / SPIKES / ISBAR</li>
+        <li>Primary Survey ABCDE</li>
+        <li>E-FAST → <b>placental abruption</b></li>
+        <li>HELLP / DIC / Uterine rupture</li>
+        <li>左側臥 + IV ×2 + 晶體+50%</li>
+        <li>Tetanus, Rho(D) Ig, TXA, Vit K, MgSO₄</li>
+        <li>PEA → CPR + perimortem C/S（4 分內決定，5 分內生完）</li>
+        <li>MTP 1:1:1（台灣 6/6/1U）+ central line</li>
+      </ul>
+
+      <div class="scenario" style="margin-top:18px;">
+        <b>⚠️ 情境提示</b><br>
+        一般級急救責任醫院，<b>無婦產科</b>、<b>無 CT</b>、<b>無 MTP</b>。需轉診到醫學中心。
+      </div>
+
+      <div class="note">
+        <b>📌 製作說明</b><br>
+        此逐字稿由 whisper.cpp（medium 模型，繁中）自動產生，並依 113 年急診醫學科外傷新式教案評分單關鍵字校對重組為對話形式。原音檔長度 15:34，講評部分可能因錄音末段語音密度較低致時間軸對應略有偏差。
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<script>
+  const player = document.getElementById('player');
+  document.querySelectorAll('.ts').forEach(el => {
+    el.addEventListener('click', () => {
+      const t = parseInt(el.dataset.t || '0', 10);
+      player.currentTime = t;
+      player.play();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  const tabs = document.querySelectorAll('.tab');
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    const view = t.dataset.view;
+    document.getElementById('transcriptView').classList.toggle('hidden', view !== 'transcript');
+    document.getElementById('summaryView').classList.toggle('active', view === 'summary');
+  }));
+</script>
+</body>
+</html>
