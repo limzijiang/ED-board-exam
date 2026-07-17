@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>急診口試 讀書會複習重點卡 — 共同弱點總整理</title>
+<style>
+  :root { --bg:#f5f6f8; --panel:#fff; --text:#1f2330; --muted:#6b7280; --border:#e5e7eb; --accent:#ff6b1a; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; padding:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Microsoft JhengHei","Noto Sans TC",Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; line-height:1.62; }
+  .topbar { height:56px; background:#fff; border-bottom:1px solid var(--border); display:flex; align-items:center; padding:0 24px; gap:16px; position:sticky; top:0; z-index:50; }
+  .brand { font-weight:700; color:var(--accent); letter-spacing:.5px; }
+  .topbar .meta { color:var(--muted); font-size:13px; }
+  .topbar a { color:var(--muted); text-decoration:none; font-size:13px; margin-left:auto; }
+  .topbar a:hover { color:var(--accent); }
+  .wrap { max-width:920px; margin:24px auto; padding:0 24px 60px; }
+  h1 { font-size:24px; margin:0 0 4px; }
+  .sub { color:var(--muted); font-size:14px; margin-bottom:22px; }
+  .card { background:var(--panel); border:1px solid var(--border); border-radius:14px; padding:20px 22px; box-shadow:0 1px 3px rgba(0,0,0,.04); margin-bottom:18px; }
+  .card h2 { font-size:18px; margin:0 0 4px; display:flex; align-items:center; gap:10px; }
+  .num { flex:0 0 auto; width:28px; height:28px; border-radius:50%; background:var(--accent); color:#fff; font-size:15px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+  .tagrow { margin:2px 0 12px 38px; }
+  .tag { font-size:11px; font-weight:700; padding:2px 8px; border-radius:999px; background:#f3f4f6; color:#4b5563; margin-right:6px; }
+  .tag.trauma { background:#eef2ff; color:#4338ca; } .tag.metha { background:#ecfdf5; color:#047857; }
+  .body { margin-left:38px; }
+  .body p { margin:6px 0; font-size:14px; }
+  .body b { color:#111827; }
+  .rx { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px; background:#f3f4f6; border-radius:4px; padding:1px 6px; }
+  .box { background:#f9fafb; border-radius:8px; padding:10px 14px; margin:8px 0; font-size:13.5px; }
+  .box.key { background:#fff7ed; border:1px solid #fed7aa; }
+  .miss-tag { display:inline-block; font-size:11.5px; color:#b91c1c; background:#fee2e2; border-radius:6px; padding:1px 7px; font-weight:700; }
+  table { border-collapse:collapse; width:100%; font-size:13px; margin:8px 0; }
+  th,td { padding:6px 9px; border-bottom:1px solid var(--border); text-align:left; }
+  th { background:#fafbfc; font-weight:600; }
+  td.c { text-align:center; }
+  .formula { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13px; background:#111827; color:#e5e7eb; border-radius:8px; padding:12px 14px; margin:8px 0; overflow-x:auto; }
+  .formula .hl { color:#fbbf24; }
+  ul.check { list-style:none; padding-left:0; margin:8px 0; }
+  ul.check li { font-size:13.5px; padding:4px 0 4px 24px; position:relative; }
+  ul.check li:before { content:"☐"; position:absolute; left:0; color:#9ca3af; font-size:15px; }
+  .foot { font-size:12px; color:#6b7280; background:#f9fafb; border-radius:8px; padding:12px 14px; }
+  @media print { .topbar{display:none;} body{background:#fff;} .card{break-inside:avoid; box-shadow:none;} }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="brand">🎴 讀書會複習重點卡</div>
+  <div class="meta">急診口試 · 兩題共同弱點總整理</div>
+  <a href="./">← 回主題目錄</a>
+</div>
+<div class="wrap">
+  <h1>急診口試 讀書會複習重點卡</h1>
+  <div class="sub">整理自兩題口試（孕婦創傷 6 人 + 甲醇中毒 4 人）反覆出現的共同弱點。<span class="tag trauma">孕婦創傷</span><span class="tag metha">甲醇中毒</span>標示各點出現在哪一題。</div>
+
+  <!-- 1 解毒劑 -->
+  <div class="card">
+    <h2><span class="num">1</span>解毒劑要記牢：一線 vs 替代</h2>
+    <div class="tagrow"><span class="tag metha">甲醇中毒</span><span class="miss-tag">4/4 人漏一線</span></div>
+    <div class="body">
+      <p>甲醇中毒四位考生<b>沒有一人主動、完整講出 Fomepizole</b>（最多只到「aware」），且<b>四人全漏 Folinic acid</b>。</p>
+      <div class="box key">
+        <b>Fomepizole（一線）</b> — 抑制 alcohol dehydrogenase，阻止甲醇→甲酸<br>
+        <span class="rx">loading 15 mg/kg IV over 30min → 10 mg/kg Q12H ×48h → 之後 15 mg/kg Q12H</span><br>
+        直到 methanol &lt; 20 mg/dL、酸血症與症狀改善；<b>洗腎時改 Q4H</b>。
+      </div>
+      <div class="box">
+        <b>Ethanol（替代，無 Fomepizole 時）</b> — 目標血中濃度 100–150 mg/dL。<br>
+        非一線原因：<b>低血糖、CNS 抑制、低血壓、劑量難調</b>。
+      </div>
+      <div class="box">
+        <b>Folinic acid（Leucovorin）/ Folic acid</b> — 加速甲酸代謝成 CO₂＋水，減少視神經毒性。<br>
+        <b>NaHCO₃</b> — 目標 <span class="rx">pH &gt; 7.3</span>。　<b>血液透析</b> — 見第 4 點適應症。
+      </div>
+      <p style="font-size:12.5px;color:#6b7280">🔗 對照：孕婦創傷題也有類似「治療味數漏掉」的模式——RhoGAM / TXA / Vit K / 破傷風 常被漏（見第 5 點）。</p>
+    </div>
+  </div>
+
+  <!-- 2 gap 計算 -->
+  <div class="card">
+    <h2><span class="num">2</span>Anion gap & Osmolar gap 一定要「算出來」</h2>
+    <div class="tagrow"><span class="tag metha">甲醇中毒</span><span class="miss-tag">昆霖・熙晴 完全沒算</span></div>
+    <div class="body">
+      <p>這是把「一坨代謝性酸中毒」<b>精準收斂到甲醇</b>的關鍵步驟。只有「代謝酸」拿不到高分，要能當場計算並判讀。</p>
+      <div class="formula">
+Anion gap = <span class="hl">Na⁺ − Cl⁻ − HCO₃⁻</span>　（本案 = <span class="hl">26.2</span>，↑ 正常 8–12）
+Calculated osm = <span class="hl">2×Na⁺ + glucose/18 + BUN/2.8 + ethanol/4.6</span>　(mg/dL)
+Osmolar gap = measured − calculated　（本案 = <span class="hl">177</span>，↑ 正常 &lt;10）
+      </div>
+      <div class="box key">
+        <b>判讀邏輯：</b>High anion gap + <b>High osmolar gap</b> 的代謝性酸中毒
+        → toxic alcohol（<b>甲醇 / 乙二醇</b>）。若 ethanol 值低更指向甲醇。
+        再送甲醇/乙二醇濃度確診（但結果常來不及）。
+      </div>
+      <p><b>HAGMA 鑑別口訣 GOLD MARK</b>：Glycols(乙二醇)、Oxoproline、L-lactate、D-lactate、Methanol、Aspirin、Renal(uremia)、Ketoacidosis。</p>
+    </div>
+  </div>
+
+  <!-- 3 時間掌控 -->
+  <div class="card">
+    <h2><span class="num">3</span>時間掌控與答題節奏</h2>
+    <div class="tagrow"><span class="tag metha">甲醇中毒</span><span class="tag trauma">孕婦創傷</span><span class="miss-tag">熙晴・r1 後段崩盤</span></div>
+    <div class="body">
+      <p>多位考生卡在單一項（Lab 判讀、gap）導致後段治療/交班/解釋沒時間，被考官催「不然會沒有分數」。</p>
+      <ul class="check">
+        <li><b>開場先讀完整份題目</b>——可能有兩頁、兩輪（外傷第二輪變化、內科病情惡化），先看後面才知道前面要多快。</li>
+        <li><b>看配分決定講多久</b>——15% 的題約給 2 分鐘；6% 的題 30–60 秒帶過即可。</li>
+        <li><b>每段先宣告</b>「我現在做的是 Primary survey / 檢驗 / 治療」——讓考官好打勾。</li>
+        <li><b>被催就立刻跳關</b>拿基本分，不要死磕單一項；診斷不確定也要果斷講一個。</li>
+        <li>先鋪骨架（把七/九大項標題都碰到）再回頭補細節，避免前重後輕。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 4 診斷命名 -->
+  <div class="card">
+    <h2><span class="num">4</span>關鍵診斷要「講出名字」，別只描述</h2>
+    <div class="tagrow"><span class="tag trauma">孕婦創傷</span><span class="tag metha">甲醇中毒</span></div>
+    <div class="body">
+      <p>反覆出現的失分：labs/影像描述對了，但沒把診斷<b>命名</b>出來，考官不一定給分。</p>
+      <table>
+        <tr><th>題目</th><th>該命名的診斷</th><th>觀察到的狀況</th></tr>
+        <tr><td>孕婦創傷</td><td><b>Placental abruption</b>（主診斷 3 分）</td><td class="c">r2 / r3-wang 選了 uterine rupture（2 分）</td></tr>
+        <tr><td>孕婦創傷</td><td><b>HELLP</b> / DIC</td><td class="c">除 r3-nai、考生 A 外多半漏 HELLP</td></tr>
+        <tr><td>甲醇中毒</td><td><b>Methanol poisoning</b></td><td class="c">熙晴由考官給出診斷</td></tr>
+      </table>
+      <div class="box">洗澡水別跟嬰兒一起倒——洩漏出來的線索（產檢高血壓→HELLP；私釀酒＋雙 gap↑→甲醇）要主動連回<b>具名診斷</b>。</div>
+    </div>
+  </div>
+
+  <!-- 5 通用結構 -->
+  <div class="card">
+    <h2><span class="num">5</span>通用結構與「常漏的味數」</h2>
+    <div class="tagrow"><span class="tag trauma">孕婦創傷</span><span class="tag metha">甲醇中毒</span></div>
+    <div class="body">
+      <p><b>固定框架先背起來，避免跳項：</b></p>
+      <ul class="check">
+        <li>交班聽/講：<b>MIST</b>（機轉/傷勢/症狀/處置）；病史：<b>AMPLE</b></li>
+        <li>外傷：<b>Primary survey ABCDE</b> → adjunct(E-FAST) → Secondary(head-to-toe)</li>
+        <li>意識改變：<b>AEIOU-TIPS</b> 逐字首背全（中鈺只講 ALTX 被扣）</li>
+        <li>轉院/收床交班：<b>ISBAR</b>；家屬解釋：<b>SPIKES</b>（先確認身分/教育程度）</li>
+        <li>照會要點對科別：甲醇→<b>毒物科＋腎臟科</b>；孕婦→<b>婦產科＋兒科/NICU</b></li>
+      </ul>
+      <div class="box"><b>孕婦創傷專屬常漏味數：</b>子宮左推、上肢大號 IV、RhoGAM（RhD 陰性）、TXA、Vit K、破傷風、宮底高度、4 分鐘 perimortem C/S。</div>
+      <div class="box"><b>甲醇中毒專屬常漏味數：</b>Fomepizole、Folinic acid、anion/osmolar gap 計算、Kleihauer-Betke（此為孕婦題，勿混）、洗腎適應症。</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    📌 個別考生的細項清單見
+    <a href="improvement-methanol.html" style="color:#ff6b1a;text-decoration:none;font-weight:600;">甲醇中毒 個人化改進清單 →</a>　·
+    兩題完整逐字稿與評分看板見
+    <a href="./" style="color:#ff6b1a;text-decoration:none;font-weight:600;">主題目錄</a>。
+    分數為依評分表關鍵字之估算，非官方評分。
+  </div>
+</div>
+</body>
+</html>
