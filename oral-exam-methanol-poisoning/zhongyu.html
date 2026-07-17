@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>急診口試 — 意識改變/甲醇中毒（中鈺）｜逐字稿</title>
+<style>
+  :root { --bg:#f5f6f8; --panel:#fff; --text:#1f2330; --muted:#6b7280; --border:#e5e7eb;
+    --accent:#ff6b1a; --accent-soft:#fff1e8; --examiner:#2563eb; --examiner-soft:#eaf1ff;
+    --student:#0d9488; --student-soft:#e6f7f5; --section:#7c3aed; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; padding:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Microsoft JhengHei","Noto Sans TC",Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; }
+  .topbar { height:56px; background:#fff; border-bottom:1px solid var(--border); display:flex; align-items:center; padding:0 24px; gap:16px; position:sticky; top:0; z-index:50; }
+  .brand { font-weight:700; color:var(--accent); letter-spacing:.5px; }
+  .topbar .meta { color:var(--muted); font-size:13px; }
+  .topbar a { color:var(--muted); text-decoration:none; font-size:13px; }
+  .topbar a:hover { color:var(--accent); }
+  .container { max-width:1100px; margin:24px auto; padding:0 24px; display:grid; grid-template-columns:1fr 320px; gap:24px; }
+  @media (max-width:900px){ .container{ grid-template-columns:1fr; } .sidebar{ order:-1; } }
+  .panel { background:var(--panel); border:1px solid var(--border); border-radius:14px; padding:20px; box-shadow:0 1px 3px rgba(0,0,0,.04); }
+  h1 { font-size:22px; margin:0 0 6px; }
+  .subtitle { color:var(--muted); font-size:14px; margin-bottom:16px; }
+  .audio-wrap { background:linear-gradient(135deg,#fff7ef 0%,#ffe7d6 100%); border-radius:12px; padding:14px 16px; margin:12px 0 6px; display:flex; align-items:center; gap:12px; }
+  audio { flex:1; height:36px; }
+  .tabs { display:flex; gap:8px; margin:18px 0 14px; border-bottom:1px solid var(--border); }
+  .tab { padding:8px 14px; cursor:pointer; font-size:14px; color:var(--muted); border-bottom:2px solid transparent; }
+  .tab.active { color:var(--accent); border-color:var(--accent); font-weight:600; }
+  .legend { display:flex; gap:10px; flex-wrap:wrap; margin:8px 0 16px; font-size:12px; }
+  .pill { display:inline-flex; align-items:center; gap:6px; padding:4px 10px; border-radius:999px; background:#f3f4f6; color:#374151; }
+  .dot { width:8px; height:8px; border-radius:50%; display:inline-block; }
+  .dot.examiner{ background:var(--examiner);} .dot.student{ background:var(--student);} .dot.section{ background:var(--section);}
+  .section-bar { margin:22px 0 8px; padding:8px 12px; background:#f5f3ff; border-left:4px solid var(--section); color:#4c1d95; border-radius:6px; font-weight:600; font-size:13px; letter-spacing:.3px; }
+  .turn { display:grid; grid-template-columns:64px 1fr; gap:12px; padding:10px 0; border-bottom:1px dashed #f0f0f3; }
+  .turn:last-child{ border-bottom:none; }
+  .ts { color:var(--muted); font-size:12px; padding-top:3px; font-feature-settings:"tnum"; cursor:pointer; }
+  .ts:hover{ color:var(--accent); text-decoration:underline; }
+  .bubble { display:flex; flex-direction:column; gap:4px; }
+  .speaker { font-size:12px; font-weight:700; }
+  .speaker.examiner{ color:var(--examiner);} .speaker.student{ color:var(--student);}
+  .text { background:#fff; padding:10px 12px; border-radius:10px; line-height:1.7; font-size:15px; color:#111827; border:1px solid #f0f0f3; white-space:pre-wrap; }
+  .text.examiner{ background:var(--examiner-soft); border-color:#dbe7ff;} .text.student{ background:var(--student-soft); border-color:#cff0ec;}
+  .text small{ color:var(--muted);}
+  .sb-title{ font-weight:700; font-size:14px; margin:6px 0 8px; color:#111827; }
+  .keypoints li{ margin:6px 0; font-size:13px; line-height:1.6; color:#374151; }
+  .meta-grid{ display:grid; grid-template-columns:1fr 1fr; gap:8px; font-size:12px; }
+  .meta-grid div{ background:#f9fafb; padding:8px 10px; border-radius:8px; }
+  .meta-grid b{ color:#111827; display:block; font-size:11px; color:var(--muted); font-weight:500; }
+  .scenario{ background:#fffbeb; border:1px solid #fde68a; color:#78350f; border-radius:10px; padding:12px; font-size:13px; line-height:1.6; }
+  .note{ margin-top:12px; font-size:12px; color:var(--muted); line-height:1.5; padding:10px; background:#f9fafb; border-radius:8px; }
+  .summary-view{ display:none; } .summary-view.active{ display:block; }
+  .transcript-view.hidden{ display:none; }
+  .scoring h3{ font-size:14px; margin:14px 0 6px; color:#111827; }
+  .scoring ul{ margin:4px 0 8px; padding-left:20px; }
+  .scoring li{ font-size:13px; line-height:1.6; color:#374151; }
+  .good{ color:#059669; font-weight:600; } .miss{ color:#dc2626; font-weight:600; }
+  .scoretbl{ width:100%; border-collapse:collapse; font-size:13px; margin-top:6px; }
+  .scoretbl td{ padding:5px 8px; border-bottom:1px solid var(--border); }
+  .scoretbl td.r{ text-align:right; font-weight:600; }
+</style></head><body>
+<div class="topbar"><div class="brand">📝 急診口試逐字稿</div>
+<div class="meta">中鈺 · 2026·07·14 · 全長 15:00 · 中文（繁中）</div>
+<a href="../" style="margin-left:auto;">← 回主題目錄</a></div>
+<div class="container"><div><div class="panel">
+<h1>急診口試 — 意識改變 / 甲醇中毒（中鈺）</h1>
+<div class="subtitle">中年女性凌晨被發現倒在自家門口、意識不清、身上酒味｜醫學中心急診</div>
+<div class="audio-wrap"><span style="font-size:22px;">🎧</span>
+<audio id="player" controls preload="metadata" src="zhongyu.mp3"></audio></div>
+<div class="tabs"><div class="tab active" data-view="transcript">逐字稿</div><div class="tab" data-view="summary">摘要 / 評分</div></div>
+<div class="legend">
+<span class="pill"><span class="dot examiner"></span>考官 / 病人・EMT・家屬</span>
+<span class="pill"><span class="dot student"></span>考生 中鈺</span>
+<span class="pill"><span class="dot section"></span>段落</span></div>
+<div class="transcript-view" id="transcriptView">
+<div class="section-bar">⏱ 00:00 — 一、病史</div>
+<div class="turn"><div class="ts" data-t="5">00:05</div><div class="bubble">
+      <span class="speaker student">考生</span>
+      <div class="text student">先問 EMT/鄰居現場狀況——有沒有酒瓶、藥物、血跡？（都沒有）鄰居知道過去病史嗎？</div></div></div>
+<div class="turn"><div class="ts" data-t="60">01:00</div><div class="bubble">
+      <span class="speaker examiner">考官（EMT/鄰居）</span>
+      <div class="text examiner">鄰居不知道過去病史，只知道病人長期喝酒、有時去朋友那邊喝私釀小米酒，昨天早上外出後就沒看到人。</div></div></div>
+<div class="turn"><div class="ts" data-t="85">01:25</div><div class="bubble">
+      <span class="speaker student">考生</span>
+      <div class="text student">有嘔吐物嗎？（黃色嘔吐物、沒血）救護車上做了什麼？（打點滴、測血糖 107）一直都是意識不清？（是）</div></div></div>
+<div class="section-bar">⏱ 01:55 — 二、身體檢查</div>
+<div class="turn"><div class="ts" data-t="115">01:55</div><div class="bubble">
+      <span class="speaker student">考生</span>
+      <div class="text student">先 IV/O₂/monitor，看 vital——血壓偏低、心跳快、呼吸有點喘。GCS E2V3M4（9 分）。</div></div></div>
+<div class="turn"><div class="ts" data-t="155">02:35</div><div class="bubble">
+      <span class="speaker student">考生</span>
+      <div class="text student">瞳孔等大、無擴張或針狀、兩邊光反射。看耳漏鼻漏、頭部血腫、頸部（無）。聽雙側呼吸（對稱、正常、稍快）、心音（規律無 murmur）。</div></div></div>
+<div class="turn"><div class="ts" data-t="178">02:58</div><div class="bubble">
+      <span class="speaker student">考生</span>
+      <div class="text student">胸腹有無外傷、瘀青（沒有）；腹部壓痛（沒有）、腸音正常。四肢有無針孔、冰冷、水腫（沒有）。</div></div></div>
+<div class="section-bar">⏱ 03:30 — 三、初步臆斷</div>
+<div class="turn"><div class="ts" data-t="210">03:30</div><div class="bubble">
+      <span class="speaker student">考生</span>
+      <div class="text student">First impression 是 AMS——可能 drunk。意識改變鑑別（口訣）。</div></div></div>
+<div class="turn"><div class="ts" data-t="290">04:50</div><div class="bubble">
+      <span class="speaker examiner">考官</span>
+      <div class="text examiner">護理師給你 ABG。請列比較可能的鑑別診斷。</div></div></div>
+<div class="turn"><div class="ts" data-t="300">05:00</div><div class="bubble">
+      <span class="speaker student">考生</span>
+      <div class="text student">ABG 是酸的、有呼吸代償。可能：DKA、infection 不能排除、intoxication（甲醇/其他藥物）、uremia、alcohol、electrolyte 造成代謝酸、trauma/spontaneous ICH。</div></div></div>
+<div class="section-bar">⏱ 05:20 — 四、檢查與檢驗</div>
+<div class="turn"><div class="ts" data-t="320">05:20</div><div class="bubble">
+      <span class="speaker student">考生</span>
+      <div class="text student">檢查：brain CT、gas、CBC/DC、electrolyte、ketone body，要算 <b>anion gap</b>；導尿驗尿（尿液毒物、尿 osmolarity）；血糖。還會掃 FAST 看內出血，CXR、EKG。</div></div></div>
+<div class="turn"><div class="ts" data-t="400">06:40</div><div class="bubble">
+      <span class="speaker student">考生</span>
+      <div class="text student">EKG sinus tachycardia 無 ST change；leukopenia 1.17；electrolyte 正常；lactate 陰性；alcohol 20；osmolarity 高 → <b>high osmolar gap</b>；<b>anion gap 也大</b>（high anion gap acidosis）。無明顯 infection focus。CXR cardiomegaly；brain CT 正常。</div></div></div>
+<div class="turn"><div class="ts" data-t="455">07:35</div><div class="bubble">
+      <span class="speaker student">考生</span>
+      <div class="text student">所以是 high anion gap + high osmolar gap acidosis，朝甲酸/乙二醇/水楊酸方向，要把甲醇中毒考慮進去。</div></div></div>
+<div class="section-bar">⏱ 08:00 — 五、診斷與治療</div>
+<div class="turn"><div class="ts" data-t="490">08:10</div><div class="bubble">
+      <span class="speaker examiner">考官</span>
+      <div class="text examiner">題目給你：就是甲醇中毒（私釀小米酒）。</div></div></div>
+<div class="turn"><div class="ts" data-t="500">08:20</div><div class="bubble">
+      <span class="speaker student">考生</span>
+      <div class="text student">治療先 hydration，口服 ethanol（競爭性抑制）；給 NaHCO₃（sodium bicarbonate）。</div></div></div>
+<div class="turn"><div class="ts" data-t="560">09:20</div><div class="bubble">
+      <span class="speaker student">考生</span>
+      <div class="text student">supportive care：glucose、<b>thiamine（維他命 B1）</b>。洗胃/活性碳對酒精類沒用；不知喝多久也不適合；lipid emulsion 我先保留。若很酸就考慮洗腎。</div></div></div>
+<div class="turn"><div class="ts" data-t="600">10:00</div><div class="bubble">
+      <span class="speaker student">考生</span>
+      <div class="text student">ethanol 一線是因為病人意識不清、不知喝多久，先用來競爭甲醇代謝。洗腎適應症：pH 值、gap 很高、organ damage。</div></div></div>
+<div class="section-bar">⏱ 11:50 — 六、照會與交班</div>
+<div class="turn"><div class="ts" data-t="710">11:50</div><div class="bubble">
+      <span class="speaker student">考生</span>
+      <div class="text student">找腎臟科、收 ICU。跟 ICU 醫師交班：「一位甲醇中毒個案，代謝性酸中毒 pH 7.1、anion gap 26，還有 leukopenia，可能需要洗 CVVH，狀況還不穩定，收 ICU 治療。」</div></div></div>
+<div class="section-bar">⏱ 12:55 — 七、病情解釋（家屬）</div>
+<div class="turn"><div class="ts" data-t="775">12:55</div><div class="bubble">
+      <span class="speaker student">考生</span>
+      <div class="text student">（家屬是兒子）「某小姐早上被發現倒臥家門口、意識不清送來。檢查發現代謝性酸中毒，以病史看懷疑甲醇中毒。可能需要緊急洗腎——要請您簽同意書，不洗腎可能造成器官損害。後續住加護病房，先穩定生命徵象。」</div></div></div>
+<div class="turn"><div class="ts" data-t="840">14:00</div><div class="bubble">
+      <span class="speaker examiner">考官（家屬）</span>
+      <div class="text examiner">醫生我都聽不懂耶。</div></div></div>
+<div class="turn"><div class="ts" data-t="850">14:10</div><div class="bubble">
+      <span class="speaker student">考生</span>
+      <div class="text student">她喝到假酒中毒了。若不積極處理會有生命危險，但我們給了輸液跟解毒劑，應該可以穩定下來，加護病房會再跟您解釋後續。</div></div></div>
+</div>
+<div class="summary-view" id="summaryView"><div class="scoring">
+<h3>📊 估算得分（依評分表關鍵字，總分 100）</h3>
+<table class="scoretbl"><tr><td>病史</td><td class="r">10 / 15</td></tr><tr><td>身體檢查</td><td class="r">12 / 17</td></tr><tr><td>初步臆斷</td><td class="r">11 / 15</td></tr><tr><td>檢查與檢驗</td><td class="r">15 / 20</td></tr><tr><td>診斷與治療</td><td class="r">11 / 21</td></tr><tr><td>照會與交班</td><td class="r">4.5 / 6</td></tr><tr><td>病情解釋</td><td class="r">5 / 6</td></tr><tr><td><b>總分</b></td><td class="r"><b>68.5 / 100</b></td></tr></table>
+<h3>✅ 表現亮點</h3><ul><li><span class="good">✓</span> 史料：現場（無酒瓶/血跡）、EMT 處置血糖 107、私釀小米酒、雲端藥歷</li><li><span class="good">✓</span> 身體檢查系統：vital、GCS、瞳孔、耳漏鼻漏、頸部、胸腹、四肢末梢</li><li><span class="good">✓</span> DDx 廣：DKA、infection、methanol intoxication、uremia、alcohol、electrolyte、spontaneous ICH</li><li><span class="good">✓</span> <b>檢驗判讀好</b>：辨識 high anion gap + high osmolar gap acidosis、ethanol 20、CXR cardiomegaly、CT 正常</li><li><span class="good">✓</span> 治療：hydration、ethanol、NaHCO₃、<b>thiamine</b>、glucose、洗腎（懂適應症 pH/gap/organ damage）</li><li><span class="good">✓</span> 腎臟科會診＋ICU ISBAR（pH 7.1、AG 26、leukopenia、CVVH）；家屬（兒子）解釋</li></ul>
+<h3>⚠️ 失分 / 可加強</h3><ul><li><span class="miss">✕</span> <span class=miss>沒提 Fomepizole（只 ethanol）</span></li><li><span class="miss">✕</span> <span class=miss>Folinic acid 未提</span></li><li><span class="miss">✕</span> AEIOU-TIPS 未完整背誦（只說 ALTX）</li><li><span class="miss">✕</span> lipid emulsion 一度不確定</li></ul>
+</div></div>
+</div></div>
+<aside><div class="panel sidebar">
+<div class="sb-title">🩺 個案資訊</div>
+<div class="meta-grid">
+<div><b>病人</b>中年女性</div><div><b>GCS</b>E2V3M4</div>
+<div><b>T</b>36.1</div><div><b>HR</b>110</div>
+<div><b>RR</b>24</div><div><b>BP</b>100/60</div>
+<div><b>SpO₂</b>94% RA</div><div><b>血糖</b>107</div></div>
+<div class="sb-title" style="margin-top:18px;">🔑 本份涵蓋重點</div>
+<ul class="keypoints"><li>向 EMT 問現場、血糖 107、私釀小米酒</li><li>GCS E2V3M4、瞳孔、頭頸胸腹四肢</li><li>DDx：DKA/infection/methanol/uremia/ICH</li><li><b>辨識 high AG + high osmolar gap</b></li><li>hydration、ethanol、NaHCO₃、thiamine、洗腎</li><li>腎臟科＋ICU 交班（CVVH）；家屬解釋</li></ul>
+<div class="scenario" style="margin-top:18px;"><b>⚠️ 關鍵數據</b><br>ABG pH <b>7.114</b> / HCO₃ 9.8 / BE −16；<b>Anion gap 26.2</b>、<b>Osmolar gap 177</b>；長期酗酒＋私釀小米酒 → <b>甲醇中毒</b>。</div>
+<div class="note"><b>📌 製作說明</b><br>whisper.cpp（MacWhisper small 模型）轉錄，依評分表關鍵字校對重組。醫學名詞（Fomepizole／osmolar gap／AEIOU-TIPS 等）已依脈絡校正 whisper 誤字。分數為估算、非官方。</div>
+</div></aside></div>
+<script>
+const player=document.getElementById('player');
+document.querySelectorAll('.ts').forEach(el=>el.addEventListener('click',()=>{player.currentTime=parseInt(el.dataset.t||'0',10);player.play();window.scrollTo({top:0,behavior:'smooth'});}));
+const tabs=document.querySelectorAll('.tab');
+tabs.forEach(t=>t.addEventListener('click',()=>{tabs.forEach(x=>x.classList.remove('active'));t.classList.add('active');const v=t.dataset.view;document.getElementById('transcriptView').classList.toggle('hidden',v!=='transcript');document.getElementById('summaryView').classList.toggle('active',v==='summary');}));
+</script></body></html>

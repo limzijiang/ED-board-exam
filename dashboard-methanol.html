@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>意識改變／甲醇中毒口試 — 四位考生評量比較看板</title>
+<style>
+  :root { --bg:#f5f6f8; --panel:#fff; --text:#1f2330; --muted:#6b7280; --border:#e5e7eb; --accent:#ff6b1a; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; padding:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Microsoft JhengHei","Noto Sans TC",Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; }
+  .topbar { height:56px; background:#fff; border-bottom:1px solid var(--border); display:flex; align-items:center; padding:0 24px; gap:16px; position:sticky; top:0; z-index:50; }
+  .brand { font-weight:700; color:var(--accent); letter-spacing:.5px; }
+  .topbar .meta { color:var(--muted); font-size:13px; }
+  .topbar a { color:var(--muted); text-decoration:none; font-size:13px; margin-left:auto; }
+  .topbar a:hover { color:var(--accent); }
+  .wrap { max-width:1080px; margin:24px auto; padding:0 24px 60px; }
+  h1 { font-size:24px; margin:0 0 4px; }
+  .sub { color:var(--muted); font-size:14px; margin-bottom:20px; }
+  .panel { background:var(--panel); border:1px solid var(--border); border-radius:14px; padding:22px; box-shadow:0 1px 3px rgba(0,0,0,.04); margin-bottom:22px; }
+  h2 { font-size:17px; margin:0 0 14px; }
+  .rank-row { display:flex; align-items:center; gap:14px; padding:12px 14px; border-radius:10px; margin-bottom:8px; border:1px solid var(--border); }
+  .rank-num { font-size:20px; font-weight:800; width:34px; text-align:center; }
+  .rank-name { font-weight:700; font-size:15px; flex:0 0 120px; }
+  .rank-name .swatch { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:6px; vertical-align:middle; }
+  .bar-track { flex:1; background:#f1f2f5; border-radius:999px; height:22px; overflow:hidden; }
+  .bar-fill { height:100%; border-radius:999px; display:flex; align-items:center; justify-content:flex-end; padding-right:8px; color:#fff; font-size:12px; font-weight:700; }
+  .rank-score { flex:0 0 84px; text-align:right; font-weight:700; font-size:15px; }
+  .rank-score small { color:var(--muted); font-weight:500; font-size:12px; }
+  .badge { font-size:11px; padding:2px 8px; border-radius:999px; font-weight:700; margin-left:8px; }
+  .badge.pass { background:#dcfce7; color:#16a34a; } .badge.mid { background:#fef9c3; color:#a16207; } .badge.fail { background:#fee2e2; color:#dc2626; }
+  .radar-wrap { display:flex; gap:20px; flex-wrap:wrap; align-items:center; justify-content:center; }
+  .radar-legend { display:flex; flex-direction:column; gap:8px; font-size:13px; }
+  .radar-legend .sw { width:14px; height:3px; border-radius:2px; display:inline-block; }
+  .tbl-scroll { overflow-x:auto; }
+  table { border-collapse:collapse; width:100%; font-size:13px; min-width:600px; }
+  th,td { padding:8px 10px; text-align:center; border-bottom:1px solid var(--border); }
+  th { background:#fafbfc; font-weight:600; color:#374151; }
+  td.sec { text-align:left; font-weight:600; color:#374151; white-space:nowrap; }
+  td.max { color:var(--muted); font-size:12px; }
+  .cell { border-radius:6px; padding:3px 6px; font-weight:600; display:inline-block; min-width:34px; }
+  tr.total td { font-weight:800; font-size:14px; border-top:2px solid var(--border); background:#fafbfc; }
+  .cards { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  @media (max-width:760px){ .cards{ grid-template-columns:1fr; } }
+  .card { border:1px solid var(--border); border-radius:12px; padding:14px 16px; }
+  .card h3 { margin:0 0 8px; font-size:15px; display:flex; align-items:center; gap:8px; }
+  .card h3 a { color:inherit; text-decoration:none; } .card h3 a:hover { text-decoration:underline; }
+  .card .pct { margin-left:auto; font-size:13px; font-weight:800; }
+  .card ul { margin:6px 0 0; padding-left:18px; }
+  .card li { font-size:12.5px; line-height:1.55; margin:3px 0; color:#374151; }
+  .good { color:#059669; } .miss { color:#dc2626; }
+  .swatch { display:inline-block; width:11px; height:11px; border-radius:50%; }
+  .note { font-size:12px; color:var(--muted); line-height:1.6; background:#f9fafb; border-radius:8px; padding:12px 14px; }
+  .case { background:#fffbeb; border:1px solid #fde68a; color:#78350f; border-radius:10px; padding:12px 14px; font-size:13px; line-height:1.7; margin-bottom:6px; }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="brand">📊 甲醇中毒口試 · 評量比較看板</div>
+  <div class="meta">四位考生 · 基準＝113 教案評分表（標準答案）</div>
+  <a href="./">← 回主題目錄</a>
+</div>
+<div class="wrap">
+  <h1>意識改變 / 甲醇中毒 — 四位考生評量比較</h1>
+  <div class="sub">情境：中年女性凌晨被發現倒在自家門口、意識不清、身上酒味、長期酗酒喝私釀小米酒。以 113 新型個別面試評分表（標準答案）逐項評分，總分 100（七大項）。</div>
+
+  <div class="case">
+    <b>🔑 本題核心：</b>高 anion gap + 高 osmolar gap 的代謝性酸中毒 → <b>甲醇中毒</b>。
+    ABG pH <b>7.114</b>／HCO₃ 9.8／BE −16；<b>Anion gap 26.2</b>、<b>Osmolar gap 177</b>；ethanol 低。
+    關鍵處置：Fomepizole（一線）／ethanol（替代）／NaHCO₃(pH>7.3)／<b>Folinic acid</b>／<b>血液透析</b>；毒物科＋腎臟科照會。
+  </div>
+
+  <div class="panel">
+    <h2>🏆 總排名</h2>
+    <div id="ranking"></div>
+    <div class="note" style="margin-top:14px;"><b>評分說明：</b>分數為<b>依評分表關鍵字涵蓋度所做的估算</b>（非官方評分），滿分 100。本題無另附標桿錄音，<b>評分表本身即標準答案</b>。</div>
+  </div>
+
+  <div class="panel">
+    <h2>🕸️ 七大項雷達圖（得分率 %）</h2>
+    <div class="radar-wrap"><svg id="radar" width="440" height="440" viewBox="0 0 440 440"></svg><div class="radar-legend" id="radarLegend"></div></div>
+  </div>
+
+  <div class="panel">
+    <h2>📋 逐項得分明細</h2>
+    <div class="tbl-scroll"><table id="breakdown"></table></div>
+    <div class="note" style="margin-top:12px;">顏色：<span style="color:#16a34a;font-weight:700;">綠</span> ≥75%，<span style="color:#a16207;font-weight:700;">黃</span> 40–75%，<span style="color:#dc2626;font-weight:700;">紅</span> &lt;40%。</div>
+  </div>
+
+  <div class="panel">
+    <h2>🔍 各考生重點講評</h2>
+    <div class="cards" id="cards"></div>
+  </div>
+
+  <div class="panel">
+    <h2>🎯 關鍵要點對照（vs 標準答案）</h2>
+    <div class="tbl-scroll"><table id="differ"></table></div>
+  </div>
+</div>
+
+<script>
+const SECTIONS = [
+  {k:"病史", max:15}, {k:"身體檢查", max:17}, {k:"初步臆斷", max:15},
+  {k:"檢查與檢驗", max:20}, {k:"診斷與治療", max:21}, {k:"照會與交班", max:6}, {k:"病情解釋", max:6},
+];
+const CAND = [
+  {id:"weixuan", name:"暐璇", color:"#7c3aed", link:"oral-exam-methanol-poisoning/weixuan.html", s:[12,13,12,16,13,5,5]},
+  {id:"zhongyu", name:"中鈺", color:"#0d9488", link:"oral-exam-methanol-poisoning/zhongyu.html", s:[10,12,11,15,11,4.5,5]},
+  {id:"kunlin",  name:"昆霖", color:"#d97706", link:"oral-exam-methanol-poisoning/kunlin.html", s:[9,9,10,12,10,5,5]},
+  {id:"xiqing",  name:"熙晴", color:"#dc2626", link:"oral-exam-methanol-poisoning/xiqing.html", s:[8,10,8,11,4,2.5,2.5]},
+];
+const MAXTOTAL = SECTIONS.reduce((a,s)=>a+s.max,0);
+CAND.forEach(c=>{ c.total=c.s.reduce((a,b)=>a+b,0); c.pct=Math.round(c.total/MAXTOTAL*100); });
+
+(() => {
+  const ranked=[...CAND].sort((a,b)=>b.total-a.total);
+  document.getElementById("ranking").innerHTML = ranked.map((c,i)=>{
+    const w=Math.round(c.total/MAXTOTAL*100);
+    let badge = c.pct>=70?'<span class="badge pass">佳</span>':c.pct>=58?'<span class="badge mid">中等</span>':c.pct>=50?'<span class="badge mid">低空</span>':'<span class="badge fail">待加強</span>';
+    return `<div class="rank-row"><div class="rank-num">${i+1}</div>
+      <div class="rank-name"><span class="swatch" style="background:${c.color}"></span>${c.name}${badge}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${w}%;background:${c.color}">${w}%</div></div>
+      <div class="rank-score">${c.total}<small>/${MAXTOTAL}</small></div></div>`;
+  }).join("");
+})();
+
+(() => {
+  const svg=document.getElementById("radar"), cx=220,cy=225,R=150,N=SECTIONS.length, ns="http://www.w3.org/2000/svg";
+  const ang=i=>(-90+i*360/N)*Math.PI/180, pt=(i,r)=>[cx+r*Math.cos(ang(i)),cy+r*Math.sin(ang(i))];
+  [0.25,0.5,0.75,1].forEach(f=>{const p=SECTIONS.map((_,i)=>pt(i,R*f).join(",")).join(" ");const g=document.createElementNS(ns,"polygon");g.setAttribute("points",p);g.setAttribute("fill","none");g.setAttribute("stroke","#e5e7eb");svg.appendChild(g);});
+  SECTIONS.forEach((s,i)=>{const[x,y]=pt(i,R);const ln=document.createElementNS(ns,"line");ln.setAttribute("x1",cx);ln.setAttribute("y1",cy);ln.setAttribute("x2",x);ln.setAttribute("y2",y);ln.setAttribute("stroke","#e5e7eb");svg.appendChild(ln);const[lx,ly]=pt(i,R+22);const t=document.createElementNS(ns,"text");t.setAttribute("x",lx);t.setAttribute("y",ly);t.setAttribute("font-size","10.5");t.setAttribute("fill","#4b5563");t.setAttribute("text-anchor",Math.abs(lx-cx)<10?"middle":(lx<cx?"end":"start"));t.setAttribute("dominant-baseline","middle");t.textContent=s.k;svg.appendChild(t);});
+  CAND.forEach(c=>{const p=SECTIONS.map((s,i)=>pt(i,R*(c.s[i]/s.max)).join(",")).join(" ");const g=document.createElementNS(ns,"polygon");g.setAttribute("points",p);g.setAttribute("fill",c.color);g.setAttribute("fill-opacity","0.08");g.setAttribute("stroke",c.color);g.setAttribute("stroke-width","1.8");svg.appendChild(g);});
+  document.getElementById("radarLegend").innerHTML=CAND.map(c=>`<div><span class="sw" style="background:${c.color}"></span><b style="color:${c.color}">${c.name}</b> <span style="color:#6b7280">${c.pct}%</span></div>`).join("");
+})();
+
+(() => {
+  const cc=f=>f>=0.75?"#dcfce7;color:#166534":f>=0.40?"#fef9c3;color:#854d0e":"#fee2e2;color:#991b1b";
+  let head=`<tr><th style="text-align:left">評分項目</th><th class="max">滿分</th>`+CAND.map(c=>`<th style="color:${c.color}">${c.name}</th>`).join("")+`</tr>`;
+  let rows=SECTIONS.map((s,i)=>`<tr><td class="sec">${s.k}</td><td class="max">${s.max}</td>`+CAND.map(c=>{const v=c.s[i],f=v/s.max;return `<td><span class="cell" style="background:${cc(f)}">${v}</span></td>`;}).join("")+`</tr>`).join("");
+  let total=`<tr class="total"><td class="sec">總分</td><td class="max">${MAXTOTAL}</td>`+CAND.map(c=>`<td style="color:${c.color}">${c.total}<br><small style="color:#6b7280">${c.pct}%</small></td>`).join("")+`</tr>`;
+  document.getElementById("breakdown").innerHTML=head+rows+total;
+})();
+
+const CARD={
+  weixuan:{good:["<b>四份最完整</b>：自算 anion gap + osmolar gap，懂 177→甲醇","AEIOU-TIPS 完整背誦","治療含 ethanol、aware Fomepizole、NaHCO₃、眼睛評估","毒物科＋腎臟科＋ICU 完整 ISBAR；家屬解釋含視力不可逆"],
+    miss:["Fomepizole 劑量未明講(被引到下一題)","Folinic acid 未提","ethanol 非一線的理由不夠精準"]},
+  zhongyu:{good:["辨識 high AG + high osmolar gap acidosis","DDx 廣：DKA/infection/methanol/uremia/ICH","治療含 hydration、ethanol、NaHCO₃、<b>thiamine</b>、洗腎(懂適應症)","腎臟科＋ICU ISBAR；家屬解釋佳"],
+    miss:["沒提 Fomepizole(只 ethanol)","Folinic acid 未提","AEIOU-TIPS 未完整背(只 ALTX)"]},
+  kunlin:{good:["檢驗廣：CBC/肝腎/凝血/CRP/gas/lactate/ammonia/CT/tox","AEIOU-TIPS 有背；治療 NaHCO₃+ethanol+洗腎","毒物科/新陳代謝科＋腎臟科＋ICU 交班","家屬解釋有提到甲醇→視力受損、插管保護呼吸道"],
+    miss:["<b>沒算 anion gap / osmolar gap</b>(關鍵失分)","沒提 Fomepizole、無 Folinic acid","身體檢查不完整(漏頭部/瞳孔/呼吸道)"]},
+  xiqing:{good:["史料與身體檢查有基本涵蓋","DDx 想到 alcohol/withdrawal/stroke/tox","檢驗有想到 CBC/electrolyte/gas/lactate/tox/FAST/CT/sepsis workup"],
+    miss:["<b>時間掌控最差</b>，被考官多次催促","<b>沒到解毒劑</b>：無 Fomepizole/ethanol/Folinic/洗腎","沒算 anion gap / osmolar gap；診斷由考官給出","照會與家屬解釋倉促不完整"]},
+};
+(() => {
+  document.getElementById("cards").innerHTML=CAND.map(c=>{const d=CARD[c.id];
+    return `<div class="card" style="border-top:3px solid ${c.color}"><h3><span class="swatch" style="background:${c.color}"></span>
+      <a href="${c.link}">${c.name}</a><span class="pct" style="color:${c.color}">${c.pct}% · ${c.total}/${MAXTOTAL}</span></h3>
+      <ul>${d.good.map(x=>`<li><span class="good">✓</span> ${x}</li>`).join("")}${d.miss.map(x=>`<li><span class="miss">✕</span> ${x}</li>`).join("")}</ul></div>`;
+  }).join("");
+})();
+
+(() => {
+  const rows=[
+    ["自算 anion gap (26.2)", {weixuan:"✓",zhongyu:"✓ 辨識",kunlin:"✕",xiqing:"✕"}],
+    ["自算 osmolar gap (177)", {weixuan:"✓",zhongyu:"✓ 辨識",kunlin:"✕",xiqing:"✕"}],
+    ["AEIOU-TIPS 完整口訣", {weixuan:"✓",zhongyu:"△",kunlin:"✓",xiqing:"✕"}],
+    ["Fomepizole (一線)", {weixuan:"△ aware",zhongyu:"✕",kunlin:"✕",xiqing:"✕"}],
+    ["Ethanol (替代)", {weixuan:"✓",zhongyu:"✓",kunlin:"✓",xiqing:"✕"}],
+    ["NaHCO₃ (pH>7.3)", {weixuan:"✓",zhongyu:"✓",kunlin:"✓",xiqing:"✓"}],
+    ["Folinic acid", {weixuan:"✕",zhongyu:"✕",kunlin:"✕",xiqing:"✕"}],
+    ["血液透析 + 適應症", {weixuan:"✓",zhongyu:"✓",kunlin:"△ 惡化時",xiqing:"✕"}],
+    ["毒物科 + 腎臟科照會", {weixuan:"✓",zhongyu:"△ 腎only",kunlin:"✓",xiqing:"△"}],
+    ["七大題全部完成", {weixuan:"✓",zhongyu:"✓",kunlin:"✓",xiqing:"✕ 時間不足"}],
+  ];
+  const mark=v=>{ if(v==="✓") return `<span style="color:#16a34a;font-weight:700">${v}</span>`;
+    if(v.startsWith("✕")) return `<span style="color:#dc2626;font-weight:700">${v}</span>`;
+    if(v.startsWith("△")) return `<span style="color:#a16207;font-weight:600">${v}</span>`;
+    if(v.startsWith("✓")) return `<span style="color:#16a34a;font-weight:700">${v}</span>`;
+    return `<span style="color:#374151">${v}</span>`; };
+  let head=`<tr><th style="text-align:left">關鍵要點</th>`+CAND.map(c=>`<th style="color:${c.color}">${c.name}</th>`).join("")+`</tr>`;
+  let body=rows.map(([label,m])=>`<tr><td class="sec">${label}</td>`+CAND.map(c=>`<td>${mark(m[c.id]||"—")}</td>`).join("")+`</tr>`).join("");
+  document.getElementById("differ").innerHTML=head+body;
+})();
+</script>
+</body>
+</html>
