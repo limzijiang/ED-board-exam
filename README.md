@@ -14,7 +14,10 @@
 | 自發性蜘蛛膜下腔出血（Spontaneous SAH） | [practice](sah/practice.html) | [answer-key](sah/answer-key.html) | 7 |
 | 腸阻塞（SBO／LBO／Ileus） | [practice](bowel-obstruction/practice.html) | [answer-key](bowel-obstruction/answer-key.html) | 5 |
 | 外科手術後併發症（CH 87） | [practice](post-op-complications/practice.html) | [answer-key](post-op-complications/answer-key.html) | 4 |
+| 到院前心跳停止與復甦後照護（OHCA） | [practice](ohca/practice.html) | [answer-key](ohca/answer-key.html) | 6 |
+| 深部靜脈血栓／靜脈栓塞（CH 56） | [practice](dvt/practice.html) | [answer-key](dvt/answer-key.html) | 3 |
 | 低風險急性冠心症（CH 51） | [practice](low-probability-acs/practice.html) | [answer-key](low-probability-acs/answer-key.html) | 3 |
+| 輸血治療（Transfusion Therapy, CH 238） | [practice](transfusion/practice.html) | [answer-key](transfusion/answer-key.html) | 16 |
 
 ## 文件格式
 
@@ -24,5 +27,5 @@
 ## 引用來源
 
 - 題目原文 © 衛生福利部歷年急診醫學科專科醫師甄審筆試試題
-- 詳解內容引用：Tintinalli's Emergency Medicine, 9th ed. (CH 52 / CH 98 / CH 105 / CH 168 等)
+- 詳解內容引用：Tintinalli's Emergency Medicine, 9th ed. (CH 51 / CH 52 / CH 56 / CH 87 / CH 98 / CH 105 / CH 168 / CH 232 / CH 233 / CH 238 等)
 - 詳解內的整理表格為自編教學摘要，僅供臨床教學與學員練習用途

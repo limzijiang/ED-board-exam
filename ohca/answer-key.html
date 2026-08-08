@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>急診醫學科專科醫師甄審筆試 — 到院前心跳停止與復甦後照護（OHCA / Post-Cardiac Arrest Care）：解答與詳解</title>
+<style>
+  @page { size: A4; margin: 1.8cm 1.8cm 2cm 1.8cm; }
+  html, body {
+    font-family: "Microsoft JhengHei","PMingLiU","Noto Sans CJK TC",sans-serif;
+    font-size: 11pt; line-height: 1.55; color: #000; background: #fff; margin: 0; padding: 0;
+  }
+  .page-title { text-align: center; font-size: 15.5pt; font-weight: bold; margin-bottom: 4px; }
+  .subtitle { text-align: center; font-size: 10.5pt; color: #444; margin-bottom: 18px; }
+  .summary-box { border: 1.5px solid #2a5db0; padding: 10px 12px; margin-bottom: 18px; background: #eef3fc; }
+  .summary-box h3 { margin: 0 0 6px 0; font-size: 12pt; color: #1a3d80; }
+  table.answer-key { border-collapse: collapse; width: 100%; margin-top: 6px; font-size: 10.5pt; }
+  table.answer-key th, table.answer-key td { border: 1px solid #888; padding: 4px 8px; text-align: center; }
+  table.answer-key th { background: #d9e3f3; }
+  td.ans { font-weight: bold; color: #b00; font-size: 12pt; }
+  .question {
+    margin-bottom: 18px; padding: 10px 12px; border-left: 3px solid #2a5db0; background: #fafbfd;
+    page-break-inside: avoid;
+  }
+  .q-header { font-weight: bold; margin-bottom: 4px; color: #1a3d80; font-size: 11.5pt; }
+  .q-stem { margin-bottom: 6px; text-align: justify; }
+  .choices { margin: 0 0 6px 0; padding-left: 0; list-style: none; }
+  .choices li { margin-bottom: 3px; padding-left: 1.6em; text-indent: -1.6em; }
+  .correct {
+    background: #fff3cd; border-left: 3px solid #d4a017;
+    padding-left: 0.6em !important; text-indent: -0.6em !important;
+    margin-left: -0.6em; font-weight: bold;
+  }
+  .explanation {
+    margin-top: 8px; padding: 8px 10px; background: #fffef5;
+    border: 1px dashed #c4ad6e; font-size: 10.5pt;
+  }
+  .explanation h4 { margin: 0 0 4px 0; color: #8a6500; font-size: 11pt; }
+  .pt { margin-bottom: 3px; }
+  .ref { color: #555; font-style: italic; font-size: 10pt; margin-top: 4px; }
+  .key-points {
+    border: 1.5px solid #2a8b5a; background: #eef9f1;
+    padding: 10px 12px; margin-bottom: 18px; page-break-inside: avoid;
+  }
+  .key-points h3 { margin: 0 0 6px 0; font-size: 12pt; color: #1a5a3a; }
+  .key-points h4 { margin: 10px 0 4px 0; font-size: 10.8pt; color: #234; }
+  table.kp { border-collapse: collapse; width: 100%; margin: 4px 0; font-size: 10pt; }
+  table.kp th, table.kp td { border: 1px solid #999; padding: 4px 8px; vertical-align: top; }
+  table.kp th { background: #d9ecdd; }
+  .alert { background: #fde2e2; border-left: 3px solid #b00; padding: 6px 10px; font-size: 10pt; margin: 6px 0; }
+  .footer { margin-top: 20px; text-align: center; font-size: 9.5pt; color: #888; }
+  hr.section-break { border: none; border-top: 2px dashed #aaa; margin: 24px 0 18px 0; }
+  .score-table { background: #fff; }
+  .score-table th { background: #d9e3f3; }
+</style>
+</head>
+<body>
+
+<div class="page-title">急診醫學科專科醫師甄審筆試</div>
+<div class="page-title">到院前心跳停止與復甦後照護（OHCA / Post-Cardiac Arrest Care）</div>
+<div class="page-title" style="font-size:13.5pt;">解答與詳解</div>
+<div class="subtitle">資料來源：108–113 年度衛生福利部急診醫學科專科醫師甄審筆試試題 ｜ Tintinalli's 9e、2015/2019/2020 AHA、健保給付標準</div>
+
+<div class="summary-box">
+  <h3>■ 解答總表</h3>
+  <table class="answer-key">
+    <tr><th>題號</th><th>年度／題號</th><th>答案</th><th>主題</th></tr>
+    <tr><td>1</td><td>108 Q3</td><td class="ans">B</td><td>TTM 健保適應症：SBP 100 可用；出血、GCS≥8、ROSC&gt;12h 皆排除</td></tr>
+    <tr><td>2</td><td>109 Q45</td><td class="ans">C</td><td>TTM 病人篩選：排除出血／外傷／清醒者 → 咖啡色胃液 30 cc 者可做</td></tr>
+    <tr><td>3</td><td>108 Q29</td><td class="ans">E</td><td>復甦後照護：回溫後發燒應積極控制（其餘 2015 AHA 敘述皆有誤）</td></tr>
+    <tr><td>4</td><td>110 Q28</td><td class="ans">A</td><td>兒童 OHCA：BVM 與高級呼吸道結果相同 → A 敘述較不適當</td></tr>
+    <tr><td>5</td><td>113 Q114</td><td class="ans">D</td><td>TTM 電解質為低血鉀／低血鎂，非「高血鉀高血鎂」</td></tr>
+    <tr><td>6</td><td>109 Q94</td><td class="ans">B</td><td>TTM 可同時提升存活率與神經功能結果</td></tr>
+  </table>
+</div>
+
+<div class="key-points">
+  <h3>■ 到院前心跳停止與復甦後照護（OHCA / Post-Cardiac Arrest Care）重點整理</h3>
+
+  <h4>1. 目標體溫管理（TTM）核心概念（Tintinalli's 9e p.170–175）</h4>
+  <ul style="margin:4px 0; padding-left:1.4em;">
+    <li><strong>目標溫度 32–36℃</strong>，維持<strong>至少 24 小時</strong>（2015 AHA 起 33℃ 未優於 36℃，可依臨床選擇單一目標溫度）</li>
+    <li>適用於<strong>ROSC 後仍昏迷（對口頭指令無有意義反應）</strong>的成人</li>
+    <li>可<strong>同時改善存活率與神經學預後</strong>（考點：不是只改善其中一項）</li>
+    <li>回溫後<strong>積極避免發燒（fever）</strong>——發燒惡化神經預後</li>
+    <li>腦部細胞傷害與水腫在 ROSC 後<strong>持續進行</strong>（常在復甦後 72 小時內達高峰），<u>不會</u>因 ROSC 而停止；初期 CT 即見水腫是壞徵象</li>
+  </ul>
+
+  <h4>2. TTM 納入 / 排除條件（Tintinalli's Table；health-insurance 版見下）</h4>
+  <table class="kp">
+    <tr><th>納入條件（Inclusion）</th><th>排除條件（Exclusion）</th></tr>
+    <tr>
+      <td>
+        <ul style="margin:0; padding-left:1.2em;">
+          <li>ROSC 後且 <strong>GCS motor score &lt; 6</strong>（無法遵循口頭指令）</li>
+          <li>昏迷無其他可解釋原因</li>
+          <li>非 DNR／DNI</li>
+          <li>成人（age &gt; 17 y）</li>
+        </ul>
+      </td>
+      <td>
+        <ul style="margin:0; padding-left:1.2em;">
+          <li><strong>心跳停止後清醒／可遵從指令（awake/alert）</strong></li>
+          <li><strong>外傷性病因</strong>之心跳停止</li>
+          <li>合併<strong>顯著出血</strong>（含腦出血、內出血）</li>
+          <li>停止前已昏迷或植物人狀態</li>
+          <li><strong>懷孕</strong></li>
+          <li>DNR／DNI</li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+  <div class="alert">
+    <strong>⚠ 「不是」排除條件（常被誤認）</strong>：使用 warfarin／heparin、<strong>初始為不可電擊心律（nonshockable）</strong>、
+    <strong>Long QT syndrome</strong> — 這些<u>都不</u>排除 TTM。
+  </div>
+
+  <h4>3. 健保給付版適應症（104 年起，編號 470948「心跳停止之低溫療法」）</h4>
+  <table class="kp">
+    <tr><th>建議適應症</th><th>建議排除條件</th></tr>
+    <tr>
+      <td>
+        <ul style="margin:0; padding-left:1.2em;">
+          <li>心跳停止復甦後<strong>意識仍不清（GCS &lt; 8）</strong>或<strong>無法遵循口頭指令（motor &lt; 6）</strong></li>
+        </ul>
+      </td>
+      <td>
+        <ul style="margin:0; padding-left:1.2em;">
+          <li>ROSC <strong>&gt; 12 小時</strong></li>
+          <li>腦出血</li>
+          <li><strong>SBP &lt; 90 mmHg</strong></li>
+          <li>大量活動性出血</li>
+          <li>無法終止的致命性心律不整</li>
+          <li>停止前已有失智或長期意識障礙</li>
+          <li>末期疾病</li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h4>4. TTM 併發症（副作用）</h4>
+  <table class="kp">
+    <tr><th>較常見</th><th>較少見</th></tr>
+    <tr>
+      <td>
+        <ul style="margin:0; padding-left:1.2em;">
+          <li><strong>心搏過慢（bradycardia）</strong></li>
+          <li><strong>QTc 延長</strong></li>
+          <li><strong>低血鉀（hypokalemia）</strong>（cold-mediated diuresis、細胞內移）</li>
+          <li><strong>低血鎂（hypomagnesemia）</strong>、低血磷</li>
+          <li><strong>凝血功能異常（coagulopathy）</strong>、顫抖（shivering）</li>
+          <li>高血糖、感染風險增加</li>
+        </ul>
+      </td>
+      <td>
+        <ul style="margin:0; padding-left:1.2em;">
+          <li>非持續性心室頻脈</li>
+          <li>回溫期反彈性高血鉀</li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+  <div class="alert">
+    <strong>⚠ 考點</strong>：降溫期是<strong>低</strong>血鉀／<strong>低</strong>血鎂，不是「高血鉀高血鎂」；
+    凝血功能是<strong>變差（coagulopathy）</strong>，不是「增強」。
+  </div>
+
+  <h4>5. 復甦後緊急冠狀動脈攝影／PCI（2015 AHA）</h4>
+  <ul style="margin:4px 0; padding-left:1.4em;">
+    <li>心臟停止疑似<strong>心因性</strong>且 ECG 顯示 <strong>ST 段上升（STEMI）</strong>之 OHCA 病患 → <strong>應緊急</strong>行冠狀動脈攝影／PCI</li>
+    <li>ECG 未顯示 ST 上升但疑似心因（電氣／血液動力學不穩定）之特定病人 → 緊急攝影亦屬合理</li>
+    <li><strong>不是「對所有復甦後病人皆有益」</strong>——需依病因與 ECG 判斷</li>
+  </ul>
+
+  <h4>6. 到院前降溫（Prehospital cooling）</h4>
+  <div class="alert">
+    <strong>2015 AHA（新版）：不建議</strong>在 ROSC 後常規以「快速靜脈輸注冰冷輸液」方式進行<strong>到院前降溫</strong>——
+    高品質研究證實無效益，且可能增加併發症（如再次心跳停止、肺水腫）。院內降溫仍應照常進行。
+  </div>
+
+  <h4>7. 兒童／新生兒急救準則要點（2019/2020 AHA PALS & NRP）</h4>
+  <table class="kp">
+    <tr><th>主題</th><th>重點</th></tr>
+    <tr><td><strong>OHCA 呼吸道</strong></td>
+        <td>兒童 OHCA，<strong>袋瓣罩通氣（BVM）與高級呼吸道（插管／SGA）復甦結果相同</strong>；
+            不一定要放高級呼吸道</td></tr>
+    <tr><td><strong>ECPR</strong></td>
+        <td>具 ECMO 經驗的團隊，對<strong>院內</strong>心跳停止且有心臟病因之兒童，可考慮 ECPR</td></tr>
+    <tr><td><strong>新生兒起始氧濃度</strong></td>
+        <td>足月／晚期早產（≥ 35 週）：<strong>起始 21% O₂</strong> 為合理（用 100% 反增死亡率）；
+            &lt; 35 週：21–30% 起始再依血氧滴定</td></tr>
+    <tr><td><strong>新生兒 CPR</strong></td>
+        <td>充足通氣 30 秒後 HR 仍 &lt; 60 → 開始胸部按壓，<strong>按壓:通氣 = 3:1</strong>（90:30/分）</td></tr>
+  </table>
+
+  <h4>8. 神經學預後評估（Prognostication）</h4>
+  <ul style="margin:4px 0; padding-left:1.4em;">
+    <li>ROSC 後<strong>不應過早</strong>以單一神經學檢查斷定預後（尤其接受 TTM 者，鎮靜／低溫會干擾判讀）</li>
+    <li>一般建議在<strong>回溫後、鎮靜藥物代謝完（常 ≥ 72 小時）</strong>再進行多模式（臨床檢查 + EEG + 影像 + biomarker）評估</li>
+  </ul>
+</div>
+
+<hr class="section-break">
+
+<!-- 第 1 題 -->
+<div class="question">
+  <div class="q-header">第 1 題 ［108 Q3］　答案：<span style="color:#b00;font-size:13pt;">B</span></div>
+  <div class="q-stem">依健保給付標準，ROSC 後何者「適合」使用 TTM？</div>
+  <ul class="choices">
+    <li>（Ａ）ROSC 超過 12 小時。</li>
+    <li class="correct">（Ｂ）收縮血壓 100 mmHg。</li>
+    <li>（Ｃ）腦部 CT 顯示顱內出血。</li>
+    <li>（Ｄ）復甦後意識 GCS 9。</li>
+    <li>（Ｅ）有大量活動性內出血。</li>
+  </ul>
+  <div class="explanation">
+    <h4>詳解</h4>
+    <div class="pt">健保編號 470948「心跳停止之低溫療法」給付規定：</div>
+    <div class="pt"><strong>(B) 正確</strong>：排除條件為 <strong>SBP &lt; 90 mmHg</strong>；SBP 100 mmHg 不在排除之列，符合給付。</div>
+    <div class="pt"><strong>(A) 錯</strong>：ROSC <strong>&gt; 12 小時</strong>為排除條件（須於 12 小時內開始 TTM）。</div>
+    <div class="pt"><strong>(C)／(E) 錯</strong>：腦出血、大量活動性出血皆為排除條件。</div>
+    <div class="pt"><strong>(D) 錯</strong>：適應症為<strong>意識不清 GCS &lt; 8</strong>（或 motor &lt; 6）；GCS 9 太清醒，不符合。</div>
+    <div class="ref">Ref: 全民健保醫療服務給付項目及支付標準 編號 470948；Tintinalli's 9e Post-Resuscitation Care</div>
+  </div>
+</div>
+
+<!-- 第 2 題 -->
+<div class="question">
+  <div class="q-header">第 2 題 ［109 Q45］　答案：<span style="color:#b00;font-size:13pt;">C</span></div>
+  <div class="q-stem">下列哪位復甦成功病人「適合」進行 TTM？</div>
+  <ul class="choices">
+    <li>（Ａ）60 歲男性，腦幹約 10 cc 出血。</li>
+    <li>（Ｂ）29 歲女性車禍到院後死亡，復甦後大量腹內積血。</li>
+    <li class="correct">（Ｃ）70 歲男性，鼻胃管引流出 30 cc 咖啡色胃液。</li>
+    <li>（Ｄ）35 歲男性急救後可點頭示意，ECG 顯示 ST 上升。</li>
+  </ul>
+  <div class="explanation">
+    <h4>詳解</h4>
+    <div class="pt"><strong>(A) 錯</strong>：<strong>腦出血</strong>為排除條件。</div>
+    <div class="pt"><strong>(B) 錯</strong>：<strong>外傷性病因</strong>＋<strong>顯著出血（大量腹內積血）</strong>，雙重排除。</div>
+    <div class="pt"><strong>(C) 正確</strong>：<strong>30 cc 咖啡色胃液並非「無法控制的大出血」</strong>，此病人昏迷、無外傷、無顯著活動性出血，
+      符合 TTM 適應症。</div>
+    <div class="pt"><strong>(D) 錯</strong>：<strong>可點頭示意 = 能遵循指令（motor 6，清醒）</strong>，屬排除條件；
+      雖有 STEMI 應緊急 PCI，但因清醒而<u>不</u>需 TTM。</div>
+    <div class="ref">Ref: Tintinalli's 9e p.170「Suggested Inclusion and Exclusion Criteria for Postarrest TTM」</div>
+  </div>
+</div>
+
+<!-- 第 3 題 -->
+<div class="question">
+  <div class="q-header">第 3 題 ［108 Q29］　答案：<span style="color:#b00;font-size:13pt;">E</span></div>
+  <div class="q-stem">關於復甦後照護（post-cardiac arrest care），何者較適當？</div>
+  <ul class="choices">
+    <li>（Ａ）到院前以冰水降溫，有助神經學預後與存活率。</li>
+    <li>（Ｂ）意識不清者可行 32–36℃ TTM 持續 48–72 小時。</li>
+    <li>（Ｃ）緊急冠狀動脈攝影／PCI 已被證實「對所有病人」皆有助預後。</li>
+    <li>（Ｄ）降溫易發生心跳過慢、凝血異常、<strong>高血鉀</strong>與 QT prolongation。</li>
+    <li class="correct">（Ｅ）病人回溫完成後若出現發燒，應積極控制。</li>
+  </ul>
+  <div class="explanation">
+    <h4>詳解</h4>
+    <div class="pt"><strong>(E) 正確</strong>：回溫後<strong>發燒會惡化神經學預後，應積極控制（avoid fever）</strong>。</div>
+    <div class="pt"><strong>(A) 錯</strong>：2015 AHA<strong>不建議</strong>以快速靜脈冰冷輸液進行<strong>到院前常規降溫</strong>（無效益、增併發症）。</div>
+    <div class="pt"><strong>(B) 錯</strong>：TTM 目標溫度維持<strong>至少 24 小時</strong>，不是「48–72 小時」。</div>
+    <div class="pt"><strong>(C) 錯</strong>：僅<strong>疑似心因</strong>（尤其 STEMI 或不穩定）者才建議緊急攝影／PCI，並非「所有病人」。</div>
+    <div class="pt"><strong>(D) 錯</strong>：降溫造成的是<strong>低血鉀（hypokalemia）</strong>（cold-mediated diuresis），
+      不是高血鉀；其餘 bradycardia、凝血異常、QT 延長為真。</div>
+    <div class="ref">Ref: 2015 AHA CPR & ECC Guidelines（中文版）；Tintinalli's 9e p.174–175</div>
+  </div>
+</div>
+
+<!-- 第 4 題 -->
+<div class="question">
+  <div class="q-header">第 4 題 ［110 Q28］　答案：<span style="color:#b00;font-size:13pt;">A</span>（題目問「較<u>不</u>適當」）</div>
+  <div class="q-stem">依 2019/2020 AHA 兒童及新生兒急救準則，何者較不適當？</div>
+  <ul class="choices">
+    <li class="correct">（Ａ）到院前心跳停止期間，高級呼吸道裝置相較於 BVM 為相對合理的孩童處置。</li>
+    <li>（Ｂ）足月及晚期早產新生兒（≥ 35 週）起始使用 21% 氧氣為合理。</li>
+    <li>（Ｃ）OHCA 之 &lt; 18 歲病人 ROSC 後仍無意識，建議使用低體溫療法。</li>
+    <li>（Ｄ）具 ECMO 經驗下，有心臟病且院內心跳停止兒童可考慮 ECPR。</li>
+  </ul>
+  <div class="explanation">
+    <h4>詳解</h4>
+    <div class="pt"><strong>(A) 較不適當（本題答案）</strong>：2020 AHA PALS 指出<strong>兒童 OHCA，BVM 與高級呼吸道
+      （氣管插管等）之復甦結果相同</strong>，並不因高級呼吸道而較佳；因此稱「高級呼吸道相對合理／較優」之敘述不適當。</div>
+    <div class="pt"><strong>(B) 正確</strong>：≥ 35 週新生兒起始 <strong>21% O₂</strong> 合理，用 100% O₂ 反增死亡率。</div>
+    <div class="pt"><strong>(C) 正確</strong>：兒童 OHCA、ROSC 後昏迷者建議<strong>TTM／避免發燒</strong>。</div>
+    <div class="pt"><strong>(D) 正確</strong>：具 ECMO 經驗團隊，對<strong>院內</strong>、心因性心跳停止兒童可考慮 <strong>ECPR</strong>。</div>
+    <div class="ref">Ref: 2020 AHA PALS Top-10 Take-Home Messages；2020 AHA Neonatal Resuscitation</div>
+  </div>
+</div>
+
+<!-- 第 5 題 -->
+<div class="question">
+  <div class="q-header">第 5 題 ［113 Q114］　答案：<span style="color:#b00;font-size:13pt;">D</span>（較「不」適當）</div>
+  <div class="q-stem">44 歲男性 ROSC 後，關於後續照顧何者較不適當？</div>
+  <ul class="choices">
+    <li>（Ａ）TTM 可幫助降低神經學損害。</li>
+    <li>（Ｂ）腦部 CT 可評估腦出血及腦水腫嚴重程度。</li>
+    <li>（Ｃ）TTM 排除條件包括意識清醒可遵從指令、原本神經學表現已不佳。</li>
+    <li class="correct">（Ｄ）TTM 降溫期間電解質不平衡主要是<strong>高血鉀和高血鎂</strong>。</li>
+  </ul>
+  <div class="explanation">
+    <h4>詳解</h4>
+    <div class="pt"><strong>(D) 較不適當（本題答案）</strong>：降溫期間主要是<strong>低血鉀（hypokalemia）與低血鎂（hypomagnesemia）</strong>
+      （cold-mediated diuresis、電解質細胞內移），並<u>非</u>高血鉀高血鎂。</div>
+    <div class="pt"><strong>(A) 正確</strong>：TTM 可改善神經學預後與存活率（Tintinalli's 9e p.170）。</div>
+    <div class="pt"><strong>(B) 正確</strong>：腦水腫常於復甦後數日達高峰，初期 CT 即見水腫為壞徵象；CT 可評估出血與水腫。</div>
+    <div class="pt"><strong>(C) 正確</strong>：清醒可遵從指令（awake/alert）、停止前神經學已差（先前昏迷／植物人）皆為排除條件。</div>
+    <div class="ref">Ref: Tintinalli's 9e p.170「Post-Cardiac Arrest Care／TTM」</div>
+  </div>
+</div>
+
+<!-- 第 6 題 -->
+<div class="question">
+  <div class="q-header">第 6 題 ［109 Q94］　答案：<span style="color:#b00;font-size:13pt;">B</span></div>
+  <div class="q-stem">50 歲男性 OHCA 後 ROSC，關於 TTM 何者較適當？</div>
+  <ul class="choices">
+    <li>（Ａ）TTM 期間可能引起高血鉀、<strong>凝血功能增強</strong>、全身顫抖等副作用。</li>
+    <li class="correct">（Ｂ）TTM 可以同時提昇存活率及神經功能結果。</li>
+    <li>（Ｃ）病人若意識清楚，可給鎮定藥物後再執行 TTM。</li>
+    <li>（Ｄ）腦部傷害及水腫，在 ROSC 後會停止惡化。</li>
+    <li>（Ｅ）神經學反射缺損，於 ROSC 當下即可準確預測預後不佳。</li>
+  </ul>
+  <div class="explanation">
+    <h4>詳解</h4>
+    <div class="pt"><strong>(B) 正確</strong>：TTM（32–36℃、≥ 24 小時）可<strong>同時改善存活率與神經學預後</strong>
+      （Tintinalli's 9e p.175）。</div>
+    <div class="pt"><strong>(A) 錯</strong>：TTM 造成<strong>低</strong>血鉀而非高血鉀，且凝血功能是<strong>變差（coagulopathy）</strong>而非「增強」；
+      顫抖倒是真的（需鎮靜／止顫）。</div>
+    <div class="pt"><strong>(C) 錯</strong>：<strong>意識清楚（awake/alert）本身即為 TTM 排除條件</strong>，
+      不應為了做 TTM 而刻意鎮靜一位清醒病人。</div>
+    <div class="pt"><strong>(D) 錯</strong>：腦部細胞傷害與水腫在 ROSC 後<strong>持續惡化</strong>（常於初始 72 小時內），不會停止。</div>
+    <div class="pt"><strong>(E) 錯</strong>：ROSC 當下（尤其低溫／鎮靜中）<strong>不應過早以神經學檢查斷定預後</strong>；
+      應延後至回溫、鎮靜代謝完成後多模式評估。</div>
+    <div class="ref">Ref: Tintinalli's 9e p.174–175 Post-Cardiac Arrest Care</div>
+  </div>
+</div>
+
+<div class="footer">
+  ── 解答與詳解整理自 Tintinalli's Emergency Medicine 9e、2015/2019/2020 AHA Guidelines、健保給付標準及衛福部歷年公布答案 ──<br>
+  整理表格為自編教學摘要，僅供臨床教學與學員練習用途
+</div>
+
+</body>
+</html>
